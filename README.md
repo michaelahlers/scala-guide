@@ -22,7 +22,9 @@ There's been extensive discussion from thought leaders from both industry and ac
 
 And so they fail to gain a return on their investment in this technology. It's another topic I'll steer clear of exploring here in detail, but suffice it to say upfront costs are incurred by using Scala (and similar languages). Each team will need to decide its comfort level, but there's often considerable value left on the table.
 
-**Second, there are repeated efforts to force 
+**Second, there are repeated efforts to force Scala into other paradigms.**
+
+I've seen it enough it's worth addressing. While Scala, by design, happily supports multiple paradigms—from object-oriented to purely functional—no engineer will enjoy using it if they insist on imposing mutable state (outside of optimization scenarios) and avoid functional control flow (for example, by throwing exceptions, which are thinly veiled [go-to statements](https://en.wikipedia.org/wiki/Considered_harmful)).
 
 ## My Solution
 
