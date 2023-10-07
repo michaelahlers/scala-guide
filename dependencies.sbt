@@ -1,0 +1,10 @@
+ThisBuild / scalaVersion := "2.13.11"
+
+ThisBuild / libraryDependencies +=
+  "com.lihaoyi" %% "pprint" % "0.7.0"
+
+ThisBuild / libraryDependencies ++=
+  "com.softwaremill.diffx" %% "diffx-scalatest-must" % "0.8.3" % Test ::
+    "com.softwaremill.diffx" %% "diffx-scalatest-should" % "0.8.3" % Test ::
+    "org.scalatest" %% "scalatest" % "3.2.10" % Test ::
+    Nil
