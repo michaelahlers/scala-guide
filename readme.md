@@ -40,13 +40,13 @@ In addition to demonstrating the language, I'll extensively use the tools and li
 
 If I'm successful, my readers will find ways to increase their productivity and find starting points to expand their knowledge.
 
-# Frequently Asked Questions
+## Frequently Asked Questions
 
-## Why Scala 2.12?
+### Why Scala 2.12?
 
 Many teams still use Scala 2.12, and I want to pay attention to them. Most material written on Scala now uses the latest dialect, which makes sense: Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
 
-## Why sbt?
+### Why sbt?
 
 [sbt][build-tool-sbt] (Simple Build Tool? Scala Build Tool?) has received a lot of criticism. While it's entirely undeserved, [Eugene Yokota][github-eugene-yokota] and his fellow contributors to the tool have done an outstanding job of understanding and addressing industry needs. As Scala 3 has answered complaints about Scala 2, modern versions of sbt have addressed its shortcomings from its early days.
 
