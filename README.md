@@ -42,4 +42,4 @@ If I'm successful, my readers will find ways to increase their productivity and 
 
 ## Why Scala 2.12?
 
-Many teams still use Scala 2.12, and I want to pay attention to them. Most material written on Scala now uses the latest dialect, which makes sense: Scala 3 answers many (if not all) complaints about Scala 2. And ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
+Many teams still use Scala 2.12, and I want to pay attention to them. Most material written on Scala now uses the latest dialect, which makes sense: Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
