@@ -77,7 +77,4 @@ I respect (and celebrate!) challengers to any incumbent technology (for example,
 
 ## Test Code Embedding
 
-Embed `compiler.sbt`:
-
-```scala:compiler.sbt
-```
+https://github.com/michaelahlers/scala-examples/blob/main/dependencies.sbt#L1-L6
