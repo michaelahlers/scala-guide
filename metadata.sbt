@@ -1,7 +1,7 @@
 name := "Scala Examples"
 description := "Practical solutions for the working professional."
 
-ThisBuild / organization := "ahlers.scala.examples"
+ThisBuild / organization := "ahlers.examples"
 ThisBuild / organizationName := "Michael Ahlers"
 
 ThisBuild / startYear := Some(2023)
