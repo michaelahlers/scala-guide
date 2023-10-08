@@ -74,3 +74,16 @@ I respect (and celebrate!) challengers to any incumbent technology (for example,
 [github-eugene-yokota]: https://github.com/eed3si9n
 
 [journal-li-haoyi]: https://www.lihaoyi.com/
+
+## What's with the weird package names?
+
+If you're unfamiliar with it, the backtick denotes a literal identifier, allowing arbitrary text for symbol names. Generally, avoid using this language feature in your production code; these can be surprising and present caveats in some instances.
+
+To illustrate:
+
+```scala
+val myValue: Int = 0
+val `my-value`: Int = 1
+```
+
+There _are_ legitimate use cases for this feature, but those are few. I use them here to provide context for the example, avoid confusion caused by standard camel case, and maintain a consistent directory structure. 
