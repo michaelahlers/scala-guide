@@ -12,4 +12,4 @@ While hardly a concept specific to Scala, the language makes it easy to define a
 
 Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can dramatically simplify implementation and make obvious what a service does.
 
-[request-semantics]: request-semantics
+[request-semantics]: ../../../../../../../documentation/basic/algebraic-data-type-essentials/request-semantics
