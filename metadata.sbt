@@ -17,4 +17,4 @@ ThisBuild / scmInfo :=
     devConnection = Some("git@github.com:michaelahlers/scala-examples.git")
   ))
 
-ThisBuild / licenses += "MIT" -> new URL("http://opensource.org/licenses/MIT")
+ThisBuild / licenses += "MIT" -> new URI("http://opensource.org/licenses/MIT").toURL
