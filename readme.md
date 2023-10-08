@@ -55,7 +55,7 @@ Many teams still use Scala 2.12, and I want to pay attention to them. Most mater
 
 ### Why sbt?
 
-[sbt][build-tool-sbt] (Simple Build Tool? Scala Build Tool?) has received a lot of criticism. While it's entirely undeserved, [Eugene Yokota][github-eugene-yokota] and his fellow contributors to the tool have done an outstanding job of understanding and addressing industry needs. As Scala 3 has answered complaints about Scala 2, modern versions of sbt have addressed its shortcomings from its early days.
+[sbt][build-tool-sbt] (Simple Build Tool? Scala Build Tool?) has received a lot of criticism. While some of that criticism is valid, [Eugene Yokota][github-eugene-yokota] and his fellow contributors to the tool have done an outstanding job of understanding and addressing industry needs. As Scala 3 has answered complaints about Scala 2, modern versions of sbt have addressed its shortcomings from its early days.
 
 For starters, sbt has moved away from "ASCII-art" syntaxes that were once trendy in the Scala community as it toyed with domain-specific languages aspiring to resemble mathematical notations. Its syntax has become plain and simple.
 
