@@ -1,6 +1,6 @@
 package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative1
 
-object FetchRequestSemanticsAttempt1App extends App {
+object FetchRequestSemanticsAlternative1App extends App {
   import Argument._
   import GetUsersRequest._
 
