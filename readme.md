@@ -58,7 +58,7 @@ While it provides developers access to Scala for solving intricate problems, tha
 
 Lastly, some developers get distracted by the powerful scopes system sbt offers. But it's unnecessary to go beyond the basics in most cases; you can accomplish almost everything you need with a cursory understanding of configurations.
 
-I respect (and celebrate!) challengers to any incumbent technology (for example, the excellent [mill][build-tool-mill] developed by [Li Haoyi][journal-li-haoyi]). Still, we need to discard sbt quite yet, and in pursuit of this project's goals, I'll be sticking with the tool most developers are likely to find in their day jobs.
+I respect (and celebrate!) challengers to any incumbent technology (for example, the excellent [mill][build-tool-mill] developed by [Li Haoyi][journal-li-haoyi]). Still, we need not discard sbt quite yet, and in pursuit of this project's goals, I'll be sticking with the tool most developers are likely to find in their day jobs.
 
 [build-tool-mill]: https://github.com/com-lihaoyi/mill
 
