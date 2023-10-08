@@ -1,4 +1,6 @@
-# Fetch Request Semantics
+# Interface Design Improvements
+
+We can bring Algebraic Data Types to bear on API design—they're not inherently limited to modeling business domains. Here, we'll explore a hypothetical situation where we want to increase the capabilities of a service and help consumers better understand how to use it.
 
 ## Problem Statement
 
