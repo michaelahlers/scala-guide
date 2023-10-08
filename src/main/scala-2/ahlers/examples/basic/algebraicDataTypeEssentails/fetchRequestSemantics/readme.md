@@ -10,7 +10,7 @@ Are those parameters mutually exclusive? If so, where are the boundaries of that
 
 Worse, how do we implement those queries? Pattern matching on a few `Option` parameters starts simple enough but doesn't scale. Worse, now we've made it easy to violate our invariants. If the consumer supplies a pair of exclusive parameters (or none at all), they've forced us to report errors that have nothing to do with our business domain but instead deal with how to use our service. What's considered a "bad request" should be narrowly defined, and we should make it difficult for our consumers to craft one.
 
-This recurring mantra applies: **make invalid states impossible to represent.**
+This recurring mantra applies: **make confusing and invalid states difficult or impossible to represent.**
 
 ## Evolving Solution
 
@@ -57,6 +57,6 @@ But this time with a richer request type:
 
 https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/GetUsersRequest.scala#L6-L19
 
-And the use cases become a lot more obvious:
+And the use cases become apparent:
 
 https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/FetchRequestSemanticsAttempt1App.scala#L8-L27
