@@ -26,13 +26,9 @@ That already searches by their given and family names:
 
 https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/GetUsersRequest.scala#L3-L6
 
-Even before exploring further, we already see deficiencies.
+Even before exploring further, we already see deficiencies:
 
-https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L7-L12
-
-https://github.com/michaelahlers/scala-examples/blob/20ec6a9f0ebab855e35228eff039771b2bd16b34/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L14-L19
-
-https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L21-L26
+https://github.com/michaelahlers/scala-examples/blob/3238217a5544afb72eacfaa8a84dba46bb0581c3/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L5-L26
 
 It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
 
