@@ -18,6 +18,16 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 ### Setup
 
-Suppose we have a service for fetching users that already searches by their given and family names.
+Suppose we have a service for fetching users:
 
-https://github.com/michaelahlers/scala-examples/blob/85f766d143099c27eddf6f950848bc1b45ee28c5/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/FetchRequestSemanticsStep1.scala#L5-L8
+https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/UserService.scala#L3-L5
+
+That already searches by their given and family names:
+
+https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/GetUsersRequest.scala#L3-L6
+
+Even before exploring further, we already see deficiencies.
+
+https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L7-L12
+
+https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L21-L26
