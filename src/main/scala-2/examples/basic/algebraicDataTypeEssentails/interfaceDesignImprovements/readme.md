@@ -20,15 +20,15 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 Suppose we have a service for fetching users:
 
-https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
 
 That already searches by their given and family names:
 
-https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/GetUsersRequest.scala#L3-L6
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
 
 Even before exploring further, we already see deficiencies:
 
-https://github.com/michaelahlers/scala-examples/blob/3238217a5544afb72eacfaa8a84dba46bb0581c3/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L5-L26
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/FetchRequestSemanticsSetupApp.scala#L5-L26
 
 It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
 
@@ -51,16 +51,16 @@ Now, we (and our service's consumers) must wonder about our query's inclusivity.
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/Argument.scala#L6-L13
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
 
-https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/Argument.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/Argument.scala#L6-L13
 
 Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/GetUsersRequest.scala#L6-L19
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/GetUsersRequest.scala#L6-L19
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/FetchRequestSemanticsAttempt1App.scala#L9-L35
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/FetchRequestSemanticsAttempt1App.scala#L9-L35
