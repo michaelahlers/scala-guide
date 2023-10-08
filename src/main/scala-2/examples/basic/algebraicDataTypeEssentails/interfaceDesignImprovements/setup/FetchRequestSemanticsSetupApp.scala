@@ -1,4 +1,4 @@
-package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.setup
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.setup
 
 object FetchRequestSemanticsSetupApp extends App {
 

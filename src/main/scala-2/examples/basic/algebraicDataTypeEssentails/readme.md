@@ -12,4 +12,4 @@ While hardly a concept specific to Scala, the language makes it easy to define a
 
 Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can dramatically simplify implementation and make obvious what a service does.
 
-[fetch-request-semantics]: fetchRequestSemantics
+[fetch-request-semantics]: interfaceDesignImprovements

@@ -1,4 +1,4 @@
-package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.attempt1
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.attempt1
 
 object FetchRequestSemanticsAttempt1App extends App {
   import Argument._

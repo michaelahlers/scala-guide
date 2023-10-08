@@ -1,4 +1,4 @@
-package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.attempt1
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.attempt1
 
 sealed trait Argument[+A]
 object Argument {
