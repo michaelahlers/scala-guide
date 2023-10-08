@@ -1,8 +1,8 @@
 package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.attempt1
 
 object FetchRequestSemanticsAttempt1App extends App {
-  import GetUsersRequest._
   import Argument._
+  import GetUsersRequest._
 
   val userService: UserService = LocalUserService()
 
@@ -25,6 +25,13 @@ object FetchRequestSemanticsAttempt1App extends App {
     .getUsers(ByLocale(
       city = Exact("Arlington"),
       region = Exact("Virginia"),
+    ))
+
+  /** Added bonus, who hasn't set an email address yet? */
+  userService
+    .getUsers(ByContactInformation(
+      emailAddress = IsNull,
+      phoneNumber = Wildcard,
     ))
 
 }
