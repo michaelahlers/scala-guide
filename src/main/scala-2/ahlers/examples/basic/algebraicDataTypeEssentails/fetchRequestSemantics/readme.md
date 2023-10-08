@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Suppose you have an existent service fetching records, and you need to expand how consumers can query those records. You already have a request envelope that specifies an `Option` parameter that permits unqualified returns.
+Suppose you have an existent service fetching records, and you need to expand how consumers can query those records. You already have a request envelope that, perhaps, specifies a few `Option` parameters that provide conditional filtering (we'll get specific in a moment).
 
 You might think, "I'll add more optional parameters," and immediately, we notice a problem.
 
