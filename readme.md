@@ -4,7 +4,7 @@ Practical solutions for the working professional.
 
 ## Introduction
 
-I want to help developers better use Scala in their daily work. This repository aims to provide real-world, concrete examples that exercise Scala's key features and patterns without burying my audience in theory. These are borne of more than a decade of experience using the language and numerous tools typically associated.
+I want to help developers better use Scala in their daily work. This repository aims to provide real-world, concrete examples that exercise Scala's key features and patterns without burying my audience in theory. These are borne of more than a decade of experience with many teams using the language and numerous tools typically associated.
 
 ## My Reader
 
