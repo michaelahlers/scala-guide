@@ -1,6 +1,6 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative2
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2
 
-import examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative2.GetUsersRequest.Predicate
+import examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2.GetUsersRequest.Predicate
 
 case class GetUsersRequest(predicate: Predicate)
 object GetUsersRequest {

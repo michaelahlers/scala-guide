@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative1
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version1
 
 case class LocalUserService() extends UserService {
   import GetUsersRequest._

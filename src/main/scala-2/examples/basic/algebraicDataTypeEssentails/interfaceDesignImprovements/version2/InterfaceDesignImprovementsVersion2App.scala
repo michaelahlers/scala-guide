@@ -1,6 +1,6 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative2
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2
 
-object InterfaceDesignImprovementsAlternative2App extends App {
+object InterfaceDesignImprovementsVersion2App extends App {
   import Expression._
   import GetUsersRequest._
   import Predicate._

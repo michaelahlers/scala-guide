@@ -1,0 +1,3 @@
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version1
+
+case class GetUsersResponse()
