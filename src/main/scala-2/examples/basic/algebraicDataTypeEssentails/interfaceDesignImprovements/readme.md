@@ -63,7 +63,7 @@ https://github.com/michaelahlers/scala-examples/blob/0c1898269b0cd146ccc3a5fb7a4
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-examples/blob/0c1898269b0cd146ccc3a5fb7a48f532ecf3e74c/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/FetchRequestSemanticsalternative1App.scala#L9-L35
+https://github.com/michaelahlers/scala-examples/blob/a63cf6e240005c7a2dc7005b81073d873a2c9f7e/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/FetchRequestSemanticsAlternative1App.scala#L9-L35
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
