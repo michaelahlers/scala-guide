@@ -8,7 +8,9 @@ I want to help developers better use Scala in their daily work. This repository 
 
 ## My Reader
 
-You're a newcomer, a curious and continuing learner, or an engineer who wants a better experience. Scala veterans will find this less helpful, but I'd encourage them to contribute to this guide.
+You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
+
+Scala veterans will find this less helpful, but I'd encourage them to contribute to this guide.
 
 ## The Problem
 
