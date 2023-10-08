@@ -51,12 +51,16 @@ Now, we (and our service's consumers) must wonder about our query's inclusivity.
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/UserService.scala#L3-L5
 
-But this time with a richer request type:
+Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
 
-https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/GetUsersRequest.scala#L6-L19
+https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/Argument.scala#L6-L13
 
-And the use cases become apparent:
+Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/FetchRequestSemanticsAttempt1App.scala#L8-L27
+https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/GetUsersRequest.scala#L6-L19
+
+Which makes our use cases abundantly clear:
+
+https://github.com/michaelahlers/scala-examples/blob/2f0ddfd00d3fa1be973181333e125795644ab3b2/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/FetchRequestSemanticsAttempt1App.scala#L9-L35
