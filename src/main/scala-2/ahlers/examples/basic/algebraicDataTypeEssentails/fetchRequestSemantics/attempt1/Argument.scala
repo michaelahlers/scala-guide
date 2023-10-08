@@ -1,6 +1,6 @@
 package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.attempt1
 
-sealed trait Argument[A]
+sealed trait Argument[+A]
 object Argument {
 
   /** Matches [[value]] exactly. */
