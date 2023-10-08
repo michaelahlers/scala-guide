@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.attempt1
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative1
 
 sealed trait Argument[+A]
 object Argument {

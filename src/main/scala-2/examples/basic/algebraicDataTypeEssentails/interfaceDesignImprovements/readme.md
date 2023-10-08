@@ -47,23 +47,23 @@ case class GetUsersRequest(
 
 Now, we (and our service's consumers) must wonder about our query's inclusivity. Is `None` considered a wildcard? What if that returns too many results? And how can we expect to use this? Are we casting a wider net or being more specific? (Email addresses are reliable and durable identifiers, but phone numbers are neither.) Never mind how this relates to optionality in the database. Is this discovery? Do we know who we're looking for? Of course, documentation might address any confusion (which everyone reads, right?), but we can do much better.
 
-### First Attempt
+### First Alternative
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/Argument.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/Argument.scala#L6-L13
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
 
-https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/Argument.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/Argument.scala#L6-L13
 
 Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/GetUsersRequest.scala#L6-L19
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/GetUsersRequest.scala#L6-L19
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/FetchRequestSemanticsAttempt1App.scala#L9-L35
+https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/alternative1/FetchRequestSemanticsalternative1App.scala#L9-L35
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -76,6 +76,6 @@ However, there are drawbacks:
 1. While the implementation work mentioned earlier is easier, our service is far less flexible than it could be.
 1. It's incumbent upon consumers to call the service repeatedly to obtain either a union or intersection of the results.
 
-Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, attempting to provide a generic query interface might be counterproductive to your requirements.)
+Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, alternativeing to provide a generic query interface might be counterproductive to your requirements.)
 
 While we could stop here, what if we wanted to get fancier and provide more flexibility? How would that look?

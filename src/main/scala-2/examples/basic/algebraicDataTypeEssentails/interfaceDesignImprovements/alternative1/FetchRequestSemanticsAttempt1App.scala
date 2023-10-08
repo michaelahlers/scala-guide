@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.attempt1
+package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative1
 
 object FetchRequestSemanticsAttempt1App extends App {
   import Argument._
