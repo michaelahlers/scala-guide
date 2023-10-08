@@ -1,18 +1,15 @@
 package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.attempt1
 
-sealed trait Argument
+sealed trait Argument[A]
 object Argument {
 
-  /** Matches [[text]] exactly. */
-  case class Exact(text: String) extends Argument
+  /** Matches [[value]] exactly. */
+  case class Exact[A](value: A) extends Argument[A]
 
-  /** Matches where [[text]] is a substring. */
-  case class Contains(text: String) extends Argument
+  /** Anything will match. */
+  case object Wildcard extends Argument[Nothing]
 
-  /** Any record value will match. */
-  case object Wildcard extends Argument
-
-  /** Requires the value to not be set. */
-  case object IsNull extends Argument
+  /** Matches when not set. */
+  case object IsNull extends Argument[Nothing]
 
 }
