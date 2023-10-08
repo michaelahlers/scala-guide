@@ -64,3 +64,18 @@ https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396
 Which makes our use cases abundantly clear:
 
 https://github.com/michaelahlers/scala-examples/blob/57de3912905bad20c44ced98396bfebf64a7be46/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/attempt1/FetchRequestSemanticsAttempt1App.scala#L9-L35
+
+We've already achieved some valuable improvements for ourselves and the service's consumers:
+
+1. Query semantics are precise—the ambiguities caused by using `Option` are replaced with clear and concise per-property matching behavior.
+1. Each query explicitly and unambiguously states what question it's answering.
+1. The implementation is outside the scope of this subject, but whatever it is, it's undoubtedly more straightforward, needing to handle only three cases.
+
+However, there are drawbacks:
+
+1. While the implementation work mentioned earlier is easier, our service is far less flexible than it could be.
+1. It's incumbent upon consumers to call the service repeatedly to obtain either a union or intersection of the results.
+
+Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, attempting to provide a generic query interface might be counterproductive to your requirements.)
+
+While we could stop here, what if we wanted to get fancier and provide more flexibility? How would that look?
