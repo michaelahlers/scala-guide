@@ -2,28 +2,29 @@ package ahlers.examples.basic.algebraicDataTypeEssentails.fetchRequestSemantics.
 
 object FetchRequestSemanticsAttempt1App extends App {
   import GetUsersRequest._
+  import Argument._
 
   val userService: UserService = LocalUserService()
 
   /** Still likely returns that one famous user. */
   userService
     .getUsers(ByPersonName(
-      givenName = Some("Grace"),
-      familyName = Some("Hopper"),
+      givenName = Exact("Grace"),
+      familyName = Exact("Hopper"),
     ))
 
   /** ''That'' Grace Hopper in particular! */
   userService
     .getUsers(ByContactInformation(
-      emailAddress = Some("grace.hopper@navy.mil"),
-      phoneNumber = None,
+      emailAddress = Exact("grace.hopper@navy.mil"),
+      phoneNumber = Wildcard,
     ))
 
   /** She might be here. */
   userService
     .getUsers(ByLocale(
-      city = Some("Arlington"),
-      region = Some("Virginia"),
+      city = Exact("Arlington"),
+      region = Exact("Virginia"),
     ))
 
 }
