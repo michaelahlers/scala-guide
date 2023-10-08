@@ -18,7 +18,7 @@ object FetchRequestSemanticsSetupApp extends App {
       familyName = None,
     ))
 
-  /** Are all returned? None? */
+  /** Are no users returned? All of them? (Should that even be allowed? Probably not!) */
   userService
     .getUsers(GetUsersRequest(
       givenName = None,
