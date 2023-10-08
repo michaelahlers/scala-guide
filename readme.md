@@ -10,6 +10,8 @@ I want to help developers better use Scala in their daily work. This repository 
 
 You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
 
+You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
+
 Scala veterans will find this less helpful, but I'd encourage them to contribute to this guide.
 
 ## The Problem
@@ -18,7 +20,10 @@ Since I began using Scala professionally in 2012, it's become my favorite langua
 
 My views of this language and its associated tools are overwhelmingly positive. While I see tremendous benefits over its competitors (many of which have adopted Scala's features), this remains where I want to work the most. Unfortunately, I've found many engineers are frustrated with the language, and (again, if I'm honest) I'm not too surprised.
 
-There's been extensive discussion from thought leaders from industry and academia as to why Scala struggles to gain hold. I won't repeat that here (I plan to reference this material later), but I offer my suggestions based on two recurring observations:
+There's been extensive discussion from thought leaders from industry and academia as to why Scala struggles to gain hold and what its proponents can do about it. (See also, [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes].) I won't repeat that here (I plan to reference this material later), but I offer my suggestions based on two recurring observations:
+
+[journal-john-de-goes]: https://degoes.net/
+[john-de-goes-scala-resurrection]: https://degoes.net/articles/scala-resurrection
 
 **First, many teams don't utilize Scala's key features to their potential to varying degrees.**
 
