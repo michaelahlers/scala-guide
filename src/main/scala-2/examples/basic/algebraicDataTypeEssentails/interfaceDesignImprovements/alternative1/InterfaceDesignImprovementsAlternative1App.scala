@@ -1,7 +1,7 @@
 package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative1
 
 object InterfaceDesignImprovementsAlternative1App extends App {
-  import Argument._
+  import Expression._
   import GetUsersRequest._
 
   val userService: UserService = LocalUserService()

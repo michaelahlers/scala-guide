@@ -4,18 +4,18 @@ sealed trait GetUsersRequest
 object GetUsersRequest {
 
   case class ByPersonName(
-    givenName: Argument[String],
-    familyName: Argument[String],
+    givenName: Expression[String],
+    familyName: Expression[String],
   ) extends GetUsersRequest
 
   case class ByContactInformation(
-    emailAddress: Argument[String],
-    phoneNumber: Argument[String],
+    emailAddress: Expression[String],
+    phoneNumber: Expression[String],
   ) extends GetUsersRequest
 
   case class ByLocale(
-    city: Argument[String],
-    region: Argument[String],
+    city: Expression[String],
+    region: Expression[String],
   ) extends GetUsersRequest
 
 }
