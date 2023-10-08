@@ -30,4 +30,10 @@ Even before exploring further, we already see deficiencies.
 
 https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L7-L12
 
+https://github.com/michaelahlers/scala-examples/blob/20ec6a9f0ebab855e35228eff039771b2bd16b34/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L14-L19
+
 https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L21-L26
+
+Of course, documentation would address any confusion, and the implementation would be trivial. But what happens if we need to include more properties, like a user's email address or phone number? We'd have to add more `Option` parameters, and the problem would worsen.
+
+### Attempt 1
