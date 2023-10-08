@@ -20,7 +20,7 @@ object InterfaceDesignImprovementsVersion2App extends App {
       ByEmailAddress(Exact("grace.hopper@navy.mil")),
     ))
 
-  /** She might be here or there! */
+  /** She might be here or there, [[https://en.wikipedia.org/wiki/Grace_Hopper according to Wikipedia]]! */
   userService
     .getUsers(GetUsersRequest(
       (ByCity(Exact("Arlington")) & ByRegion(Exact("Virginia"))) |
