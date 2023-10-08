@@ -74,3 +74,10 @@ I respect (and celebrate!) challengers to any incumbent technology (for example,
 [github-eugene-yokota]: https://github.com/eed3si9n
 
 [journal-li-haoyi]: https://www.lihaoyi.com/
+
+## Test Code Embedding
+
+Embed `compiler.sbt`:
+
+```scala:compiler.sbt
+```
