@@ -46,3 +46,17 @@ case class GetUsersRequest(
 ```
 
 Now, we (and our service's consumers) must wonder about our query's inclusivity. Is `None` considered a wildcard? What if that returns too many results? And how can we expect to use this? Are we casting a wider net or being more specific? (Email addresses are reliable and durable identifiers, but phone numbers are neither.) Never mind how this relates to optionality in the database. Is this discovery? Do we know who we're looking for? Of course, documentation might address any confusion (which everyone reads, right?), but we can do much better.
+
+## First Attempt
+
+Same service as before:
+
+https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/UserService.scala#L3-L5
+
+But this time with a richer request type:
+
+https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/GetUsersRequest.scala#L6-L19
+
+And the use cases become a lot more obvious:
+
+https://github.com/michaelahlers/scala-examples/blob/6ff9d8bcef4a6214b3b5c2218b812117f9baf167/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/attempt1/FetchRequestSemanticsAttempt1App.scala#L8-L27
