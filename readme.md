@@ -14,9 +14,9 @@ Scala veterans will find this less helpful, but I'd encourage them to contribute
 
 ## The Problem
 
-Since I began using Scala professionally in 2012, it's become my favorite language. I've found it an elegant and effective tool for solving various problems. During that time, I've participated in a wide variety of projects and an even wider variety of perceptions about the language.
+Since I began using Scala professionally in 2012, it's become my favorite language. I've found it an elegant and effective tool for solving all kinds of problems. During that time, I've participated in many projects and witnessed a huge variety of perceptions about the language.
 
-My views of this language and its associated tools are overwhelmingly positive. While I see tremendous benefits over its competitors (many of which have adopted Scala's features), this remains where I want to work the most. Unfortunately, I've found many engineers are frustrated with the language, and (if I'm honest) I'm not too surprised.
+My views of this language and its associated tools are overwhelmingly positive. While I see tremendous benefits over its competitors (many of which have adopted Scala's features), this remains where I want to work the most. Unfortunately, I've found many engineers are frustrated with the language, and (again, if I'm honest) I'm not too surprised.
 
 There's been extensive discussion from thought leaders from industry and academia as to why Scala struggles to gain hold. I won't repeat that here (I plan to reference this material later), but I offer my suggestions based on two recurring observations:
 
