@@ -74,9 +74,3 @@ I respect (and celebrate!) challengers to any incumbent technology (for example,
 [github-eugene-yokota]: https://github.com/eed3si9n
 
 [journal-li-haoyi]: https://www.lihaoyi.com/
-
-## Test Code Embedding
-
-https://github.com/michaelahlers/scala-examples/blob/main/dependencies.sbt#L1-L6
-
-https://github.com/michaelahlers/scala-examples/blob/6fad7bdde677ee51bb1125af8af1827f8a611e55/dependencies.sbt#L1-L6
