@@ -24,7 +24,9 @@ And so they miss returns on their investment in this technology. It's another to
 
 **Second, frequent attempts to mismatch programming paradigms with Scala best practices.**
 
-I've seen it enough it's worth addressing. While Scala, by design, happily supports multiple paradigms (object-oriented and functional), no engineer will enjoy using it without thinking functional first, with too much reliance on, for example, mutable state, side effects, or breaking control flow (with exceptions, thinly veiled [go-to statements](https://en.wikipedia.org/wiki/Considered_harmful)). These all have utility (typically in optimization scenarios) but shouldn't be the first tools for which developers reach.
+I've seen it enough it's worth addressing. While Scala, by design, happily supports multiple paradigms (object-oriented and functional), no engineer will enjoy using it without thinking functional first, with too much reliance on, for example, mutable state, side effects, or breaking control flow (with exceptions, thinly veiled [go-to statements][wikipedia-considered-harmful]). These all have utility (typically in optimization scenarios) but shouldn't be the first tools for which developers reach.
+
+[wikipedia-considered-harmful]: https://en.wikipedia.org/wiki/Considered_harmful
 
 ## My Solution
 
@@ -43,3 +45,25 @@ If I'm successful, my readers will find ways to increase their productivity and 
 ## Why Scala 2.12?
 
 Many teams still use Scala 2.12, and I want to pay attention to them. Most material written on Scala now uses the latest dialect, which makes sense: Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
+
+## Why sbt?
+
+[sbt][build-tool-sbt] (Simple Build Tool? Scala Build Tool?) has received a lot of criticism. While it's entirely undeserved, [Eugene Yokota][github-eugene-yokota] and his fellow contributors to the tool have done an outstanding job of understanding and addressing industry needs. As Scala 3 has answered complaints about Scala 2, modern versions of sbt have addressed its shortcomings from its early days.
+
+For starters, sbt has moved away from "ASCII-art" syntaxes that were once trendy in the Scala community as it toyed with domain-specific languages aspiring to resemble mathematical notations. Its syntax has become plain and simple.
+
+Also, it's helpful to understand that you don't have to cram the entire build definition into a single file. sbt is not a scripting language with linear, top-to-bottom execution. Builds can easily consist of small, understandable pieces that localize concerns (as this project demonstrates).
+
+While it provides developers access to Scala for solving intricate problems, that's rarely (if ever!) the first tool developers should reach for when setting up their projects. The overwhelming majority of software projects are likewise overwhelmingly similar, and the need for bespoke solutions is vanishingly rare. I've repeatedly found there was an adequate "off-the-shelf" solution where developers chose to write code in their builds.
+
+Lastly, some developers get distracted by the powerful scopes system sbt offers. But it's unnecessary to go beyond the basics in most cases; you can accomplish almost everything you need with a cursory understanding of configurations.
+
+I respect (and celebrate!) challengers to any incumbent technology (for example, the excellent [mill][build-tool-mill] developed by [Li Haoyi][journal-li-haoyi]). Still, we need to discard sbt quite yet, and in pursuit of this project's goals, I'll be sticking with the tool most developers are likely to find in their day jobs.
+
+[build-tool-mill]: https://github.com/com-lihaoyi/mill
+
+[build-tool-sbt]: https://www.scala-sbt.org/
+
+[github-eugene-yokota]: https://github.com/eed3si9n
+
+[journal-li-haoyi]: https://www.lihaoyi.com/
