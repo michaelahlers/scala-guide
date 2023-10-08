@@ -49,4 +49,4 @@ case class GetUsersRequest(
 )
 ```
 
-Now, we're wondering about our query's inclusivity (and so are our service's consumers). Are we casting a wider net or being more specific? Email addresses are reliable and durable identifiers, but phone numbers are neither. Is this discovery? Do we know who we're looking for? Of course, documentation could address any confusion (which everyone reads, right?), but we can do much better.
+Now, we (and our service's consumers) must wonder about our query's inclusivity. Are we casting a wider net or being more specific? Email addresses are reliable and durable identifiers, but phone numbers are neither. (Never mind how this relates to optionality in the database.) Is this discovery? Do we know who we're looking for? Of course, documentation could address any confusion (which everyone reads, right?), but we can do much better.
