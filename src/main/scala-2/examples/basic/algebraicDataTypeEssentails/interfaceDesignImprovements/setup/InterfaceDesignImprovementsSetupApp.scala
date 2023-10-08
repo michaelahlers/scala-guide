@@ -1,6 +1,6 @@
 package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.setup
 
-object FetchRequestSemanticsSetupApp extends App {
+object InterfaceDesignImprovementsSetupApp extends App {
 
   val userService: UserService = LocalUserService()
 
