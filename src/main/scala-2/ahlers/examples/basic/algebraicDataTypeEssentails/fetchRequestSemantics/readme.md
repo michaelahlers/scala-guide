@@ -34,6 +34,21 @@ https://github.com/michaelahlers/scala-examples/blob/20ec6a9f0ebab855e35228eff03
 
 https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L21-L26
 
-Of course, documentation would address any confusion, and the implementation would be trivial. But what happens if we need to include more properties, like a user's email address or phone number? We'd have to add more `Option` parameters, and the problem would worsen.
+Seems trivial, but what happens if we need to include more properties, like a user's email address, phone number, city, state, and country? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their region) in the same query type.
+
+If we add more `Option` parameters, the interface and implementation get more confusing:
+
+```scala
+case class GetUsersRequest(
+  givenName: Option[String],
+  familyName: Option[String],
+  emailAddress: Option[String],
+  phoneNumber: Option[String],
+  city: Option[String],
+  state: Option[String],
+)
+```
+
+Now, we're wondering about our query's inclusivity and exclusivity (and so are our service's consumers). Are we casting a wider net or being more specific? Email addresses are reliable and durable identifiers, but phone numbers are neither. Is this discovery? Do we know who we're looking for? Of course, documentation could address any confusion (which everyone reads, right?), but we can do much better.
 
 ### Attempt 1
