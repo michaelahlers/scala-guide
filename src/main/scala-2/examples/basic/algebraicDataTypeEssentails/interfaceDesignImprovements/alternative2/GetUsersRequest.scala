@@ -1,21 +1,39 @@
 package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative2
 
-sealed trait GetUsersRequest
+import examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.alternative2.GetUsersRequest.Predicate
+
+case class GetUsersRequest(predicate: Predicate)
 object GetUsersRequest {
 
-  case class ByPersonName(
-    givenName: Argument[String],
-    familyName: Argument[String],
-  ) extends GetUsersRequest
+  sealed trait Predicate
+  object Predicate {
+    case class ByGivenName(expression: Expression[String]) extends Predicate
+    case class ByFamilyName(expression: Expression[String]) extends Predicate
+    case class ByEmailAddress(expression: Expression[String]) extends Predicate
+    case class ByPhoneNumber(expression: Expression[String]) extends Predicate
+    case class ByCity(expression: Expression[String]) extends Predicate
+    case class ByRegion(expression: Expression[String]) extends Predicate
 
-  case class ByContactInformation(
-    emailAddress: Argument[String],
-    phoneNumber: Argument[String],
-  ) extends GetUsersRequest
+    case class Or(predicates: Seq[Predicate]) extends Predicate
+    case class And(predicates: Seq[Predicate]) extends Predicate
 
-  case class ByLocale(
-    city: Argument[String],
-    region: Argument[String],
-  ) extends GetUsersRequest
+    implicit class Ops(private val self: Predicate) extends AnyVal {
+
+      def or(other: Predicate): Predicate = self match {
+        case self: Or => Or(self.predicates :+ other)
+        case self => Or(Seq(self, other))
+      }
+
+      def and(other: Predicate): Predicate = self match {
+        case self: And => And(self.predicates :+ other)
+        case self => Or(Seq(self, other))
+      }
+
+      def |(other: Predicate): Predicate = or(other)
+      def &(other: Predicate): Predicate = and(other)
+
+    }
+
+  }
 
 }
