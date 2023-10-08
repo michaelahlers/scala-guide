@@ -16,4 +16,8 @@ This recurring mantra applies: **make invalid states impossible to represent.**
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
+Suppose we have a service for fetching users that already searches by their given and family names.
+
 ### Step 1
+
+https://github.com/michaelahlers/scala-examples/blob/85f766d143099c27eddf6f950848bc1b45ee28c5/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/FetchRequestSemanticsStep1.scala#L5-L8
