@@ -86,4 +86,4 @@ val myValue: Int = 0
 val `my-value`: Int = 1
 ```
 
-There _are_ legitimate use cases for this feature, but those are few. I use them here to provide context for the example, avoid confusion caused by standard camel case, and maintain a consistent directory structure. 
+There _are_ legitimate use cases for this feature, but those are few. I use them here to provide context for the example, avoid confusion caused by standard camel-case, and maintain a consistent directory structure. Hardly a universal invariant, I'd prefer code in this project mimic documentation than the other way around.
