@@ -36,4 +36,4 @@ I'm not competing with similar resources that expound on academic considerations
 
 In addition to demonstrating the language, I'll extensively use the tools and libraries I've found most helpful in my experience. While that incurs strong opinions, most concepts naturally translate.
 
-If I'm successful, my readers will find ways to increase their productivity and gain value.
+If I'm successful, my readers will find ways to increase their productivity and find starting points to expand their knowledge.
