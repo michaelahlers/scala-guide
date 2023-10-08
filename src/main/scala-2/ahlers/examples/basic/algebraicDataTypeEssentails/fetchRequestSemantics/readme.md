@@ -34,9 +34,9 @@ https://github.com/michaelahlers/scala-examples/blob/20ec6a9f0ebab855e35228eff03
 
 https://github.com/michaelahlers/scala-examples/blob/6cb84888113c13f4d260c6778d8928f0d11ff453/src/main/scala-2/ahlers/examples/basic/algebraicDataTypeEssentails/fetchRequestSemantics/setup/FetchRequestSemanticsSetupApp.scala#L21-L26
 
-Seems trivial, but what happens if we need to include more properties, like a user's email address, phone number, city, state, and country? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their region) in the same query type.
+It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
 
-If we add more `Option` parameters, the interface and implementation get more confusing:
+With more `Option` parameters, the interface and implementation get more confusing:
 
 ```scala
 case class GetUsersRequest(
@@ -45,10 +45,8 @@ case class GetUsersRequest(
   emailAddress: Option[String],
   phoneNumber: Option[String],
   city: Option[String],
-  state: Option[String],
+  region: Option[String],
 )
 ```
 
-Now, we're wondering about our query's inclusivity and exclusivity (and so are our service's consumers). Are we casting a wider net or being more specific? Email addresses are reliable and durable identifiers, but phone numbers are neither. Is this discovery? Do we know who we're looking for? Of course, documentation could address any confusion (which everyone reads, right?), but we can do much better.
-
-### Attempt 1
+Now, we're wondering about our query's inclusivity (and so are our service's consumers). Are we casting a wider net or being more specific? Email addresses are reliable and durable identifiers, but phone numbers are neither. Is this discovery? Do we know who we're looking for? Of course, documentation could address any confusion (which everyone reads, right?), but we can do much better.
