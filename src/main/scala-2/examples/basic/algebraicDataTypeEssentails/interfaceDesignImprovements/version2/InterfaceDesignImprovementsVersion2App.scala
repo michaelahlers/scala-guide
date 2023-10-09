@@ -11,7 +11,7 @@ object InterfaceDesignImprovementsVersion2App extends App {
   userService
     .getUsers(GetUsersRequest(
       ByGivenName(Exact("Grace")) &
-        ByGivenName(Exact("Hopper")),
+        ByFamilyName(Exact("Hopper")),
     ))
 
   /** Still ''that'' Grace Hopper in particular! */

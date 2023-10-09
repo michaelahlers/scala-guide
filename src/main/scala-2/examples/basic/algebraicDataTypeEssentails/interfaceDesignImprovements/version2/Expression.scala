@@ -3,11 +3,10 @@ package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.v
 sealed trait Expression[+A]
 object Expression {
 
-  /** Matches [[value]] exactly. */
-  case class Exact[A](value: A) extends Expression[A]
+  sealed trait NonNull
 
-  /** Anything will match. */
-  case object Wildcard extends Expression[Nothing]
+  /** Matches [[value]] exactly. */
+  case class Exact[A](value: A) extends Expression[A] with NonNull
 
   /** Matches when not set. */
   case object IsNull extends Expression[Nothing]
