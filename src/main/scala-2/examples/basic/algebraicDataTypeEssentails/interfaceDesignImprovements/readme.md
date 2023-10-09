@@ -18,7 +18,7 @@ This recurring mantra applies: **make confusing and invalid states difficult or 
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
-### Setup
+### Project Setup
 
 Suppose we have a service for fetching users:
 
