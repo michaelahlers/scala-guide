@@ -22,15 +22,15 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 Suppose we have a service for fetching users:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
 
 That already searches by their given and family names:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
 
 Even before exploring further, we already see deficiencies:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/InterfaceDesignImprovementsSetupApp.scala#L7-L26
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/InterfaceDesignImprovementsSetupApp.scala#L7-L26
 
 It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
 
@@ -53,19 +53,19 @@ Now, we (and our service's consumers) must wonder about our query's inclusivity.
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/Argument.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/Argument.scala#L6-L13
 
 Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/GetUsersRequest.scala#L6-L19
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/GetUsersRequest.scala#L6-L19
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/InterfaceDesignImprovementsVersion1App.scala#L9-L35
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/InterfaceDesignImprovementsVersion1App.scala#L9-L35
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -92,17 +92,17 @@ Let's state upfront: we probably don't want to do this. I'm giving this version 
 
 Once again, the same service and same expression types:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/UserService.scala#L3-L5
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/Expression.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/Expression.scala#L6-L13
 
 But now we introduce composable predicates to our request envelope:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/GetUsersRequest.scala#L8-L37
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/GetUsersRequest.scala#L8-L37
 
 With our newfound expressive capabilities, we can describe virtually any query we want, answering all sorts of questions:
 
-https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/InterfaceDesignImprovementsVersion2App.scala#L10-L34
+https://github.com/michaelahlers/scala-examples/blob/209381b2085c69ffc951ee73d973647cd63519ce/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/InterfaceDesignImprovementsVersion2App.scala#L10-L34
 
 Nothing extra, total flexibility, and it's drop-dead easy to use. Our consumers can tell us exactly what they want in perpetuity with an elegant and simple API.
 
