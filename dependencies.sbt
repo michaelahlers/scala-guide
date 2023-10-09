@@ -4,6 +4,9 @@ ThisBuild / crossScalaVersions ++=
     Nil
 
 ThisBuild / libraryDependencies +=
+  "org.typelevel" %% "cats-core" % "2.10.0"
+
+ThisBuild / libraryDependencies +=
   "com.lihaoyi" %% "pprint" % "0.7.0"
 
 ThisBuild / libraryDependencies ++=
