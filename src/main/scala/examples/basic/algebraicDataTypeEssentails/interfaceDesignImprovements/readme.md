@@ -45,13 +45,13 @@ Especially if there's any exclusivity between the new parameters we add. For exa
 
 Whatever decisions we make, it's become easy to violate our invariants. When that happens, our service will report errors that have nothing to do with our business domain but instead, deal with how to use our service. What's considered a "bad request" should be narrowly defined, and we should make it difficult for our consumers to craft one.
 
-## Finding Solutions
+## Exploring Solutions
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
 ### Project Setup
 
-Suppose we have a service for fetching users:
+Let's consider our service definition:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
 
