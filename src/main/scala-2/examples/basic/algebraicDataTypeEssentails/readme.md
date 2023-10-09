@@ -8,8 +8,8 @@ Algebraic Data Types are a way of trimming down too many cases you can't reason 
 
 While hardly a concept specific to Scala, the language makes it easy to define an ADT, and the compiler uses them to prevent bugs. At the same time, they clarify precisely the intent of your interface and the behavior of its implementation.
 
-## [Fetch Request Semantics][fetch-request-semantics]
+## [Interface Design Improvements][interface-design-improvements]
 
-Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can dramatically simplify implementation and make obvious what a service does.
+Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can dramatically simplify an API and make obvious what a service does.
 
-[fetch-request-semantics]: interfaceDesignImprovements
+[interface-design-improvements]: interfaceDesignImprovements
