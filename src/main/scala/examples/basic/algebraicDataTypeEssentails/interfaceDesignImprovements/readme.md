@@ -1,6 +1,10 @@
-# Interface Design Improvements
+# Better Interface Design with Types
 
-We can bring Algebraic Data Types to bear on API design—they're not inherently limited to modeling business domains. Here, we'll explore a hypothetical situation where we want to increase the capabilities of a service and help consumers better understand how to use it.
+We can bring [Algebraic Data Types][glossary-algebraic-data-types] to bear on API design—they're not inherently limited to modeling business domains. Even if that seems obvious, I've found developers can miss out on their benefits: how they can precisely clarify your interface's intent and implementation behavior.
+
+Here, we'll explore a hypothetical situation where we want to increase the capabilities of a service and help consumers better understand how to use it.
+
+[glossary-algebraic-data-types]: ../../../glossary/algebraic-data-types.md
 
 ## What problem are we solving?
 
