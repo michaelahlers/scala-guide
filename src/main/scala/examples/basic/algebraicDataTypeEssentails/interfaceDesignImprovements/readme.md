@@ -59,11 +59,11 @@ That already searches by their given and family names:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
 
-Even before exploring further, we already see deficiencies:
+As explained, we quickly see deficiencies from the consumer's perspective:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UsageApp.scala#L7-L26
 
-It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
+And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
 
 With more `Option` parameters, the interface and implementation get more confusing:
 
@@ -78,7 +78,7 @@ case class GetUsersRequest(
 )
 ```
 
-Now, we (and our service's consumers) must wonder about our query's inclusivity. Is `None` considered a wildcard? What if that returns too many results? And how can we expect to use this? Are we casting a wider net or being more specific? (Email addresses are reliable and durable identifiers, but phone numbers are neither.) Never mind how this relates to optionality in the database. Is this discovery? Do we know who we're looking for? Of course, documentation might address any confusion (which everyone reads, right?), but we can do much better.
+As discussed previously, we (specifically, our service's consumers) must wonder about our query semantics. Documentation might address any confusion, but we can do much better with little work.
 
 ### First Version
 
@@ -86,11 +86,11 @@ Same service as before:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/UserService.scala#L3-L5
 
-Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
+Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/Expression.scala#L6-L13
 
-Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
+Then, use them to make a `GetUsersRequest` that's expressive and intuitive:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/GetUsersRequest.scala#L6-L19
 
@@ -101,21 +101,21 @@ https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda3
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
 1. Query semantics are precise—the ambiguities caused by using `Option` are replaced with clear and concise per-property matching behavior.
-1. Each query explicitly and unambiguously states what question it's answering.
-1. The implementation is outside the scope of this subject, but whatever it is, it's undoubtedly more straightforward, needing to handle only three cases.
+1. Each query explicitly and unambiguously states what question it's answering, and expanding these cases is simple.
+1. The implementation is outside the scope of this subject. Still, whatever it is, it's undoubtedly more straightforward, needing to handle a handful of cases instead of some permutation of the parameters.
 
 However, there are drawbacks:
 
-1. While the implementation work mentioned earlier is easier, our service is far less flexible than it could be.
-1. It's incumbent upon consumers to call the service repeatedly to obtain either a union or intersection of the results.
+1. While we've reduced implementation work, our service might need more flexibility. (Or, it suits the requirements just fine! Understanding those specifically is the reader's task.)
+1. It's incumbent upon consumers to call the service repeatedly to obtain either a union or intersection of the results. (We put merging records in their hands, which may be fine. Also, repeated calls could be cheap, or we can mitigate by additional cases, as described earlier.)
 
-Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, alternativeing to provide a generic query interface might be counterproductive to your requirements.)
+Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, providing a generic query interface might be counterproductive to your requirements.)
 
 While we could stop here, what if we wanted to get fancier and provide more flexibility? How would that look?
 
 ### Second Version
 
-Let's state upfront: we probably don't want to do this. I'm giving this version to inspire your imagination and expand your knowledge. In practice, we'd reach for a different tool ([GraphQL][technology-graph-ql], as implemented by [Sangria][graph-ql-sangria] or [Caliban][graph-ql-zio-caliban] might be more appropriate). That said, let's dive in and flex our Scala muscles a bit!
+Let's state upfront: this approach is probably overkill. I'm giving it to inspire your imagination and expand your knowledge. In practice, we'd reach for a different tool (for example, [GraphQL][technology-graph-ql], as implemented by [Sangria][graph-ql-sangria] or [Caliban][graph-ql-zio-caliban]). That said, let's dive in and flex our Scala muscles a bit!
 
 [technology-graph-ql]: https://graphql.org/
 [graph-ql-sangria]: https://github.com/sangria-graphql/sangria
@@ -125,25 +125,25 @@ Once again, the same service:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/UserService.scala#L3-L5
 
-And _almost_ same expression (note the absence of a `Wildcard` case):
+And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/Expression.scala#L6-L12
 
-But now we introduce composable predicates to our request envelope, which includes a lightweight syntax for easily composing our predicates:
+But now we introduce predicates to our request envelope, which may be composed with a lightweight `implicit` syntax:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/GetUsersRequest.scala#L10-L47
 
-With our newfound expressive capabilities, we can describe virtually any query we want, answering all sorts of questions:
+With our newfound expressive capabilities, we can describe any query we want:
 
 https://github.com/michaelahlers/scala-examples/blob/a013ad5fcd16106b313565dcda37051b69699966/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/UsageApp.scala#L10-L34
 
-Nothing extra, total flexibility, and it's drop-dead easy to use. Our consumers can tell us exactly what they want in perpetuity with an elegant and simple API.
+Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
-Not so fast.
+Let's think about the downsides.
 
-Could this enable consumers to craft expensive queries? Possibly. In the theme of a favorite trope of "preventing invalid states," we show here how additional types suggest how specific properties are indexed. Also, we've introduced the use of `NonEmptyList` from the widely popular [Cats][technology-typelevel-cats] library to enforce at minimum one predicate for our boolean operators.
+Could this enable consumers to craft expensive queries? Possibly. But, as shown, there are ways to use types to prevent that. Also, we've introduced the use of `NonEmptyList` from the widely popular [Cats][technology-typelevel-cats] library to enforce at minimum one predicate.
 
-It could at least make optimizing our most common use cases more difficult. We could always revisit making our request type an ADT and spelling out those optimized cases while adding another that accepts a `Predicate` as described here.
+It could at least make optimizing our most common use cases more difficult. We could go back to making the request type an ADT and spelling out those optimized cases while adding another that accepts a `Predicate` as described here.
 
 These are exercises for the reader.
 
@@ -151,8 +151,8 @@ These are exercises for the reader.
 
 ## Conclusion
 
-We've seen how Algebraic Data Types can help us design better interfaces. We've also suggested how they can make implementing those interfaces easier. Of course, we've also seen how they can make confusing or invalid states unrepresentable.
+We've seen how Algebraic Data Types can help us design better interfaces, make implementing those interfaces easier, and (most importantly) make confusing or invalid states unrepresentable.
 
 Also, note that the Scala compiler will catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
 
-Your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
+Of course, your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
