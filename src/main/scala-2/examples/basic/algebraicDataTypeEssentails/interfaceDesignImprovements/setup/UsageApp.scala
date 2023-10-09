@@ -1,6 +1,6 @@
 package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.setup
 
-object InterfaceDesignImprovementsSetupApp extends App {
+object UsageApp extends App {
 
   val userService: UserService = LocalUserService()
 
