@@ -1,7 +1,7 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2
+package betterInterfaceDesignWithTypes.version2
 
 import cats.data.NonEmptyList
-import examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2.GetUsersRequest.Predicate
+import GetUsersRequest.Predicate
 
 case class GetUsersRequest(predicate: Predicate)
 object GetUsersRequest {

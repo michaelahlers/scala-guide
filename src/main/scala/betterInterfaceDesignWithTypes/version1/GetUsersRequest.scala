@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version1
+package betterInterfaceDesignWithTypes.version1
 
 sealed trait GetUsersRequest
 object GetUsersRequest {

@@ -14,6 +14,18 @@ You all have day jobs, want to get work done, and don't want to be browbeaten by
 
 Scala veterans will find this less helpful, but I'd encourage them to contribute to this guide.
 
+## Given Examples
+
+### [Better Interface Design with Types][better-interface-design-with-types]
+
+Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can simplify an API and make obvious what a service does.
+
+## Range Representation
+
+_Coming soon._ Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. This example examines and improves upon an implementation I've seen in practice.
+
+[better-interface-design-with-types]: src/main/scala/betterInterfaceDesignWithTypes
+
 ## The Problem
 
 Since I began using Scala professionally in 2012, it's become my favorite language. I've found it an elegant and effective tool for solving all kinds of problems. During that time, I've participated in many projects and witnessed a huge variety of perceptions about the language.

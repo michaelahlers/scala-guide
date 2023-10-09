@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2
+package betterInterfaceDesignWithTypes.version2
 
 sealed trait Expression[+A]
 object Expression {
