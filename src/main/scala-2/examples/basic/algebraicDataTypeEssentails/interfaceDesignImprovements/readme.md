@@ -22,15 +22,15 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 Suppose we have a service for fetching users:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/UserService.scala#L3-L5
 
 That already searches by their given and family names:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/GetUsersRequest.scala#L3-L6
 
 Even before exploring further, we already see deficiencies:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/InterfaceDesignImprovementsSetupApp.scala#L7-L26
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/setup/InterfaceDesignImprovementsSetupApp.scala#L7-L26
 
 It seems trivial, but what happens if we need more properties, like a user's email address, phone number, city, and region? We've now conflated more positive identifiers (a user's name and contact information) with demographic information (their locale) in the same query type.
 
@@ -53,19 +53,19 @@ Now, we (and our service's consumers) must wonder about our query's inclusivity.
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it confers) by modeling how our arguments ought to match:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/Argument.scala#L6-L13
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/Argument.scala#L6-L13
 
 Now, we find ourselves with a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/GetUsersRequest.scala#L6-L19
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/GetUsersRequest.scala#L6-L19
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-examples/blob/99247101dff0d856794a8901137475fb7bae5b49/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/InterfaceDesignImprovementsversion1App.scala#L9-L35
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version1/InterfaceDesignImprovementsVersion1App.scala#L9-L35
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -81,3 +81,45 @@ However, there are drawbacks:
 Here is a scenario where we deal more with tradeoffs than solutions. (Understanding and choosing between tradeoffs is an essential responsibility of our profession as software engineers.) But this pattern, overall, might be more than enough for most teams. It remains applicable for and inspires a narrow set of supported use cases that fit specific business or customer needs. (_I.e._, alternativeing to provide a generic query interface might be counterproductive to your requirements.)
 
 While we could stop here, what if we wanted to get fancier and provide more flexibility? How would that look?
+
+### Second Version
+
+Let's state upfront: we probably don't want to do this. I'm giving this version to inspire your imagination and expand your knowledge. In practice, we'd reach for a different tool ([GraphQL][technology-graph-ql], as implemented by [Sangria][graph-ql-sangria] or [Caliban][graph-ql-zio-caliban] might be more appropriate). That said, let's dive in and flex our Scala muscles a bit!
+
+[technology-graph-ql]: https://graphql.org/
+[graph-ql-sangria]: https://github.com/sangria-graphql/sangria
+[graph-ql-zio-caliban]: https://zio.dev/ecosystem/community/caliban/
+
+Once again, the same service and same expression types:
+
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/UserService.scala#L3-L5
+
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/Expression.scala#L6-L13
+
+But now we introduce composable predicates to our request envelope:
+
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/GetUsersRequest.scala#L8-L37
+
+With our newfound expressive capabilities, we can describe virtually any query we want, answering all sorts of questions:
+
+https://github.com/michaelahlers/scala-examples/blob/3732b22e416b87115a95ec7cda167d04956939f8/src/main/scala-2/examples/basic/algebraicDataTypeEssentails/interfaceDesignImprovements/version2/InterfaceDesignImprovementsVersion2App.scala#L10-L34
+
+Nothing extra, total flexibility, and it's drop-dead easy to use. Our consumers can tell us exactly what they want in perpetuity with an elegant and simple API.
+
+Not so fast.
+
+Could this enable consumers to craft expensive queries? Possibly. In the theme of a favorite trope of "preventing invalid states," we show here how additional types suggest how specific properties are indexed. Also, we've introduced the use of `NonEmptyList` from the widely popular [Cats][technology-typelevel-cats] library to enforce at minimum one predicate for our boolean operators.
+
+It could at least make optimizing our most common use cases more difficult. We could always revisit making our request type an ADT and spelling out those optimized cases while adding another that accepts a `Predicate` as described here.
+
+These are exercises for the reader.
+
+[technology-typelevel-cats]: https://typelevel.org/cats/
+
+## Conclusion
+
+We've seen how Algebraic Data Types can help us design better interfaces. We've also suggested how they can help us implement those interfaces more easily. Of course, we've also seen how they can help us make confusing or invalid states unrepresentable.
+
+Also, note that the Scala compiler will help catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
+
+Your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
