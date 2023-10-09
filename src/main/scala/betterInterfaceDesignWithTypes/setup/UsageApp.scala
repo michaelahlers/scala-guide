@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.setup
+package betterInterfaceDesignWithTypes.setup
 
 object UsageApp extends App {
 

@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.setup
+package betterInterfaceDesignWithTypes.setup
 
 case class GetUsersRequest(
   givenName: Option[String],

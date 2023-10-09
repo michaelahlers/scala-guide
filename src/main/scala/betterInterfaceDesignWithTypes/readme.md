@@ -13,7 +13,7 @@ Here, we'll explore a hypothetical situation where we want to increase the capab
 - `sealed` types
 - `implicit` method injection
 
-[glossary-algebraic-data-types]: ../../../glossary/algebraic-data-types.md
+[glossary-algebraic-data-types]: ../../../../glossary/algebraic-data-types.md
 
 ## What problem are we solving?
 

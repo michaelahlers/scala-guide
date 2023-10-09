@@ -1,4 +1,4 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version1
+package betterInterfaceDesignWithTypes.version1
 
 object UsageApp extends App {
   import Expression._

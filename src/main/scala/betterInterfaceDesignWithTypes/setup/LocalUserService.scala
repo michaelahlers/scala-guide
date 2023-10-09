@@ -1,12 +1,10 @@
-package examples.basic.algebraicDataTypeEssentails.interfaceDesignImprovements.version2
+package betterInterfaceDesignWithTypes.setup
 
 case class LocalUserService() extends UserService {
-
   override def getUsers(request: GetUsersRequest): GetUsersResponse = {
     pprint.log(request)
 
     /** @todo */
     GetUsersResponse()
   }
-
 }
