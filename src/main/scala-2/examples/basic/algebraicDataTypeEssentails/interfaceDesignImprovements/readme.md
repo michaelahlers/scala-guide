@@ -120,8 +120,8 @@ These are exercises for the reader.
 
 ## Conclusion
 
-We've seen how Algebraic Data Types can help us design better interfaces. We've also suggested how they can help us implement those interfaces more easily. Of course, we've also seen how they can help us make confusing or invalid states unrepresentable.
+We've seen how Algebraic Data Types can help us design better interfaces. We've also suggested how they can make implementing those interfaces easier. Of course, we've also seen how they can make confusing or invalid states unrepresentable.
 
-Also, note that the Scala compiler will help catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
+Also, note that the Scala compiler will catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
 
 Your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
