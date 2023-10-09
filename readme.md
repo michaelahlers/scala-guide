@@ -20,7 +20,7 @@ Scala veterans will find this less helpful, but I'd encourage them to contribute
 
 Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can simplify an API and make obvious what a service does.
 
-## Range Representation
+### Range Representation
 
 _Coming soon._ Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. This example examines and improves upon an implementation I've seen in practice.
 
