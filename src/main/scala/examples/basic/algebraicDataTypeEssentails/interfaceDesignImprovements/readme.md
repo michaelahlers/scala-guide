@@ -8,9 +8,10 @@ Here, we'll explore a hypothetical situation where we want to increase the capab
 
 ## Topics Covered
 
-- Service API design
 - [Algebraic Data Types][glossary-algebraic-data-types]
 - [Type Parameter Covariance](https://docs.scala-lang.org/tour/variances.html)
+- `sealed` types
+- `implicit` method injection
 
 [glossary-algebraic-data-types]: ../../../glossary/algebraic-data-types.md
 
