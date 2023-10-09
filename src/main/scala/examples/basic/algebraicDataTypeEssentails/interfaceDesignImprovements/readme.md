@@ -1,22 +1,49 @@
 # Better Interface Design with Types
 
+## Preamble
+
 We can bring [Algebraic Data Types][glossary-algebraic-data-types] to bear on API design—they're not inherently limited to modeling business domains. Even if that seems obvious, I've found developers can miss out on their benefits: how they can precisely clarify your interface's intent and implementation behavior.
 
 Here, we'll explore a hypothetical situation where we want to increase the capabilities of a service and help consumers better understand how to use it.
+
+## Topics Covered
+
+- Service API design
+- [Algebraic Data Types][glossary-algebraic-data-types]
+- [Type Parameter Covariance](https://docs.scala-lang.org/tour/variances.html)
 
 [glossary-algebraic-data-types]: ../../../glossary/algebraic-data-types.md
 
 ## What problem are we solving?
 
-Suppose you have a service for fetching records, and you need to expand how consumers can query those records. You already have a request envelope that, perhaps, specifies a few `Option` parameters that provide conditional filtering (we'll get specific in a moment).
+Suppose you have a service for getting users and need to expand how consumers can query those users. You already have a request envelope specifying a few `Option` parameters to select those records.
 
-You might think, "I'll add more optional parameters," and immediately, we notice a problem.
+Before we think, "I'll add more optional parameters," let's understand existing semantics.
 
-How do those parameters relate to and affect one another? Are there any that are mutually exclusive? If so, where are the boundaries of that exclusivity? Consumers may need further clarification. `Option` has, sadly, become a widely overloaded concept with implications for everything from business logic to compatibility concerns.
+Let's see the request:
 
-Worse, how do we implement those queries? Pattern matching on a few `Option` parameters starts simple enough but doesn't scale. Worse, now we've made it easy to violate our invariants. If the consumer supplies a pair of exclusive parameters (or none at all), they've forced us to report errors that have nothing to do with our business domain but instead deal with how to use our service. What's considered a "bad request" should be narrowly defined, and we should make it difficult for our consumers to craft one.
+```scala
+case class GetUsersRequest(
+  givenName: Option[String],
+  familyName: Option[String],
+)
+```
 
-This recurring mantra applies: **make confusing and invalid states difficult or impossible to represent.**
+We immediately have questions.
+
+What does optionality mean here? Is `None` a wildcard? Does it match on absence? If `Some`, does it match exactly? On a substring? Or something else?
+
+Are we forming a union or intersection query? (_I.e._, is it `givenName` _and_ `familyName`, or `givenName` _and_ `familyName`?)
+
+What happens when both parameters are `None`? Do we get no users or all of them? If we get no users, that presents a surprising special case.
+
+`Option` has, sadly, become a widely overloaded concept with implications for everything from business logic to compatibility concerns.
+
+Next, how do we implement those queries? Pattern matching on a few `Option` parameters starts simple enough but doesn't scale. If we add more, we're going to have difficulty.
+
+Especially if there's any exclusivity between the new parameters we add. For example, if we throw in an `emailAddress: Option[String]`, we now have a property to identify a specific user! How does it relate to existing properties? Are they exclusive, given the semantics? What if they disagree (_e.g._, the address identifies a specific user, but we gave the wrong name)?
+
+Whatever decisions we make, it's become easy to violate our invariants. When that happens, our service will report errors that have nothing to do with our business domain but instead, deal with how to use our service. What's considered a "bad request" should be narrowly defined, and we should make it difficult for our consumers to craft one.
 
 ## Finding Solutions
 
