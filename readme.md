@@ -28,44 +28,44 @@ _Coming soon._ Scala provides a built-in `Range` type for representing a range o
 
 ## The Problem
 
-Since I began using Scala professionally in 2012, it's become my favorite language. I've found it an elegant and effective tool for solving all kinds of problems. During that time, I've participated in many projects and witnessed a huge variety of perceptions about the language.
+Since I began using Scala professionally in 2012, it's become my favorite language. My views of this language and its associated tools are overwhelmingly positive—I've found it an elegant and powerful tool for solving all kinds of problems in various projects. Also, many professionals have shared their experiences about the language, and not all of it's as positive as mine.
 
-My views of this language and its associated tools are overwhelmingly positive. While I see tremendous benefits over its competitors (many of which have adopted Scala's features), this remains where I want to work the most. Unfortunately, I've found many engineers are frustrated with the language, and (again, if I'm honest) I'm not too surprised.
-
-There's been extensive discussion from thought leaders from industry and academia as to why Scala struggles to gain hold and what its proponents can do about it. (See also, [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes].) I won't repeat that here (I plan to reference this material later), but I offer my suggestions based on two recurring observations:
+There's been extensive discussion from industry and academic thought leaders as to why Scala struggles to gain traction and what its proponents can do about it. (See also, [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes].) I won't repeat that here, but I'll offer my suggestions based on two recurring observations:
 
 [journal-john-de-goes]: https://degoes.net/
 [john-de-goes-scala-resurrection]: https://degoes.net/articles/scala-resurrection
 
-**First, many teams don't utilize Scala's key features to their potential to varying degrees.**
+**First, many teams miss out on Scala's key features.**
 
-And so they miss returns on their investment in this technology. It's another topic I'll explore elsewhere, but using Scala (and similar languages) comes with a cost. However, with little effort, there are significant dividends over time. Each team will need to decide its comfort level, but there's often considerable value left on the table.
+And so they miss returns on their investment. It's another topic worth exploring (elsewhere), but it's sufficient to recognize that using Scala (and similar languages) comes with a cost. However, teams _can_ net significant dividends by using it well.
 
-**Second, frequent attempts to mismatch programming paradigms with Scala best practices.**
+**Second, using the wrong programming paradigms.**
 
-I've seen it enough it's worth addressing. While Scala, by design, happily supports multiple paradigms (object-oriented and functional), no engineer will enjoy using it without thinking functional first, with too much reliance on, for example, mutable state, side effects, or breaking control flow (with exceptions, thinly veiled [go-to statements][wikipedia-considered-harmful]). These all have utility (typically in optimization scenarios) but shouldn't be the first tools for which developers reach.
+I've seen it happen enough that I feel compelled to address it. While Scala, by design, happily supports multiple paradigms (object-oriented and functional), no engineer will enjoy using it without thinking functional first and with too much reliance on, for example, mutable state, side effects, or breaking control flow (with exceptions, which are a frustratingly persistent kind of [go-to statement][wikipedia-considered-harmful]). These all have their utility (typically in optimization scenarios), but they're oil and water with a language like Scala and shouldn't be the first tools for which developers reach.
 
 [wikipedia-considered-harmful]: https://en.wikipedia.org/wiki/Considered_harmful
 
 ## My Solution
 
-I'm not competing with similar resources that expound on academic considerations. Those are worth the reader's attention, and I'll refer to them as appropriate, but my reader might say, "Don't waste my time," so my examples will:
+I'm not competing with similar resources that expound on academic considerations. Those are worth the reader's attention; I'll refer to them as appropriate. _My_ reader might say, "Don't waste my time," so my examples will:
 
 1. Ask, "What problem am I solving?"
-1. Provide great solutions that are easily adapted.
-1. "Show my work" for the interested reader.
+1. Provide solutions that are easily adapted.
+1. "Show my work" for the curious.
 
 In addition to demonstrating the language, I'll extensively use the tools and libraries I've found most helpful in my experience. While that incurs strong opinions, most concepts naturally translate.
 
-If I'm successful, my readers will find ways to increase their productivity and find starting points to expand their knowledge.
+If I'm successful, my readers will find they can get more from the language and be more productive with it!
 
 ## Frequently Asked Questions
 
 ### Why Scala 2.12?
 
-Many teams still use Scala 2.12, and I want to pay attention to them. Most material written on Scala now uses the latest dialect, which makes sense: Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
+Many teams still use Scala 2.12, and I don't want to neglect them. They need support from experienced Scala users. However, most material written on Scala now uses the latest dialect. That's great, of course! Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. To that end, I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
 
 ### Why sbt?
+
+That is, instead of legacy build systems or more recent upstarts.
 
 [sbt][build-tool-sbt] (Simple Build Tool? Scala Build Tool?) has received a lot of criticism. While some of that criticism is valid, [Eugene Yokota][github-eugene-yokota] and his fellow contributors to the tool have done an outstanding job of understanding and addressing industry needs. As Scala 3 has answered complaints about Scala 2, modern versions of sbt have addressed its shortcomings from its early days.
 
