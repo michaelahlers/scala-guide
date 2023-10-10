@@ -18,7 +18,7 @@ Scala veterans will find this less helpful, but I'd encourage them to contribute
 
 ### [Better Interface Design with Types][better-interface-design-with-types]
 
-Directly inspired by a problem a mentee of mine needed to solve, this provides a crystal-clear illustration of how this technique can simplify an API and make obvious what a service does.
+Directly inspired by a problem a former mentee of mine needed to solve, this illustrates how exercising Scala's type system features can simplify an API and clarify how to use it.
 
 ### Range Representation
 
