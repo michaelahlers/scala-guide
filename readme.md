@@ -20,13 +20,13 @@ Scala veterans will find this less helpful, but I'd encourage them to contribute
 
 Inspired by a problem a former mentee of mine needed to solve, this illustrates how exercising Scala's type system features can simplify an API and clarify how to use it.
 
-### Range Representation
-
-_Coming soon._ Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. This example examines and improves upon an implementation I've seen in practice.
-
 ### Remember Your Numerics
 
 _Coming soon._ Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhaps without knowing it). Still, we need to remember how it (being a quintessential type class) unlocks swaths of built-in functionality like arithmetic operations (including inequalities) and sorting. In these examples, I'll show how we should use this concept instead of concrete class methods that are harder to write and less complete.
+
+### Semantic Range Representation
+
+_Coming soon._ Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
 
 [better-interface-design-with-types]: src/main/scala/betterInterfaceDesignWithTypes
 
