@@ -12,9 +12,13 @@ You're a newcomer, a curious and continuing learner, or ~~an engineer who wants 
 
 You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
 
-Scala veterans will find this less helpful, but I'd encourage them to contribute to this guide.
+Scala veterans will find this less helpful, but I'm eager for their feedback.
 
-## Given Examples
+And I hope everyone will submit [issues](https://github.com/michaelahlers/scala-examples/issues) or [pull-requests](https://github.com/michaelahlers/scala-examples/pulls)!
+
+## Case Studies
+
+You'll find all content on [this project's wiki](https://github.com/michaelahlers/scala-examples/wiki), but the following quickly reference a few highlights.
 
 ### [Better Interface Design with Types][better-interface-design-with-types]
 
@@ -22,13 +26,23 @@ Inspired by a problem a former mentee of mine needed to solve, this illustrates 
 
 ### Remember Your Numerics
 
-_Coming soon._ Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhaps without knowing it). Still, we need to remember how it (being a quintessential type class) unlocks swaths of built-in functionality like arithmetic operations (including inequalities) and sorting. In these examples, I'll show how we should use this concept instead of concrete class methods that are harder to write and less complete.
+Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhaps without knowing it). Still, we need to remember how it (being a quintessential type class) unlocks swaths of built-in functionality like arithmetic operations (including inequalities) and sorting. In these examples, I'll show how we should use this concept instead of concrete class methods that are harder to write and less complete.
+
+_Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/5.
 
 ### Semantic Range Representation
 
-_Coming soon._ Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
+Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
 
-[better-interface-design-with-types]: src/main/scala/betterInterfaceDesignWithTypes
+_Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/4.
+
+### Use Tuples Judiciously for Branching
+
+Quickly combining parameters into tuples and matching their arguments for branching is an appropriate use of Scala's features, but it doesn't scale. Overextending the arity can lead to confusing, buggy, and unmaintainable code. Luckily, Scala _wants_ you to introduce new data classes for this purpose eagerly.
+
+_Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
+
+[case-study-better-interface-design-with-types]: wiki/Case-Study:-Better-Interface-Design-with-Types
 
 ## The Problem
 
