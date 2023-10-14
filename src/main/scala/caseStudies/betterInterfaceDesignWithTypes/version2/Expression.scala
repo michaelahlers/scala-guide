@@ -1,4 +1,4 @@
-package betterInterfaceDesignWithTypes.version2
+package caseStudies.betterInterfaceDesignWithTypes.version2
 
 sealed trait Expression[+A]
 object Expression {
