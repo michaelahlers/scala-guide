@@ -48,7 +48,9 @@ _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
 Since I began using Scala professionally in 2012, it's become my favorite language. My views of this language and its associated tools are overwhelmingly positive—I've found it an elegant and powerful tool for solving all kinds of problems in various projects. Also, many professionals have shared their experiences about the language, and not all of it's as positive as mine.
 
-There's been extensive discussion from industry and academic thought leaders as to why Scala struggles to gain traction and what its proponents can do about it. (See also, [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes].) I won't repeat that here, but I'll offer my suggestions based on two recurring observations:
+There's been extensive discussion from industry and academic thought leaders as to why Scala struggles to gain traction and what its proponents can do about it.[^1] I won't repeat that here, but I'll offer my suggestions based on two recurring observations:
+
+[^1]: [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes]
 
 [journal-john-de-goes]: https://degoes.net/
 [john-de-goes-scala-resurrection]: https://degoes.net/articles/scala-resurrection
