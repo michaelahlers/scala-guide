@@ -82,8 +82,8 @@ In addition to demonstrating the language, I'll extensively use the tools and li
 
 If I'm successful, my readers will find they can get more from the language and be more productive with it!
 
-## Frequently Asked Questions
+## [Frequently Asked Questions][frequently-asked-questions]
 
-You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found at [_Frequently Asked Questions_][frequently-asked-questions].
+You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found [in the wiki at Frequently Asked Questions][frequently-asked-questions].
 
 [frequently-asked-questions]: ../../wiki/Frequently+Asked+Questions
