@@ -50,7 +50,7 @@ Since I began using Scala professionally in 2012, it's become my favorite langua
 
 There's been extensive discussion from industry and academic thought leaders as to why Scala struggles to gain traction and what its proponents can do about it.[^1] I won't repeat that here, but I'll offer my suggestions based on two recurring observations:
 
-[^1]: [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes]
+[^1]: A well-covered topic in [_Scala Resurrection_][john-de-goes-scala-resurrection] by [John de Goes][journal-john-de-goes].
 
 [journal-john-de-goes]: https://degoes.net/
 [john-de-goes-scala-resurrection]: https://degoes.net/articles/scala-resurrection
@@ -63,7 +63,7 @@ And so they miss returns on their investment. It's another topic worth exploring
 
 I've seen it happen enough that I feel compelled to address it. While Scala, by design, happily supports multiple paradigms (object-oriented and functional), no engineer will enjoy using it without thinking functional first and with too much reliance on, for example, mutable state, side effects, or breaking control flow with exceptions[^2]. These all have their utility (typically in optimization scenarios), but they're oil and water with a language like Scala and shouldn't be the first tools for which developers reach.
 
-[^2]: Exception throwing is, in reality, a (frustratingly persistent) kind of [go-to statement][wikipedia-considered-harmful]). We should avoid it as much as possible and [treat our errors as values][scala-book-functional-error-handling].
+[^2]: Exception throwing is, in reality, a (frustratingly persistent) kind of [go-to statement][wikipedia-considered-harmful]. We should avoid using this vestigial language feature as much as possible and [treat our errors as values][scala-book-functional-error-handling].
 
 [wikipedia-considered-harmful]: https://en.wikipedia.org/wiki/Considered_harmful
 [scala-book-functional-error-handling]: https://docs.scala-lang.org/scala3/book/fp-functional-error-handling.html
