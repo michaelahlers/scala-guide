@@ -1,6 +1,6 @@
 # Scala Guide
 
-Helpful recommendations and oractical solutions for the working professional.
+Helpful recommendations and practical solutions for the working professional.
 
 ## Introduction
 

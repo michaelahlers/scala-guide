@@ -1,5 +1,5 @@
 name := "Scala Guide"
-description := "Helpful recommendations and oractical solutions for the working professional."
+description := "Helpful recommendations and practical solutions for the working professional."
 
 ThisBuild / organization := "ahlers.scala-guide"
 ThisBuild / organizationName := "Michael Ahlers"
