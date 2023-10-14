@@ -44,7 +44,7 @@ Quickly combining parameters into tuples and matching their arguments for branch
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: ../../wiki/Case-Study:-Better-Interface-Design-with-Types
+[case-study-better-interface-design-with-types]: ../../wiki/Case-Study:+Better+Interface+Design+with+Types
 
 ## The Problem
 
@@ -84,6 +84,6 @@ If I'm successful, my readers will find they can get more from the language and 
 
 ## Frequently Asked Questions
 
-You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found at [_Frequently Asked Questions][frequently-asked-questions].
+You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found at [_Frequently Asked Questions_][frequently-asked-questions].
 
-[frequently-asked-questions]: ../../wiki/Frequently Asked Questions
+[frequently-asked-questions]: ../../wiki/Frequently+Asked+Questions
