@@ -1,4 +1,4 @@
-package betterInterfaceDesignWithTypes.setup
+package caseStudies.betterInterfaceDesignWithTypes.setup
 
 case class GetUsersRequest(
   givenName: Option[String],
