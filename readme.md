@@ -18,7 +18,7 @@ And I hope everyone will submit issues or pull-requests!
 
 ## Case Studies
 
-You'll find all content on [this project's wiki](https://github.com/michaelahlers/scala-examples/wiki), but the following quickly reference a few highlights.
+You'll find all content on [this project's wiki](../../wiki), but the following quickly reference a few highlights.
 
 ### [Better Interface Design with Types][case-study-better-interface-design-with-types]
 
