@@ -14,7 +14,7 @@ You all have day jobs, want to get work done, and don't want to be browbeaten by
 
 Scala veterans will find this less helpful, but I'm eager for their feedback.
 
-And I hope everyone will submit [issues](https://github.com/michaelahlers/scala-examples/issues) or [pull-requests](https://github.com/michaelahlers/scala-examples/pulls)!
+And I hope everyone will submit issues or pull-requests!
 
 ## Case Studies
 
