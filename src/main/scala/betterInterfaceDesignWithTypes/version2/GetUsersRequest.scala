@@ -1,7 +1,7 @@
 package betterInterfaceDesignWithTypes.version2
 
-import cats.data.NonEmptyList
 import GetUsersRequest.Predicate
+import cats.data.NonEmptyList
 
 case class GetUsersRequest(predicate: Predicate)
 object GetUsersRequest {
