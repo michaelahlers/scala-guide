@@ -20,7 +20,7 @@ And I hope everyone will contribute! See a problem or what to suggest a topic? R
 
 ### [Use Squants][advice-use-squants]
 
-[Squants][github-typelevel-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
+[Squants][advice-use-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
 
 [github-typelevel-squants]: https://github.com/typelevel/squants
 
