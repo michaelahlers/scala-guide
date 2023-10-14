@@ -20,7 +20,7 @@ And I hope everyone will submit [issues](https://github.com/michaelahlers/scala-
 
 You'll find all content on [this project's wiki](https://github.com/michaelahlers/scala-examples/wiki), but the following quickly reference a few highlights.
 
-### [Better Interface Design with Types][better-interface-design-with-types]
+### [Better Interface Design with Types][case-study-better-interface-design-with-types]
 
 Inspired by a problem a former mentee of mine needed to solve, this illustrates how exercising Scala's type system features can simplify an API and clarify how to use it.
 
