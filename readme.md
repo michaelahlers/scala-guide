@@ -16,11 +16,17 @@ Scala veterans will find this less helpful, but I'm eager for their feedback.
 
 And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
 
+## Advice
+
+### [Use Squants][advice-use-squants]
+
+[Squants][github-typelevel-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
+
+[github-typelevel-squants]: https://github.com/typelevel/squants
+
+[advice-use-squants]: ../../wiki/Advice:+Use+Squants
+
 ## Case Studies
-
-You'll find all content on [this project's wiki][ahlers-scala-guide-wiki], but the following reference a few highlights.
-
-[ahlers-scala-guide-wiki]: ../../wiki
 
 ### [Better Interface Design with Types][case-study-better-interface-design-with-types]
 
@@ -44,7 +50,7 @@ Quickly combining parameters into tuples and matching their arguments for branch
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: ../../wiki/Case-Study:+Better+Interface+Design+with+Types
+[case-study-better-interface-design-with-types]: ../../wiki/Case+Study:+Better+Interface+Design+with+Types
 
 ## The Problem
 
