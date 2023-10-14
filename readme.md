@@ -14,7 +14,7 @@ You all have day jobs, want to get work done, and don't want to be browbeaten by
 
 Scala veterans will find this less helpful, but I'm eager for their feedback.
 
-And I hope everyone will submit issues or pull-requests!
+And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
 
 ## Case Studies
 
