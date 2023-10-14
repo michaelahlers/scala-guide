@@ -1,4 +1,4 @@
-package generalSemanticRangeClass.setup
+package caseStudy.generalSemanticRangeClass.setup
 
 case class Range(
   minimum: Option[Value],
