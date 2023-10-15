@@ -2,25 +2,29 @@ package advice.useDiffx
 
 import advice.useDiffx.diffx.instances._
 import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
-import org.scalatest.flatspec.FixtureAnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
+import org.scalatest.wordspec.FixtureAnyWordSpec
 
-class GeteFulfillmentSpec extends FixtureAnyFlatSpec {
-  import GeteFulfillmentSpec.Fixtures
-  import GeteFulfillmentSpec.samples
+class GetFulfillmentSpec extends FixtureAnyWordSpec {
+  import GetFulfillmentSpec.Fixtures
+  import GetFulfillmentSpec.samples
 
-  "assertion failures".can("hard to understand") in { fixtures =>
-    import fixtures.getFulfillment
+  "Assertion errors" can {
 
-    getFulfillment.byId(samples.fulfillment.id)
-      .shouldEqual(Some(samples.fulfillment))
-  }
+    "be hard to read" in { fixtures =>
+      import fixtures.getFulfillment
 
-  it should "be easy to see the cause" in { fixtures =>
-    import fixtures.getFulfillment
+      getFulfillment.byId(samples.fulfillment.id)
+        .shouldEqual(Some(samples.fulfillment))
+    }
 
-    getFulfillment.byId(samples.fulfillment.id)
-      .shouldMatchTo(Some(samples.fulfillment))
+    "be easy to read" in { fixtures =>
+      import fixtures.getFulfillment
+
+      getFulfillment.byId(samples.fulfillment.id)
+        .shouldMatchTo(Some(samples.fulfillment))
+    }
+
   }
 
   override protected type FixtureParam = Fixtures
@@ -36,7 +40,7 @@ class GeteFulfillmentSpec extends FixtureAnyFlatSpec {
 
 }
 
-object GeteFulfillmentSpec {
+object GetFulfillmentSpec {
 
   case class Fixtures(
     getFulfillment: GetFulfillment,
