@@ -13,9 +13,9 @@ object Payment {
   object CreditCard {
 
     case class Number(
-      issuer: Int,
-      account: Int,
-      checkDigit: Int,
+                       issuerCode: Int,
+                       accountNumber: Int,
+                       checkDigit: Int,
     )
 
     case class Expiration(
