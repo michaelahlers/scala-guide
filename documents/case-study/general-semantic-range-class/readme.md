@@ -52,8 +52,11 @@ But what if both `left` and `right` are `None`? We quickly see a problem:
 
 https://github.com/michaelahlers/scala-guide/blob/6668df3e393bac435d310d42dc04c37b691e34c5/src/test/scala/caseStudy/genericSemanticRangeClass/setup/RangeSpec.scala#L33-L40
 
-> [!NOTE]
-> At this point, you might think, "Surely this is trivial," and I might agree.
+By now, you might think, "Surely this is trivial; it's not hard to handle _one_ more lousy case." And your author _would_ agree, except I've seen this "in the wild" and seen it cause bugs. Setting that aside, one of the primary goals of this guide is to help develop an ethos, ingraining into my readers the intuition and instincts to use types whenever practical to control the values our code will encounter tightly.
+
+As always, "Make invalid states impossible to represent."
+
+Let's press on.
 
 ### First Version
 
