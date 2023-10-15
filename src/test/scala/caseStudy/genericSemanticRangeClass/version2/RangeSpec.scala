@@ -4,11 +4,13 @@ import caseStudy.genericSemanticRangeClass.version2.Range.Bounded
 import caseStudy.genericSemanticRangeClass.version2.Range.LeftBounded
 import caseStudy.genericSemanticRangeClass.version2.Range.RightBounded
 import java.time.LocalDate
+import org.scalactic.Bad
 import org.scalatest.Inside._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
 
 class RangeSpec extends AnyFlatSpec {
+  import RangeSpec.orderingLocalDate
   import RangeSpec.samples
 
   it should "represent left-bounded ranges" in {
@@ -33,6 +35,26 @@ class RangeSpec extends AnyFlatSpec {
     }
   }
 
+  it should "not bound unordered types" in {
+
+    /** Phantom type that doesn't have an [[Ordering]]. */
+    trait Value
+    def left: Value = ???
+    def right: Value = ???
+
+    """Bounded(left, right)""".shouldNot(compile)
+  }
+
+  it should "not permit mismatched minimum and maximum bounds" in {
+    an[IllegalArgumentException] shouldBe thrownBy {
+      Bounded(samples.maximum, samples.minimum)
+    }
+  }
+
+  it should "foo" in {
+    Bounded.of(samples.maximum, samples.minimum) shouldBe a[Bad[_]]
+  }
+
 }
 
 object RangeSpec {
@@ -51,8 +73,8 @@ object RangeSpec {
   /**
    * Scala doesn't provide an [[Ordering]] of [[LocalDate]] out-of-the-box. Luckily, it's trivial to make one since [[LocalDate]] is a [[java.lang.Comparable]].
    */
-  implicit object orderingLocalDate extends Ordering[LocalDate] {
-    def compare(x: LocalDate, y: LocalDate) = x.compareTo(y)
+  implicit val orderingLocalDate: Ordering[LocalDate] = { (x: LocalDate, y: LocalDate) =>
+    x.compareTo(y)
   }
 
 }
