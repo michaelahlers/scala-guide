@@ -58,7 +58,7 @@ Whatever decisions we make, it's become easy to violate our invariants. When tha
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
-### Project Setup
+### Problem Setup
 
 Let's consider our service definition:
 
@@ -165,3 +165,9 @@ We've seen how Algebraic Data Types can help us design better interfaces, make i
 Also, note that the Scala compiler will catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
 
 Of course, your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
+
+## See also
+
+- [Case Study: Generic and Semantic Range Class][case-study-general-semantic-range-class]
+
+[case-study-general-semantic-range-class]: ../general-semantic-range-class/readme.md
