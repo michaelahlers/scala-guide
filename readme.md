@@ -56,7 +56,7 @@ Quickly combining parameters into tuples and matching their arguments for branch
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: documents/caseStudy/better-interface-design-with-types.md
+[case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types.md
 
 ## The Problem
 
