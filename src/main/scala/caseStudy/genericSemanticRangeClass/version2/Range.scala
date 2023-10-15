@@ -20,7 +20,7 @@ object Range {
   ) extends Range[A]
 
   /**
-   * @throws [[IllegalArgumentException]] if `minimum` is greater than `maximum`.
+   * @throws [[IllegalArgumentException]] if [[minimum]] is greater than [[maximum]].
    */
   case class Bounded[A: Ordering](
     minimum: A,
@@ -29,10 +29,11 @@ object Range {
     require(minimum <= maximum)
   }
 
-  /**
-   * @return A [[Good]] [[Bounded]] if `minimum` is less than or equal to `maximum`; otherwise, a [[Bad]].
-   */
   object Bounded {
+
+    /**
+     * @return A [[Good]] [[Bounded]] valid; otherwise, a [[Bad]].
+     */
     def of[A: Ordering](
       minimum: A,
       maximum: A,
@@ -42,6 +43,7 @@ object Range {
         case NonFatal(cause) =>
           Bad(cause.getMessage)
       }
+
   }
 
 }
