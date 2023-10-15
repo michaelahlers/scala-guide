@@ -16,45 +16,47 @@ Scala veterans will find this less helpful, but I'm eager for their feedback.
 
 And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
 
-## Advice
+## Table of Contents
 
-### [Use diffx][advice-use-diffx]
+### Advice
+
+#### [Use diffx][advice-use-diffx]
 
 [diffx][advice-use-diffx] makes test errors _much_ easier to read, especially when comparing nontrivial object graphs.
 
-[advice-use-diffx]: ../../wiki/Advice:+Use+diffx
+[advice-use-diffx]: documents/advice/use-diffx/readme.md
 
-### [Use Squants][advice-use-squants]
+#### [Use Squants][advice-use-squants]
 
 [Squants][advice-use-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
 
-[advice-use-squants]: ../../wiki/Advice:+Use+Squants
+[advice-use-squants]: documents/advice/use-squants/readme.md
 
-## Case Studies
+### Case Studies
 
-### [Better Interface Design with Types][case-study-better-interface-design-with-types]
+#### [Better Interface Design with Types][case-study-better-interface-design-with-types]
 
 Inspired by a problem a former mentee of mine needed to solve, this illustrates how exercising Scala's type system features can simplify an API and clarify how to use it.
 
-### Remember Your Numerics
+#### Remember Your Numerics
 
 Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhaps without knowing it). Still, we need to remember how it (being a quintessential type class) unlocks swaths of built-in functionality like arithmetic operations (including inequalities) and sorting. In these examples, I'll show how we should use this concept instead of concrete class methods that are harder to write and less complete.
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/5.
 
-### Semantic Range Representation
+#### Semantic Range Representation
 
 Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/4.
 
-### Use Tuples Judiciously for Branching
+#### Use Tuples Judiciously for Branching
 
 Quickly combining parameters into tuples and matching their arguments for branching is an appropriate use of Scala's features, but it doesn't scale. Overextending the arity can lead to confusing, buggy, and unmaintainable code. Luckily, Scala _wants_ you to introduce new data classes for this purpose eagerly.
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: ../../wiki/Case+Study:+Better+Interface+Design+with+Types
+[case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
 
 ## The Problem
 
@@ -96,4 +98,4 @@ If I'm successful, my readers will find they can get more from the language and 
 
 You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found [in the wiki at Frequently Asked Questions][frequently-asked-questions].
 
-[frequently-asked-questions]: ../../wiki/Frequently+Asked+Questions
+[frequently-asked-questions]: documents/frequently-asked-questions.md
