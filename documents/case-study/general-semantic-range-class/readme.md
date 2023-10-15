@@ -34,7 +34,7 @@ We need to represent a range of an arbitrary type to specify bounds that busines
 
 ## Exploring Solutions
 
-We probably already thought to author a `case class` to represent our range as a logical unit rather than pass around the left and right boundary values independently. `Option` seems a good choice to represent bounds, but far too often, `Option` (while extremely useful) is overloaded with unclear business concerns.[^2]
+We probably already thought to author a `case class` representing our range as a logical unit rather than pass around the left and right boundary values independently. `Option` seems a good choice to represent bounds, but far too often, `Option` (while extremely useful) is overloaded with unclear business concerns.[^2]
 
 [^2]: This is made clear by [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types].
 
@@ -52,13 +52,21 @@ But what if both `left` and `right` are `None`? We quickly see a problem:
 
 https://github.com/michaelahlers/scala-guide/blob/6668df3e393bac435d310d42dc04c37b691e34c5/src/test/scala/caseStudy/genericSemanticRangeClass/setup/RangeSpec.scala#L33-L40
 
-By now, you might think, "Surely this is trivial; it's not hard to handle _one_ more lousy case." And your author _would_ agree, except I've seen this "in the wild" and seen it cause bugs. Setting that aside, one of the primary goals of this guide is to help develop an ethos, ingraining into my readers the intuition and instincts to use types whenever practical to control the values our code will encounter tightly.
+By now, you might think, "Surely this is trivial; it's not hard to handle _one_ more lousy case." And your author _would_ agree, except I've seen this "in the wild" _and_ seen it cause bugs. Setting that aside, one of the primary goals of this guide is to help develop an ethos, ingraining into my readers the intuition and instincts to use types whenever practical to control the values our code will encounter tightly.
 
-As always, "Make invalid states impossible to represent."
+If we're embracing the "make invalid states impossible to represent," let's also assume at this point that an unbounded range is counterproductive to our requirements.
 
-Let's press on.
+Let's press on!
 
 ### First Version
+
+This'll be quick! Defining `sealed trait Range[A]` and _only_ the cases that make sense for our needs, we get this:
+
+https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a9819862e2b2c6/src/main/scala/caseStudy/genericSemanticRangeClass/version1/Range.scala#L3-L19
+
+And anyone reading this code can immediately understand what our cases mean:
+
+https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a9819862e2b2c6/src/test/scala/caseStudy/genericSemanticRangeClass/version1/RangeSpec.scala#L14-L34
 
 ## See also
 
