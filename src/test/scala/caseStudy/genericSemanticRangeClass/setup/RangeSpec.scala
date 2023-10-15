@@ -10,29 +10,30 @@ class RangeSpec extends AnyFlatSpec {
 
   it should "represent left-bounded ranges" in {
     inside(samples.leftBounded) {
-      case Range(Some(minimum), None) =>
-        minimum.shouldBe(samples.left)
+      case Range(Some(left), None) =>
+        left.shouldBe(samples.left)
     }
   }
 
   it should "represent right-bounded ranges" in {
     inside(samples.rightBounded) {
-      case Range(None, Some(maximum)) =>
-        maximum.shouldBe(samples.right)
+      case Range(None, Some(right)) =>
+        right.shouldBe(samples.right)
     }
   }
 
   it should "represent bounded ranges" in {
     inside(samples.bounded) {
-      case Range(Some(minimum), Some(maximum)) =>
-        minimum.shouldBe(samples.left)
-        maximum.shouldBe(samples.right)
+      case Range(Some(left), Some(right)) =>
+        left.shouldBe(samples.left)
+        right.shouldBe(samples.right)
     }
   }
 
+  /** Yes, [[Range]] ''can'' represent this state, but should it? Does it make sense for our business needs? */
   it can "represent unbounded ranges" in {
-    inside(samples.bounded) {
-      case Range(None,None) =>
+    inside(samples.unbounded) {
+      case Range(None, None) =>
     }
   }
 
@@ -45,9 +46,10 @@ object RangeSpec {
     val left: LocalDate = LocalDate.of(2023, 1, 1)
     val right: LocalDate = left.plusDays(10)
 
-    val leftBounded = Range(Some(left), None)
-    val rightBounded = Range(None, Some(right))
-    val bounded = Range(Some(left), Some(right))
+    val leftBounded: Range[LocalDate] = Range(Some(left), None)
+    val rightBounded: Range[LocalDate] = Range(None, Some(right))
+    val bounded: Range[LocalDate] = Range(Some(left), Some(right))
+    val unbounded: Range[Nothing] = Range(None, None)
 
   }
 
