@@ -30,7 +30,7 @@ And I hope everyone will contribute! See a problem or what to suggest a topic? R
 
 [Squants][advice-use-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
 
-[advice-use-squants]: documents/advice/use-diffx/readme.md
+[advice-use-squants]: documents/advice/use-squants/readme.md
 
 ### Case Studies
 
