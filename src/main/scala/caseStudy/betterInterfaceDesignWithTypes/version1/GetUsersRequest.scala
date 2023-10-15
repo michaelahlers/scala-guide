@@ -1,4 +1,4 @@
-package caseStudies.betterInterfaceDesignWithTypes.version1
+package caseStudy.betterInterfaceDesignWithTypes.version1
 
 sealed trait GetUsersRequest
 object GetUsersRequest {
