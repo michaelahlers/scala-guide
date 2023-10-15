@@ -40,6 +40,21 @@ We probably already thought to author a `case class` to represent our range as a
 
 ### Problem Setup
 
+Our intuitive `Range` seems completely obvious:
+
+https://github.com/michaelahlers/scala-guide/blob/d5c69c6674958f7e988897f3c659b09b73fb9073/src/main/scala/caseStudy/genericSemanticRangeClass/setup/Range.scala#L3-L6
+
+As do it's typical uses:
+
+https://github.com/michaelahlers/scala-guide/blob/d5c69c6674958f7e988897f3c659b09b73fb9073/src/test/scala/caseStudy/genericSemanticRangeClass/setup/RangeSpec.scala#L11-L31
+
+But what if both `left` and `right` are `None`? We quickly see a problem:
+
+https://github.com/michaelahlers/scala-guide/blob/6668df3e393bac435d310d42dc04c37b691e34c5/src/test/scala/caseStudy/genericSemanticRangeClass/setup/RangeSpec.scala#L33-L40
+
+> [!NOTE]
+> At this point, you might think, "Surely this is trivial," and I might agree.
+
 ### First Version
 
 ## See also
