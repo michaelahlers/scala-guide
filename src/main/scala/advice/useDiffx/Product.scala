@@ -1,9 +1,6 @@
 package advice.useDiffx
 
-import advice.useDiffx.Product.Kind
-import advice.useDiffx.Product.Make
-import advice.useDiffx.Product.Model
-import advice.useDiffx.Product.Year
+import advice.useDiffx.Product.{Kind, Make, Model, Year}
 
 case class Product(
   kind: Kind,
