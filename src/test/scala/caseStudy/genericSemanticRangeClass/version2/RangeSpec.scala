@@ -3,13 +3,13 @@ package caseStudy.genericSemanticRangeClass.version2
 import caseStudy.genericSemanticRangeClass.version2.Range.Bounded
 import caseStudy.genericSemanticRangeClass.version2.Range.LeftBounded
 import caseStudy.genericSemanticRangeClass.version2.Range.RightBounded
+import caseStudy.genericSemanticRangeClass.version2.syntax._
 import java.time.LocalDate
 import org.scalactic.Bad
 import org.scalactic.Good
 import org.scalatest.Inside._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
-import syntax._
 
 class RangeSpec extends AnyFlatSpec {
   import RangeSpec.orderingLocalDate
@@ -39,7 +39,7 @@ class RangeSpec extends AnyFlatSpec {
 
   it should "not bound unordered types" in {
 
-    /** Phantom type that doesn't have an [[Ordering]]. */
+    /** Phantom type; it doesn't matter what this is so long as it doesn't have an [[Ordering]]. */
     trait Value
     def left: Value = ???
     def right: Value = ???
