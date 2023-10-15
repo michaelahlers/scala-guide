@@ -1,4 +1,4 @@
-package caseStudies.betterInterfaceDesignWithTypes.setup
+package caseStudy.betterInterfaceDesignWithTypes.setup
 
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.funspec.FixtureAnyFunSpec

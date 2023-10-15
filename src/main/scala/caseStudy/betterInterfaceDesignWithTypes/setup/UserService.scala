@@ -1,4 +1,4 @@
-package caseStudies.betterInterfaceDesignWithTypes.version1
+package caseStudy.betterInterfaceDesignWithTypes.setup
 
 trait UserService {
   def getUsers(request: GetUsersRequest): GetUsersResponse

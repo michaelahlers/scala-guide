@@ -1,4 +1,4 @@
-package caseStudies.betterInterfaceDesignWithTypes.version2
+package caseStudy.betterInterfaceDesignWithTypes.version2
 
 import GetUsersRequest.Predicate
 import cats.data.NonEmptyList
