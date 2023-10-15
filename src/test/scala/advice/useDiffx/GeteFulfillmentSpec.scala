@@ -5,9 +5,9 @@ import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
 import org.scalatest.flatspec.FixtureAnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
 
-class ExampleSpec extends FixtureAnyFlatSpec {
-  import ExampleSpec.Fixtures
-  import ExampleSpec.samples
+class GeteFulfillmentSpec extends FixtureAnyFlatSpec {
+  import GeteFulfillmentSpec.Fixtures
+  import GeteFulfillmentSpec.samples
 
   "assertion failures".can("hard to understand") in { fixtures =>
     import fixtures.getFulfillment
@@ -36,7 +36,7 @@ class ExampleSpec extends FixtureAnyFlatSpec {
 
 }
 
-object ExampleSpec {
+object GeteFulfillmentSpec {
 
   case class Fixtures(
     getFulfillment: GetFulfillment,
@@ -58,16 +58,10 @@ object ExampleSpec {
       cart = Cart(
         products = Seq(
           Product(
-            kind = Kind("kind"),
-            make = Make("make"),
-            model = Model("model"),
-            year = Year("year"),
-          ),
-          Product(
-            kind = Kind("kind"),
-            make = Make("make"),
-            model = Model("model"),
-            year = Year("year"),
+            kind = Kind("bicycle"),
+            make = Make("Pinarello"),
+            model = Model("F10"),
+            year = Year(2019),
           ),
         ),
       ),
