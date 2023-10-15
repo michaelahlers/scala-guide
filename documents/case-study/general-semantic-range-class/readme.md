@@ -70,6 +70,26 @@ And anyone reading this code can immediately understand what our cases mean:
 
 https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a9819862e2b2c6/src/test/scala/caseStudy/genericSemanticRangeClass/version1/RangeSpec.scala#L14-L34
 
+### Second Version
+
+If you're satisfied with the previous version, this might be superfluous. It's a bonus round for anyone wanting to explore a few more features of the Scala language.
+
+Consider how context bounds and [extension methods][glossary-extension-methods] can make our `Range` type safer and easier to use.
+
+In what way is it safer? Consider the `Bounded` type. It _could_ represent an exclusionary range where `left` is greater than `right`, but let's skip theory for a moment and impose a hard constraint:
+
+https://github.com/michaelahlers/scala-guide/blob/557b25d10a16b7a5a7b1dbd0d1e850b5fbe043bd/src/main/scala/caseStudy/genericSemanticRangeClass/version2/Range.scala#L22-L30
+
+Note how we've imposed a context bound of `Ordering` on `A`, which means we _must_ have an implicit `Ordering` in scope to construct an instance. We don't need to introduce a symbol (the context bound notation essentially makes the implicit value anonymous) for that `Ordering` since it's used by the `<=`, provided by an implicit infix operator given to us by the language.
+
+If we attempt to construct an invalid `Bounded`, an `IllegalArgumentException` will be thrown. Before you point out how this violates my incessant claims we avoid throwing exceptions, this example also provides a factory function that captures errors as values:
+
+https://github.com/michaelahlers/scala-guide/blob/557b25d10a16b7a5a7b1dbd0d1e850b5fbe043bd/src/main/scala/caseStudy/genericSemanticRangeClass/version2/Range.scala#L34-L45
+
+And our tests bear that out:
+
+https://github.com/michaelahlers/scala-guide/blob/557b25d10a16b7a5a7b1dbd0d1e850b5fbe043bd/src/test/scala/caseStudy/genericSemanticRangeClass/version2/RangeSpec.scala#L50-L58
+
 ## See also
 
 - [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types]
