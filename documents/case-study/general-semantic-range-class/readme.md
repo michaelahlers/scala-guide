@@ -34,9 +34,9 @@ We need to represent a range of an arbitrary type to specify bounds that busines
 
 ## Exploring Solutions
 
-We probably already thought to author a `case class` to represent our range as a logical unit rather than pass around the left and right boundary values independently. `Option` seems a good choice to represent bounds, but far too often, `Option` (while extremely useful) is overloaded with unclear business concerns.[^1]
+We probably already thought to author a `case class` to represent our range as a logical unit rather than pass around the left and right boundary values independently. `Option` seems a good choice to represent bounds, but far too often, `Option` (while extremely useful) is overloaded with unclear business concerns.[^2]
 
-[^1]: This is made clear by [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types].
+[^2]: This is made clear by [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types].
 
 ### Problem Setup
 
