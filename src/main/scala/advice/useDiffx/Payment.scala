@@ -2,9 +2,7 @@ package advice.useDiffx
 
 sealed trait Payment
 object Payment {
-  import CreditCard.Expiration
-  import CreditCard.Number
-  import CreditCard.Security
+  import CreditCard.{Expiration, Number, Security}
 
   case object Cash extends Payment
   case class CreditCard(
