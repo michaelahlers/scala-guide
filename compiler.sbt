@@ -1,9 +1,8 @@
-ThisBuild / scalacOptions ++= {
-  CrossVersion.partialVersion(scalaVersion.value) match {
-    case Some((2, 12)) =>
-      "-Ypartial-unification" ::
-        Nil
-    case _ =>
-      Nil
-  }
-}
+import org.typelevel.scalacoptions.ScalacOptions
+
+tpolecatScalacOptions += ScalacOptions.privatePartialUnification
+
+Test / tpolecatExcludeOptions += ScalacOptions.warnUnusedLocals
+Test / tpolecatExcludeOptions += ScalacOptions.warnNonUnitStatement
+
+Test / tpolecatExcludeOptions += ScalacOptions.privateWarnUnusedLocals
