@@ -12,7 +12,7 @@ While hardly a concept specific to Scala, the language supports them naturally, 
 
 There are volumes of quality material on Algebraic Data Types, so rather than repeat better authors here, the reader can refer to these articles:
 
-- [_Algebraic Data Types (ADT) in Scala_ by Daniel Ciocîrlan for _Rock the JVM_](https://blog.rockthejvm.com/algebraic-data-types/)
+- [_Algebraic Data Types (ADT) in Scala_ by Daniel Ciocîrlan for "Rock the JVM"](https://blog.rockthejvm.com/algebraic-data-types/)
 - [_Algebraic Data Types in Scala_ for baeldung](https://www.baeldung.com/scala/algebraic-data-types)
 - [_Algebraic Data Types_ by Nicolas Rinaudo](https://nrinaudo.github.io/scala-best-practices/definitions/adt.html)
 - [_Algebraic Data Types in Scala_ by Shannon Barnes](https://medium.com/@shannonbarnes_85491/algebraic-data-types-in-scala-701f3227fe91)
