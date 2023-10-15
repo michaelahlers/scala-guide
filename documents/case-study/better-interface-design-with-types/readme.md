@@ -58,6 +58,21 @@ Whatever decisions we make, it's become easy to violate our invariants. When tha
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
+<<<<<<< HEAD
+### Problem Setup
+
+Let's consider our service definition:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserService.scala#L3-L5
+
+That already searches by their given and family names:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/GetUsersRequest.scala#L3-L6
+
+As explained, we quickly see deficiencies from the consumer's perspective:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
+=======
 ### Project Setup
 
 Let's consider our service definition:
@@ -71,6 +86,7 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 As explained, we quickly see deficiencies from the consumer's perspective:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
+>>>>>>> origin/main
 
 And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
 
@@ -93,6 +109,21 @@ As discussed previously, we (specifically, our service's consumers) must wonder 
 
 Same service as before:
 
+<<<<<<< HEAD
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
+
+Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/Expression.scala#L3-L15
+
+Then, use them to make a `GetUsersRequest` that's expressive and intuitive:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/GetUsersRequest.scala#L3-L21
+
+Which makes our use cases abundantly clear:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
+=======
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
@@ -106,6 +137,7 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 Which makes our use cases abundantly clear:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
+>>>>>>> origin/main
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -132,6 +164,21 @@ Let's state upfront: this approach is probably overkill. I'm giving it to inspir
 
 Once again, the same service:
 
+<<<<<<< HEAD
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
+
+And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/Expression.scala#L3-L14
+
+But now we introduce predicates to our request envelope, which may be composed with a lightweight `implicit` syntax:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/GetUsersRequest.scala#L6-L47
+
+With our newfound expressive capabilities, we can describe any query we want:
+
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
+=======
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
 
 And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
@@ -145,6 +192,7 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 With our newfound expressive capabilities, we can describe any query we want:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
+>>>>>>> origin/main
 
 Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
@@ -165,3 +213,12 @@ We've seen how Algebraic Data Types can help us design better interfaces, make i
 Also, note that the Scala compiler will catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
 
 Of course, your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
+<<<<<<< HEAD
+
+## See also
+
+- [Case Study: Generic and Semantic Range Class][case-study-general-semantic-range-class]
+
+[case-study-general-semantic-range-class]: ../general-semantic-range-class/readme.md
+=======
+>>>>>>> origin/main
