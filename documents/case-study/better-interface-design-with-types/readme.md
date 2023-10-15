@@ -62,15 +62,15 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 Let's consider our service definition:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserService.scala#L3-L5
 
 That already searches by their given and family names:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/GetUsersRequest.scala#L3-L6
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/setup/GetUsersRequest.scala#L3-L6
 
 As explained, we quickly see deficiencies from the consumer's perspective:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
 
 And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
 
@@ -93,19 +93,19 @@ As discussed previously, we (specifically, our service's consumers) must wonder 
 
 Same service as before:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/Expression.scala#L3-L15
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/Expression.scala#L3-L15
 
 Then, use them to make a `GetUsersRequest` that's expressive and intuitive:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/GetUsersRequest.scala#L3-L21
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/GetUsersRequest.scala#L3-L21
 
 Which makes our use cases abundantly clear:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -132,19 +132,19 @@ Let's state upfront: this approach is probably overkill. I'm giving it to inspir
 
 Once again, the same service:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
 
 And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/Expression.scala#L3-L14
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/Expression.scala#L3-L14
 
 But now we introduce predicates to our request envelope, which may be composed with a lightweight `implicit` syntax:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/GetUsersRequest.scala#L6-L47
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/GetUsersRequest.scala#L6-L47
 
 With our newfound expressive capabilities, we can describe any query we want:
 
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
+https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
 
 Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
