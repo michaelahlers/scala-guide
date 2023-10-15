@@ -6,16 +6,6 @@ Helpful recommendations and practical solutions for the working professional.
 
 I want to help developers better use Scala in their daily work. This repository aims to provide real-world, concrete examples that exercise Scala's key features and patterns without burying my audience in theory. These are borne of more than a decade of experience with many teams using the language and numerous tools typically associated.
 
-## My Reader
-
-You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
-
-You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
-
-Scala veterans will find this less helpful, but I'm eager for their feedback.
-
-And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
-
 ## Table of Contents
 
 ### Advice
@@ -58,6 +48,22 @@ _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
 [case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
 
+### [Frequently Asked Questions][frequently-asked-questions]
+
+You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found [in the wiki at Frequently Asked Questions][frequently-asked-questions].
+
+[frequently-asked-questions]: documents/frequently-asked-questions.md
+
+## My Reader
+
+You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
+
+You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
+
+Scala veterans will find this less helpful, but I'm eager for their feedback.
+
+And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
+
 ## The Problem
 
 Since I began using Scala professionally in 2012, it's become my favorite language. My views of this language and its associated tools are overwhelmingly positive—I've found it an elegant and powerful tool for solving all kinds of problems in various projects. Also, many professionals have shared their experiences about the language, and not all of it's as positive as mine.
@@ -93,9 +99,3 @@ I'm not competing with similar resources that expound on academic considerations
 In addition to demonstrating the language, I'll extensively use the tools and libraries I've found most helpful in my experience. While that incurs strong opinions, most concepts naturally translate.
 
 If I'm successful, my readers will find they can get more from the language and be more productive with it!
-
-## [Frequently Asked Questions][frequently-asked-questions]
-
-You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found [in the wiki at Frequently Asked Questions][frequently-asked-questions].
-
-[frequently-asked-questions]: documents/frequently-asked-questions.md
