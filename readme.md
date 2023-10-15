@@ -34,11 +34,9 @@ Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhap
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/5.
 
-#### Generic and Semantic Range Representation
+#### [Generic and Semantic Range Representation][case-study-generic-semantic-range-class]
 
 Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
-
-_Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/4.
 
 #### Use Tuples Judiciously for Branching
 
@@ -46,24 +44,8 @@ Quickly combining parameters into tuples and matching their arguments for branch
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
-[case-study-generic-and-semantic-range-class]: documents/case-study/general-semantic-range-class/readme.md
-
-### [Frequently Asked Questions][frequently-asked-questions]
-
-You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found under [Frequently Asked Questions][frequently-asked-questions].
-
-[frequently-asked-questions]: documents/frequently-asked-questions.md
-
-## My Reader
-
-You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
-
-You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
-
-Scala veterans will find this less helpful, but I'm eager for their feedback.
-
-And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
+[case-study-better-interface-design-with-types]: ../../wiki/Case-Study:+Better+Interface+Design+with+Types
+[case-study-generic-semantic-range-class]: documents/case-study/general-semantic-range-class/readme.md
 
 ## The Problem
 
