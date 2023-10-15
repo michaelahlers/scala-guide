@@ -57,7 +57,7 @@ You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT
 
 You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
 
-You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary (and explain it in terms even I can understand).
+You all have day jobs, want to get work done, and don't want to be overwhelmed with academics or expected to live on the bleeding edge. For those inclined, there's a world of material for you. I need you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary (and explain in terms even _I_ can understand).
 
 Scala veterans will find this less helpful, but I'm eager for their feedback.
 
