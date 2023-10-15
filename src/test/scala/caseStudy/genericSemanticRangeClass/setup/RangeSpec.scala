@@ -30,7 +30,9 @@ class RangeSpec extends AnyFlatSpec {
     }
   }
 
-  /** Yes, [[Range]] ''can'' represent this state, but should it? Does it make sense for our business needs? */
+  /**
+   * Yes, [[Range]] ''can'' represent this state, but should it? Does it make sense for our business needs? Is this an error case tempting consumers to `throw` an [[IllegalArgumentException exception]]?
+   */
   it can "represent unbounded ranges" in {
     inside(samples.unbounded) {
       case Range(None, None) =>
