@@ -23,8 +23,8 @@ Hopefully, that's all it took to sell you on this valuable utility. It's redunda
 [github-softwaremill-diffx]: https://github.com/softwaremill/diffx
 [read-the-docs-diffx]: https://diffx-scala.readthedocs.io/
 
-[illustration-hard-to-read]: https://github.com/michaelahlers/scala-guide/assets/2034877/9ff910c2-bee2-4b4d-ae07-f4ce5fceceaa
-[illustration-easy-to-read]: https://github.com/michaelahlers/scala-guide/assets/2034877/e6b635a3-3ffd-4e15-8909-8105fc12467f
+[illustration-hard-to-read]: hard-to-read.png
+[illustration-easy-to-read]: easy-to-read.png
 
 ## Sources
 
