@@ -22,6 +22,22 @@ I want to help developers better use Scala in their daily work. This repository 
 
 [advice-use-squants]: documents/advice/use-squants/readme.md
 
+### [Frequently Asked Questions][frequently-asked-questions]
+
+You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found under [Frequently Asked Questions][frequently-asked-questions].
+
+[frequently-asked-questions]: documents/frequently-asked-questions.md
+
+## My Reader
+
+You're a newcomer, a curious and continuing learner, or ~~an engineer who wants a better experience~~ (I'll be honest) you're frustrated and aren't having a good time. Especially in that last case, I'm here to help you and want you to give Scala a fair chance. You might be surprised at how easy it can make solving difficult problems.
+
+You all have day jobs, want to get work done, and don't want to be browbeaten by academics. For those inclined, there's a world of material for you. I expect you to pick up a bit of theory here, but I'll work to keep it to the bare minimum necessary and explain it in terms even I can understand.
+
+Scala veterans will find this less helpful, but I'm eager for their feedback.
+
+And I hope everyone will contribute! See a problem or what to suggest a topic? Report an issue. Want to contribute yourself? Please submit a pull-request!
+
 ### Case Studies
 
 #### [Better Interface Design with Types][case-study-better-interface-design-with-types]
