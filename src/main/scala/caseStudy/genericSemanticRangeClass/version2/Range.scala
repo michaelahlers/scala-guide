@@ -36,7 +36,7 @@ object Range {
     def of[A: Ordering](
       minimum: A,
       maximum: A,
-    ): Range[A] Or ErrorMessage =
+    ): Bounded[A] Or ErrorMessage =
       try Good(Bounded(minimum, maximum))
       catch {
         case NonFatal(cause) =>

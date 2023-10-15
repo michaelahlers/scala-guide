@@ -5,9 +5,11 @@ import caseStudy.genericSemanticRangeClass.version2.Range.LeftBounded
 import caseStudy.genericSemanticRangeClass.version2.Range.RightBounded
 import java.time.LocalDate
 import org.scalactic.Bad
+import org.scalactic.Good
 import org.scalatest.Inside._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
+import syntax._
 
 class RangeSpec extends AnyFlatSpec {
   import RangeSpec.orderingLocalDate
@@ -16,22 +18,22 @@ class RangeSpec extends AnyFlatSpec {
   it should "represent left-bounded ranges" in {
     inside(samples.leftBounded) {
       case LeftBounded(minimum) =>
-        minimum.shouldBe(samples.minimum)
+        minimum shouldBe samples.today
     }
   }
 
   it should "represent right-bounded ranges" in {
     inside(samples.rightBounded) {
       case RightBounded(right) =>
-        right.shouldBe(samples.maximum)
+        right shouldBe samples.nextWeek
     }
   }
 
   it should "represent bounded ranges" in {
     inside(samples.bounded) {
       case Bounded(minimum, maximum) =>
-        minimum.shouldBe(samples.minimum)
-        maximum.shouldBe(samples.maximum)
+        minimum shouldBe samples.today
+        maximum shouldBe samples.nextWeek
     }
   }
 
@@ -42,17 +44,35 @@ class RangeSpec extends AnyFlatSpec {
     def left: Value = ???
     def right: Value = ???
 
-    """Bounded(left, right)""".shouldNot(compile)
+    """Bounded(left, right)""" shouldNot compile
   }
 
   it should "not permit mismatched minimum and maximum bounds" in {
     an[IllegalArgumentException] shouldBe thrownBy {
-      Bounded(samples.maximum, samples.minimum)
+      Bounded(samples.nextWeek, samples.today)
     }
   }
 
-  it should "foo" in {
-    Bounded.of(samples.maximum, samples.minimum) shouldBe a[Bad[_]]
+  it should "report bounding error as value" in {
+    Bounded.of(samples.nextWeek, samples.today) shouldBe a[Bad[_]]
+  }
+
+  it should "provide syntax for constructing ranges" in {
+    inside(samples.today.minimum) {
+      case LeftBounded(minimum) =>
+        minimum shouldBe samples.today
+    }
+
+    inside(samples.nextWeek.maximum) {
+      case RightBounded(maximum) =>
+        maximum shouldBe samples.nextWeek
+    }
+
+    inside(samples.today.bounded(samples.nextWeek)) {
+      case Good(Bounded(minimum, maximum)) =>
+        minimum shouldBe samples.today
+        maximum shouldBe samples.nextWeek
+    }
   }
 
 }
@@ -61,12 +81,12 @@ object RangeSpec {
 
   object samples {
 
-    val minimum: LocalDate = LocalDate.of(2023, 1, 1)
-    val maximum: LocalDate = minimum.plusDays(10)
+    val today: LocalDate = LocalDate.now()
+    val nextWeek: LocalDate = today.plusDays(7)
 
-    val leftBounded: Range[LocalDate] = LeftBounded(minimum)
-    val rightBounded: Range[LocalDate] = RightBounded(maximum)
-    val bounded: Range[LocalDate] = Bounded(minimum, maximum)
+    val leftBounded: Range[LocalDate] = LeftBounded(today)
+    val rightBounded: Range[LocalDate] = RightBounded(nextWeek)
+    val bounded: Range[LocalDate] = Bounded(today, nextWeek)
 
   }
 
