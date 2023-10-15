@@ -14,14 +14,16 @@ class GetFulfillmentSpec extends FixtureAnyWordSpec {
     "be hard to read" in { fixtures =>
       import fixtures.getFulfillment
 
-      getFulfillment.byId(samples.fulfillment.id)
+      getFulfillment
+        .byId(samples.fulfillment.id)
         .shouldEqual(Some(samples.fulfillment))
     }
 
     "be easy to read" in { fixtures =>
       import fixtures.getFulfillment
 
-      getFulfillment.byId(samples.fulfillment.id)
+      getFulfillment
+        .byId(samples.fulfillment.id)
         .shouldMatchTo(Some(samples.fulfillment))
     }
 
