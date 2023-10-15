@@ -18,8 +18,8 @@ Here, we'll explore a hypothetical situation where we want to increase the capab
 - [`sealed` types][scala-pattern-matching]
 - [Extension Methods][glossary-extension-methods]
 
-[glossary-algebraic-data-types]: ../glossary/algebraic-data-types.md
-[glossary-extension-methods]: ../glossary/extension-methods.md
+[glossary-algebraic-data-types]: ../../glossary/algebraic-data-types.md
+[glossary-extension-methods]: ../../glossary/extension-methods.md
 [scala-variances]: https://docs.scala-lang.org/tour/variances.html
 [scala-pattern-matching]: https://docs.scala-lang.org/tour/pattern-matching.html
 
