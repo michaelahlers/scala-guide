@@ -16,7 +16,7 @@ ThisBuild / libraryDependencies +=
  * @see [[https://github.com/softwaremill/quicklens]]
  */
 ThisBuild / libraryDependencies ++=
-  "com.softwaremill.quicklens" % "quicklens_2.13" % "1.9.6" ::
+  "com.softwaremill.quicklens" %% "quicklens" % "1.9.6" ::
     Nil
 
 /**
