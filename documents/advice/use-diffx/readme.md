@@ -28,8 +28,8 @@ Hopefully, that's all it took to sell you on this valuable utility. It's redunda
 
 ## Sources
 
-- [`src/main/scala/advice/useDiffx`](https://github.com/michaelahlers/scala-guide/tree/dfbeaafccdd66799583f2f9fcca8adcaee93e254/src/main/scala/advice/useDiffx)
-- [`src/test/scala/advice/useDiffx`](https://github.com/michaelahlers/scala-guide/tree/dfbeaafccdd66799583f2f9fcca8adcaee93e254/src/test/scala/advice/useDiffx)
+- [`src/main/scala/advice/useDiffx`](https://github.com/michaelahlers/scala-guide/tree/main/src/main/scala/advice/useDiffxx)
+- [`src/test/scala/advice/useDiffx`](https://github.com/michaelahlers/scala-guide/tree/main/src/test/scala/advice/useDiffx)
 
 ## Caveats
 
@@ -50,39 +50,15 @@ A pattern I've found works well: following a packaging convention used by many p
 
 First, define your `Diff` instances in an appropriately namespaced `object`:
 
-```scala
-package advice.useDiffx.diffx
+https://github.com/michaelahlers/scala-guide/blob/32f375248d1da911fd12e95902744d9a90a3a267/src/test/scala/advice/useDiffx/diffx/instances.scala
 
-import advice.useDiffx.Fulfillment
-import com.softwaremill.diffx.Diff
-import com.softwaremill.diffx.generic.auto._
+In your tests, avoid derivation entirely; import your `Diff` instances:
 
-object instances {
+https://github.com/michaelahlers/scala-guide/blob/32f375248d1da911fd12e95902744d9a90a3a267/src/test/scala/advice/useDiffx/GetFulfillmentSpec.scala#L3-L4
 
-  /** You may wish to derive parts of the object graph should the need arise to compare isolated parts.*/
-  implicit val diffProduct: Diff[Product] =
-    Diff.summon[Product]
+And apply your preferred matching:
 
-  /** Otherwise, you can benefit from automatic derivation apart from test code. */
-  implicit val diffFulfillment: Diff[Fulfillment] =
-    Diff.summon[Fulfillment]
-}
-```
-
-In your tests, avoid derivation entirely; import your `Diff` instances and whatever matching syntax you prefer. For example:
-
-```scala
-package advice.useDiffx
-
-import advice.useDiffx.diffx.instances._
-import com.softwaremill.diffx._
-import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
-
-def expected: Fulfillment = ???
-def actual: Fulfillment = ???
-
-compare(actual, expected)
-```
+https://github.com/michaelahlers/scala-guide/blob/32f375248d1da911fd12e95902744d9a90a3a267/src/test/scala/advice/useDiffx/GetFulfillmentSpec.scala#L22-L28
 
 This approach provides a few benefits:
 
