@@ -42,7 +42,7 @@ We immediately have questions.
 
 What does optionality mean here? Is `None` a wildcard? Does it match on absence? If `Some`, does it match exactly? On a substring? Or something else?
 
-Are we forming a union or intersection query? (_I.e._, is it `givenName` _and_ `familyName`, or `givenName` _and_ `familyName`?)
+Are we forming a union or intersection query? (_I.e._, is it `givenName` _or_ `familyName`, or `givenName` _and_ `familyName`?)
 
 What happens when both parameters are `None`? Do we get no users or all of them? If we get no users, that presents a surprising special case.
 
