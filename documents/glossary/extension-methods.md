@@ -1,4 +1,6 @@
-# Summary
+# Glossary: Extension Methods
+
+## Summary
 
 Several terms have entered the lexicon to describe this pattern: "implicit method injection," "implicit syntax," or denoting a class with operators "rich" (_e.g._, `RichUser`), to name a few, but they're now formally known (in Scala 3) as [extension methods][scala-extension-methods].
 
@@ -6,7 +8,7 @@ The premise is simple: make applying functions to values more fluent without int
 
 Let's illustrate this.
 
-# Scala 2
+## Scala 2
 
 While the ergonomics _feel_ natural, we generally avoid adding methods to data classes as we're essentially marrying business logic with our models (never mind how we can't easily add methods to classes we don't own except by using inheritance and [delegation][wikipedia-delegation-pattern]):
 

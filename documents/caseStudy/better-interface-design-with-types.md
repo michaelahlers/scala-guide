@@ -1,15 +1,17 @@
-# Preamble
+# Case Study: Better Interface Design with Types
+
+## Preamble
 
 We can bring [[Algebraic Data Types|Glossary: Algebraic Data Types]] to bear on API design—they're not inherently limited to modeling business domains. Even if that seems obvious, I've found developers can miss out on their benefits: how they can precisely clarify your interface's intent and implementation behavior.
 
 Here, we'll explore a hypothetical situation where we want to increase the capabilities of a service and help consumers better understand how to use it.
 
-# Sources
+## Sources
 
 - [`src/main/scala/caseStudies/betterInterfaceDesignWithTypes`](https://github.com/michaelahlers/scala-guide/tree/main/src/main/scala/caseStudies/betterInterfaceDesignWithTypes)
 - [`src/test/scala/caseStudies/betterInterfaceDesignWithTypes`](https://github.com/michaelahlers/scala-guide/tree/main/src/test/scala/caseStudies/betterInterfaceDesignWithTypes)
 
-# Topics
+## Topics
 
 - [[Glossary: Algebraic Data Types]]
 - [Covariance][scala-variances]
@@ -19,7 +21,7 @@ Here, we'll explore a hypothetical situation where we want to increase the capab
 [scala-variances]: https://docs.scala-lang.org/tour/variances.html
 [scala-pattern-matching]: https://docs.scala-lang.org/tour/pattern-matching.html
 
-# What problem are we solving?
+## What problem are we solving?
 
 Suppose you have a service for getting users and need to expand how consumers can query those users. You already have a request envelope specifying a few `Option` parameters to select those records.
 
@@ -50,11 +52,11 @@ Especially if there's any exclusivity between the new parameters we add. For exa
 
 Whatever decisions we make, it's become easy to violate our invariants. When that happens, our service will report errors that have nothing to do with our business domain but instead, deal with how to use our service. What's considered a "bad request" should be narrowly defined, and we should make it difficult for our consumers to craft one.
 
-# Exploring Solutions
+## Exploring Solutions
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
-## Project Setup
+### Project Setup
 
 Let's consider our service definition:
 
@@ -117,7 +119,7 @@ case class GetUsersRequest(
 
 As discussed previously, we (specifically, our service's consumers) must wonder about our query semantics. Documentation might address any confusion, but we can do much better with little work.
 
-## First Version
+### First Version
 
 Same service as before:
 
@@ -218,7 +220,7 @@ Here is a scenario where we deal more with tradeoffs than solutions. (Understand
 
 While we could stop here, what if we wanted to get fancier and provide more flexibility? How would that look?
 
-## Second Version
+### Second Version
 
 Let's state upfront: this approach is probably overkill. I'm giving it to inspire your imagination and expand your knowledge. In practice, we'd reach for a different tool (for example, [GraphQL][technology-graph-ql], as implemented by [Sangria][graph-ql-sangria] or [Caliban][graph-ql-zio-caliban]). That said, let's dive in and flex our Scala muscles a bit!
 
@@ -351,7 +353,7 @@ These are exercises for the reader.
 
 [technology-typelevel-cats]: https://typelevel.org/cats/
 
-# Conclusion
+## Conclusion
 
 We've seen how Algebraic Data Types can help us design better interfaces, make implementing those interfaces easier, and (most importantly) make confusing or invalid states unrepresentable.
 

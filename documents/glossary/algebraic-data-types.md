@@ -1,4 +1,6 @@
-# Summary
+# Glossary: Algebraic Data Types
+
+## Summary
 
 Algebraic Data Types (ADT) is a topic of theory you, using Scala, **must know.** Luckily, we can put this plain and simple:
 
@@ -6,7 +8,7 @@ They're a way of structuring data that reduces all possible values to a small nu
 
 While hardly a concept specific to Scala, the language supports them naturally, and the compiler uses them to prevent bugs chiefly through exhaustive pattern matching (_i.e._, any match statement is guaranteed to consider all possible cases).
 
-# Further Reading
+## Further Reading
 
 There are volumes of quality material on Algebraic Data Types, so rather than repeat better authors here, the reader can refer to these articles:
 
