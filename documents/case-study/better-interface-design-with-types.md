@@ -62,47 +62,15 @@ How, exactly, do we achieve that—making invalid states impossible to represent
 
 Let's consider our service definition:
 
-```scala
-trait UserService {
-  def getUsers(request: GetUsersRequest): GetUsersResponse
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/setup/UserService.scala#L3-L5
 
 That already searches by their given and family names:
 
-```scala
-case class GetUsersRequest(
-  givenName: Option[String],
-  familyName: Option[String],
-)
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/setup/GetUsersRequest.scala#L3-L6
 
 As explained, we quickly see deficiencies from the consumer's perspective:
 
-```scala
-def userService: UserService = ???
-
-/** It's reasonable to expect this returns, perhaps, one famous user. */
-userService
-.getUsers(GetUsersRequest(
-  givenName = Some("Grace"),
-  familyName = Some("Hopper"),
-))
-
-/** Also reasonable to expect all users named "Grace" are returned. */
-userService
-.getUsers(GetUsersRequest(
-  givenName = Some("Grace"),
-  familyName = None,
-))
-
-/** Are no users returned? All of them? (Should that even be allowed? Probably not!) */
-userService
-.getUsers(GetUsersRequest(
-  givenName = None,
-  familyName = None,
-))
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/test/scala/caseStudies/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
 
 And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
 
@@ -125,87 +93,19 @@ As discussed previously, we (specifically, our service's consumers) must wonder 
 
 Same service as before:
 
-```scala
-trait UserService {
-  def getUsers(request: GetUsersRequest): GetUsersResponse
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
 
-```scala
-sealed trait Expression[+A]
-object Expression {
-
-  /** Matches [[value]] exactly. */
-  case class Exact[A](value: A) extends Expression[A]
-
-  /** Anything will match. */
-  case object Wildcard extends Expression[Nothing]
-
-  /** Matches when not set. */
-  case object IsNull extends Expression[Nothing]
-
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version1/Expression.scala#L3-L15
 
 Then, use them to make a `GetUsersRequest` that's expressive and intuitive:
 
-```scala
-sealed trait GetUsersRequest
-object GetUsersRequest {
-
-  case class ByPersonName(
-    givenName: Expression[String],
-    familyName: Expression[String],
-  ) extends GetUsersRequest
-
-  case class ByContactInformation(
-    emailAddress: Expression[String],
-    phoneNumber: Expression[String],
-  ) extends GetUsersRequest
-
-  case class ByLocale(
-    city: Expression[String],
-    region: Expression[String],
-  ) extends GetUsersRequest
-
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version1/GetUsersRequest.scala#L3-L21
 
 Which makes our use cases abundantly clear:
 
-```scala
-def userService: UserService = ???
-
-/** Still likely returns that one famous user. */
-userService
-.getUsers(ByPersonName(
-  givenName = Exact("Grace"),
-  familyName = Exact("Hopper"),
-))
-
-/** ''That'' Grace Hopper in particular! */
-userService
-.getUsers(ByContactInformation(
-  emailAddress = Exact("grace.hopper@navy.mil"),
-  phoneNumber = Wildcard,
-))
-
-/** She might be here. */
-userService
-.getUsers(ByLocale(
-  city = Exact("Arlington"),
-  region = Exact("Virginia"),
-))
-
-/** Added bonus, who hasn't set an email address yet? */
-userService
-.getUsers(ByContactInformation(
-  emailAddress = IsNull,
-  phoneNumber = Wildcard,
-))
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/test/scala/caseStudies/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -232,116 +132,19 @@ Let's state upfront: this approach is probably overkill. I'm giving it to inspir
 
 Once again, the same service:
 
-```scala
-trait UserService {
-  def getUsers(request: GetUsersRequest): GetUsersResponse
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
 
 And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
 
-```scala
-sealed trait Expression[+A]
-object Expression {
-
-  sealed trait NonNull
-
-  /** Matches [[value]] exactly. */
-  case class Exact[A](value: A) extends Expression[A] with NonNull
-
-  /** Matches when not set. */
-  case object IsNull extends Expression[Nothing]
-
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version2/Expression.scala#L3-L14
 
 But now we introduce predicates to our request envelope, which may be composed with a lightweight `implicit` syntax:
 
-```scala
-import cats.data.NonEmptyList
-import GetUsersRequest.Predicate
-
-case class GetUsersRequest(predicate: Predicate)
-object GetUsersRequest {
-  import Expression._
-
-  sealed trait Predicate
-  object Predicate {
-
-    /** This property isn't nullable, so any expression must be [[NonNull]] (''i.e.'', [[IsNull]] isn't allowed). */
-    case class ByGivenName(expression: Expression[String] with NonNull) extends Predicate
-
-    /** This property isn't nullable, so any expression must be [[NonNull]] (''i.e.'', [[IsNull]] isn't allowed). */
-    case class ByFamilyName(expression: Expression[String] with NonNull) extends Predicate
-
-    case class ByEmailAddress(expression: Expression[String]) extends Predicate
-
-    case class ByPhoneNumber(expression: Expression[String]) extends Predicate
-
-    case class ByCity(expression: Expression[String]) extends Predicate
-
-    case class ByRegion(expression: Expression[String]) extends Predicate
-
-    case class Or(predicates: NonEmptyList[Predicate]) extends Predicate
-    case class And(predicates: NonEmptyList[Predicate]) extends Predicate
-
-    implicit class Ops(private val self: Predicate) extends AnyVal {
-
-      def or(other: Predicate): Predicate = self match {
-        case self: Or => Or(self.predicates :+ other)
-        case self => Or(NonEmptyList.of(self, other))
-      }
-
-      def and(other: Predicate): Predicate = self match {
-        case self: And => And(self.predicates :+ other)
-        case self => Or(NonEmptyList.of(self, other))
-      }
-
-      def |(other: Predicate): Predicate = or(other)
-      def &(other: Predicate): Predicate = and(other)
-
-    }
-
-  }
-
-}
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/main/scala/caseStudies/betterInterfaceDesignWithTypes/version2/GetUsersRequest.scala#L6-L47
 
 With our newfound expressive capabilities, we can describe any query we want:
 
-```scala
-import Expression._
-import GetUsersRequest._
-import Predicate._
-
-def userService: UserService = ???
-
-/** Again, that one famous user. */
-userService
-.getUsers(GetUsersRequest(
-  ByGivenName(Exact("Grace")) &
-    ByFamilyName(Exact("Hopper")),
-))
-
-/** Still ''that'' Grace Hopper in particular! */
-userService
-.getUsers(GetUsersRequest(
-  ByEmailAddress(Exact("grace.hopper@navy.mil")),
-))
-
-/** She might be here or there, [[https://en.wikipedia.org/wiki/Grace_Hopper according to Wikipedia]]! */
-userService
-.getUsers(GetUsersRequest(
-  (ByCity(Exact("Arlington")) & ByRegion(Exact("Virginia"))) |
-    (ByCity(Exact("New York")) & ByRegion(Exact("New York"))),
-))
-
-/** Added bonus, who hasn't set an email address yet? */
-userService
-.getUsers(GetUsersRequest(
-  ByEmailAddress(IsNull),
-))
-```
+https://github.com/michaelahlers/scala-guide/blob/a8660ae736ff61d5352ddd0f309e6e19261b2afe/src/test/scala/caseStudies/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
 
 Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
