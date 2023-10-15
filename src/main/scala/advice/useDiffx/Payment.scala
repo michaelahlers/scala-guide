@@ -24,7 +24,7 @@ object Payment {
     )
 
     case class Security(
-      code: String,
+      code: Int,
     )
 
   }
