@@ -22,8 +22,6 @@ In any case, we have a teachable moment to present a quintessential application 
 - [`sealed` types][scala-pattern-matching]
 - [Extension Methods][glossary-extension-methods]
 
-[glossary-algebraic-data-types]: ../../glossary/algebraic-data-types.md
-[glossary-extension-methods]: ../../glossary/extension-methods.md
 [scala-pattern-matching]: https://docs.scala-lang.org/tour/pattern-matching.html
 
 ## What problem are we solving?
@@ -43,6 +41,9 @@ We probably already thought to author a `case class` representing our range as a
 Our intuitive `Range` seems completely obvious:
 
 https://github.com/michaelahlers/scala-guide/blob/d5c69c6674958f7e988897f3c659b09b73fb9073/src/main/scala/caseStudy/genericSemanticRangeClass/setup/Range.scala#L3-L6
+
+> [!NOTE]
+> You might notice we're not discussing the inclusivity or exclusivity of the bounds. That's an exercise for the reader, but (spoiler alert) that likely entails introducing [a wrapper type for our values][glossary-algebraic-data-types] and possibly [extension methods to improve ergonomics][glossary-extension-methods].
 
 As do it's typical uses:
 
@@ -73,3 +74,6 @@ https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a981
 - [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types]
 
 [case-study-better-interface-design-with-types]: ../better-interface-design-with-types/readme.md
+
+[glossary-algebraic-data-types]: ../../glossary/algebraic-data-types.md
+[glossary-extension-methods]: ../../glossary/extension-methods.md
