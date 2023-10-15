@@ -13,11 +13,13 @@ Here, we'll explore a hypothetical situation where we want to increase the capab
 
 ## Topics
 
-- [[Glossary: Algebraic Data Types]]
+- [Algebraic Data Types][glossary-algebraic-data-types]
 - [Covariance][scala-variances]
 - [`sealed` types][scala-pattern-matching]
-- [[Glossary: Extension Methods]]
+- [Extension Methods][glossary-extension-methods]
 
+[glossary-algebraic-data-types]: ../glossary/algebraic-data-types.md
+[glossary-extension-methods]: ../glossary/extension-methods.md
 [scala-variances]: https://docs.scala-lang.org/tour/variances.html
 [scala-pattern-matching]: https://docs.scala-lang.org/tour/pattern-matching.html
 
