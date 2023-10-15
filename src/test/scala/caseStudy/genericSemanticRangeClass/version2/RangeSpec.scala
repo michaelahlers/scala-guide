@@ -58,12 +58,12 @@ class RangeSpec extends AnyFlatSpec {
   }
 
   it should "provide syntax for constructing ranges" in {
-    inside(samples.today.minimum) {
+    inside(samples.today.leftBounded) {
       case LeftBounded(minimum) =>
         minimum shouldBe samples.today
     }
 
-    inside(samples.nextWeek.maximum) {
+    inside(samples.nextWeek.rightBounded) {
       case RightBounded(maximum) =>
         maximum shouldBe samples.nextWeek
     }

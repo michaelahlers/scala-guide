@@ -10,10 +10,10 @@ object syntax {
 
   implicit class RangeValueOps[A](private val self: A) extends AnyVal {
 
-    def minimum: LeftBounded[A] =
+    def leftBounded: LeftBounded[A] =
       LeftBounded(self)
 
-    def maximum: RightBounded[A] =
+    def rightBounded: RightBounded[A] =
       RightBounded(self)
 
     def bounded(by: A)(implicit A: Ordering[A]): Bounded[A] Or ErrorMessage =
