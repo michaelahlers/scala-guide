@@ -1,8 +1,10 @@
-# Why Scala 2.12?
+# Frequently Asked Questions
+
+## Why Scala 2.12?
 
 Many teams still use Scala 2.12, and I don't want to neglect them. They need support from experienced Scala users. However, most material written on Scala now uses the latest dialect. That's great, of course! Scala 3 answers many (if not all) complaints about Scala 2. Ideally, everyone will migrate, but we must be realistic about those challenges in a business setting. To that end, I'll also provide equivalent examples in 2.13 and 3 where necessary or useful.
 
-# Why sbt?
+## Why sbt?
 
 That is, instead of legacy build systems or more recent upstarts.
 

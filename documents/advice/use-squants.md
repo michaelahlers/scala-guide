@@ -1,4 +1,6 @@
-# Summary
+# Advice: Use Squants
+
+## Summary
 
 I've seen this enough times in my career it's worth mentioning: either out of ignorance of an off-the-shelf solution or well-meaning (but ultimately misguided) [Not Invented Here syndrome][wikipedia-not-invented-here], _avoid_ writing custom code for expressing and working with quantities, units (of measure), and dimensions.
 
@@ -14,13 +16,13 @@ Bonus: it supports the Java Virtual Machine, [JavaScript][scala-js], and [native
 [scala-js]: https://www.scala-js.org/
 [scala-native]: https://scala-native.org/
 
-# Why not?
+## Why not?
 
 But you want to anyway, right? Sure, it's a fun project, but you're unlikely to write a similar library or framework as well as a dedicated team and community with considerable expertise and experience. And even if you did, now you've incurred a commensurate maintenance overhead. For most of us, our business or customer value is _not_ found in this domain.
 
 We return to a question every software engineer should ask themselves all day long: "What problem am I solving?" Am I building a tool to work with monetary amounts? Or am I, say, pricing products correctly for my customers?
 
-# It doesn't fit my needs!
+## It doesn't fit my needs!
 
 Okay, fine! That's why I pointed out how [Squants][github-typelevel-squants] is both a library and a _framework_. If its library lacks the quantity, unit of measure, or dimension you specifically need, the framework is eminently extensible. Work within it to achieve your product goals. Nearly all its types are open to extension and inherently empower you with built-in arithmetic, sorting, and searching operators.
 
