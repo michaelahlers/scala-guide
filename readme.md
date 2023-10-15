@@ -24,13 +24,13 @@ And I hope everyone will contribute! See a problem or what to suggest a topic? R
 
 [diffx][advice-use-diffx] makes test errors _much_ easier to read, especially when comparing nontrivial object graphs.
 
-[advice-use-diffx]: documents/advice/use-diffx.md
+[advice-use-diffx]: documents/advice/use-diffx/readme.md
 
 #### [Use Squants][advice-use-squants]
 
 [Squants][advice-use-squants] is an outstanding solution for software engineers who need to represent and analyze information and data rates; money, currencies, and respective conversions; and much more. Don't reinvent this wheel and rely on the wealth of features this project gives you for free.
 
-[advice-use-squants]: documents/advice/use-diffx.md
+[advice-use-squants]: documents/advice/use-diffx/readme.md
 
 ### Case Studies
 
