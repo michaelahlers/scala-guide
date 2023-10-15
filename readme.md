@@ -50,7 +50,7 @@ _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
 ### [Frequently Asked Questions][frequently-asked-questions]
 
-You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found [in the wiki at Frequently Asked Questions][frequently-asked-questions].
+You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found under [Frequently Asked Questions][frequently-asked-questions].
 
 [frequently-asked-questions]: documents/frequently-asked-questions.md
 
