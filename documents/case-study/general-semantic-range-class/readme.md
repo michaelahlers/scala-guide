@@ -21,6 +21,7 @@ In any case, we have a teachable moment to present a quintessential application 
 - [Algebraic Data Types][glossary-algebraic-data-types]
 - [`sealed` types][scala-pattern-matching]
 - [Extension Methods][glossary-extension-methods]
+- [Single Abstract Method Type syntax][glossary-single-abstract-method-type]
 
 [scala-pattern-matching]: https://docs.scala-lang.org/tour/pattern-matching.html
 
@@ -69,6 +70,12 @@ And anyone reading this code can immediately understand what our cases mean:
 
 https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a9819862e2b2c6/src/test/scala/caseStudy/genericSemanticRangeClass/version1/RangeSpec.scala#L14-L34
 
+### Second Version
+
+If you're satisfied with the previous version, this might be superfluous. It's a bonus round for anyone wanting to explore a few more features of the Scala language.
+
+Consider how context bounds and [extension methods][glossary-extension-methods] can make our `Range` type safer and easier to use. And reintroduce `Iterable` functionality while we're at it.
+
 ## See also
 
 - [Case Study: Better Interface Design with Types][case-study-better-interface-design-with-types]
@@ -77,3 +84,4 @@ https://github.com/michaelahlers/scala-guide/blob/2a79184aa0d109637efae50063a981
 
 [glossary-algebraic-data-types]: ../../glossary/algebraic-data-types.md
 [glossary-extension-methods]: ../../glossary/extension-methods.md
+[glossary-single-abstract-method-type]: ../../glossary/single-abstract-method-type.md
