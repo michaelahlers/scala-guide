@@ -24,6 +24,6 @@ We return to a question every software engineer should ask themselves all day lo
 
 ## It doesn't fit my needs!
 
-Okay, fine! That's why I pointed out how [Squants][github-typelevel-squants] is both a library and a _framework_. If its library lacks the quantity, unit of measure, or dimension you specifically need, the framework is eminently extensible. Work within it to achieve your product goals. Nearly all its types are open to extension and inherently empower you with built-in arithmetic, sorting, and searching operators.
+That's entirely possible, and why I pointed out how [Squants][github-typelevel-squants] is both a library and a _framework_. If its library lacks the quantity, unit of measure, or dimension you specifically need, the framework is eminently extensible. Work within it to achieve your product goals. Nearly all its types are open to extension and inherently empower you with built-in arithmetic, sorting, and searching operators.
 
 [github-typelevel-squants]: https://github.com/typelevel/squants
