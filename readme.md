@@ -34,7 +34,7 @@ Scala's `Numeric` interface is oft-forgotten. We all use it all the time (perhap
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/5.
 
-#### Semantic Range Representation
+#### Generic and Semantic Range Representation
 
 Scala provides a built-in `Range` type for representing a range of `Int`, but it's not generic. Here, I'll examine and propose improvements upon an implementation I've seen in practice.
 
@@ -47,6 +47,7 @@ Quickly combining parameters into tuples and matching their arguments for branch
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
 [case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
+[case-study-generic-and-semantic-range-class]: documents/case-study/general-semantic-range-class/readme.md
 
 ### [Frequently Asked Questions][frequently-asked-questions]
 
