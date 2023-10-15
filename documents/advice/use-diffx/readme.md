@@ -50,7 +50,7 @@ A pattern I've found works well: following a packaging convention used by many p
 
 First, define your `Diff` instances in an appropriately namespaced `object`:
 
-https://github.com/michaelahlers/scala-guide/blob/32f375248d1da911fd12e95902744d9a90a3a267/src/test/scala/advice/useDiffx/diffx/instances.scala
+https://github.com/michaelahlers/scala-guide/blob/32f375248d1da911fd12e95902744d9a90a3a267/src/test/scala/advice/useDiffx/diffx/instances.scala#L7-L12
 
 In your tests, avoid derivation entirely; import your `Diff` instances:
 
