@@ -58,7 +58,6 @@ Whatever decisions we make, it's become easy to violate our invariants. When tha
 
 How, exactly, do we achieve that—making invalid states impossible to represent? Let's walk through a naïve approach and iterate our way to a more optimal solution.
 
-<<<<<<< HEAD
 ### Problem Setup
 
 Let's consider our service definition:
@@ -108,7 +107,6 @@ As discussed previously, we (specifically, our service's consumers) must wonder 
 
 Same service as before:
 
-<<<<<<< HEAD
 https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
 
 Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
