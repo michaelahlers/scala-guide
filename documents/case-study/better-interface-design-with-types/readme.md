@@ -86,7 +86,6 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 As explained, we quickly see deficiencies from the consumer's perspective:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
->>>>>>> origin/main
 
 And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
 
@@ -137,7 +136,6 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 Which makes our use cases abundantly clear:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
->>>>>>> origin/main
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
@@ -164,7 +162,6 @@ Let's state upfront: this approach is probably overkill. I'm giving it to inspir
 
 Once again, the same service:
 
-<<<<<<< HEAD
 https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
 
 And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
@@ -192,7 +189,6 @@ https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9
 With our newfound expressive capabilities, we can describe any query we want:
 
 https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
->>>>>>> origin/main
 
 Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
@@ -213,12 +209,9 @@ We've seen how Algebraic Data Types can help us design better interfaces, make i
 Also, note that the Scala compiler will catch mistakes at implementation. Should your cases change (whether by addition, update, or removal), it will be impossible—thanks to the `sealed` keyword attached to the ADT traits involved—to miss subsequent code changes to suit.
 
 Of course, your specific needs will be entirely different from this contrived example, but as you design your next API using Scala, consider how these techniques might help make its use self-documenting and bulletproof against unintentional use.
-<<<<<<< HEAD
 
 ## See also
 
 - [Case Study: Generic and Semantic Range Class][case-study-general-semantic-range-class]
 
 [case-study-general-semantic-range-class]: ../general-semantic-range-class/readme.md
-=======
->>>>>>> origin/main
