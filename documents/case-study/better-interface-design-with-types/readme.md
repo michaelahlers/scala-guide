@@ -89,20 +89,6 @@ https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa
 Which makes our use cases abundantly clear:
 
 https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
-=======
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserService.scala#L3-L5
-
-Before examining our revised request type, let's make a replacement for `Option` (and all the ambiguities it entails) by modeling how our arguments ought to match. Right out the gate, we find our types are themselves a form of documentation our fellow engineers can't miss:
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/Expression.scala#L3-L15
-
-Then, use them to make a `GetUsersRequest` that's expressive and intuitive:
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version1/GetUsersRequest.scala#L3-L21
-
-Which makes our use cases abundantly clear:
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version1/UserServiceSpec.scala#L15-L73
 
 We've already achieved some valuable improvements for ourselves and the service's consumers:
 
