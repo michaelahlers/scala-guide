@@ -128,20 +128,6 @@ https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa
 With our newfound expressive capabilities, we can describe any query we want:
 
 https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
-=======
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserService.scala#L3-L5
-
-And _almost_ the same expression (note the absence of a `Wildcard` case, which we don't need anymore):
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/Expression.scala#L3-L14
-
-But now we introduce predicates to our request envelope, which may be composed with a lightweight `implicit` syntax:
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/main/scala/caseStudy/betterInterfaceDesignWithTypes/version2/GetUsersRequest.scala#L6-L47
-
-With our newfound expressive capabilities, we can describe any query we want:
-
-https://github.com/michaelahlers/scala-guide/blob/243ba73d81e12a495c369c9e1a76a9b795ba5b29/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/version2/UserServiceSpec.scala#L16-L72
 
 Nothing extraneous, total flexibility, and it's drop-dead easy to use. Our consumers can describe whatever they might need with an elegant and simple API.
 
