@@ -72,6 +72,23 @@ As explained, we quickly see deficiencies from the consumer's perspective:
 
 https://github.com/michaelahlers/scala-guide/blob/501a563e4e7fe759752d200617dcfa630f233aad/src/test/scala/caseStudy/betterInterfaceDesignWithTypes/setup/UserServiceSpec.scala#L9-L52
 
+And if we need more properties, like a user's email address, phone number, city, and region? We've now conflated inexact identifiers (a user's name and phone number), a positive identifier (their email address), and demographic information (their locale) in the same query type.
+
+With more `Option` parameters, the interface and implementation get more confusing:
+
+```scala
+case class GetUsersRequest(
+  givenName: Option[String],
+  familyName: Option[String],
+  emailAddress: Option[String],
+  phoneNumber: Option[String],
+  city: Option[String],
+  region: Option[String],
+)
+```
+
+As discussed previously, we (specifically, our service's consumers) must wonder about our query semantics. Documentation might address any confusion, but we can do much better with little work.
+
 ### First Version
 
 Same service as before:
