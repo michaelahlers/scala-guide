@@ -44,7 +44,7 @@ Quickly combining parameters into tuples and matching their arguments for branch
 
 _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
-[case-study-better-interface-design-with-types]: ../../wiki/Case-Study:+Better+Interface+Design+with+Types
+[case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
 [case-study-generic-semantic-range-class]: documents/case-study/general-semantic-range-class/readme.md
 
 ### [Frequently Asked Questions][frequently-asked-questions]
