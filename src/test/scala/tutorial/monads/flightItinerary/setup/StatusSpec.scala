@@ -1,4 +1,4 @@
-package tutorial.monads.setup
+package tutorial.monads.flightItinerary.setup
 
 object StatusSpec {
 
