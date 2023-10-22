@@ -25,8 +25,12 @@ Forget the [category theory][wikipedia-monad-category-theory].[^2] Forget the [l
 To elaborate:
 
 - A monad is a box.
-- That box contains _values_ (zero, one, or many).
-- Those values are accessible exclusively to callbacks.
+- That box:
+  - Contains _values_ (_i.e._, zero, one, or many).
+  - Provides context for those values.
+- Those values are accessible exclusively to callbacks[^3].
+
+[^3]: This isn't _exactly_ correct, but it's sufficient for our purposes.
 
 ## What's next?
 
