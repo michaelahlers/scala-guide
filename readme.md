@@ -49,11 +49,11 @@ _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 
 ### Tutorials
 
-#### Monads in Scala
+#### Monads
 
-[Monads in Scala][tutorial-monads-in-scala] is another tutorial that explains this most necessary concept. There are many similar tutorials, but my readers might fully appreciate this one following the theme and style of this guide.
+[Monads in Scala][tutorial-monads] is another tutorial that explains this most necessary concept. There are many similar tutorials, but my readers might fully appreciate this one following the theme and style of this guide.
 
-[tutorial-monads-in-scala]: documents/tutorial/monads-in-scala/readme.md
+[tutorial-monads]]: documents/tutorial/monads/readme.md
 
 ### [Frequently Asked Questions][frequently-asked-questions]
 
