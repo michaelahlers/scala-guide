@@ -2,6 +2,7 @@ package tutorial.monads.setup
 
 object ExampleSpec {
 
+  /** Suppose a passenger wants to check on the ticketing and seating status of their reservation. */
   def reservation: Reservation = null
 
   if (null == reservation) null
