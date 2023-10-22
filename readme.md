@@ -47,6 +47,14 @@ _Coming soon_; see https://github.com/michaelahlers/scala-examples/issues/3.
 [case-study-better-interface-design-with-types]: documents/case-study/better-interface-design-with-types/readme.md
 [case-study-generic-semantic-range-class]: documents/case-study/general-semantic-range-class/readme.md
 
+### Tutorials
+
+#### Monads in Scala
+
+[Monads in Scala][tutorial-monads-in-scala] is another tutorial that explains this most necessary concept. There are many similar tutorials, but my readers might fully appreciate this one following the theme and style of this guide.
+
+[tutorial-monads-in-scala]: documents/tutorial/monads-in-scala/readme.md
+
 ### [Frequently Asked Questions][frequently-asked-questions]
 
 You might be wondering why Scala 2 is prevalent here, why I chose to lean on SBT for builds, or have another question about the guide. These questions and their answers are all found under [Frequently Asked Questions][frequently-asked-questions].
