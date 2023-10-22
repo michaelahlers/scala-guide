@@ -1,5 +1,5 @@
 package tutorial.monads.setup
 
-case class Person(
+case class Passenger(
   name: String,
 )
