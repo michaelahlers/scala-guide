@@ -32,6 +32,12 @@ To elaborate:
 
 [^3]: This isn't _exactly_ correct, but it's sufficient for our purposes.
 
+## Monads in action!
+
+### Problem Setup
+
+Before showing monads, let's look at an example that would benefit from them. If you've explored this topic before, you might've encountered trivial use cases. These are helpful, of course, but may leave too much for the reader to figure out on their own. I'll present a hypothetical system for working with flight reservations that we'll improve upon with monads.
+
 ## What's next?
 
 One of the most promising (and exciting) directions Scala's headed is towards [functional effect systems][medium-wix-engineering-demystifying-functional-effect-systems] (e.g., [ZIO][zio], [Cats Effect][typelevel-cats-effect]). While many teams have isolated islands of functional programming in their projects, these systems fully embrace what we've discussed here as the central abstraction to build whole programs with enormous productivity benefits. If you're comfortable with what we've discussed, leveling up your Scala technology stack will be _much_ easier.
