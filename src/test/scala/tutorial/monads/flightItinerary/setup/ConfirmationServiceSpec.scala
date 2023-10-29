@@ -1,17 +1,23 @@
 package tutorial.monads.flightItinerary.setup
 
 import org.scalamock.scalatest.MockFactory
-import org.scalatest.funspec.FixtureAnyFunSpec
+import org.scalatest.flatspec.FixtureAnyFlatSpec
 
-class ConfirmationServiceSpec extends FixtureAnyFunSpec with MockFactory {
+class ConfirmationServiceSpec extends FixtureAnyFlatSpec with MockFactory {
   import ConfirmationServiceSpec.Fixtures
 
   override protected type FixtureParam = Fixtures
-
   override protected def withFixture(test: OneArgTest) = {
-    val reservationService = mock[ReservationService]
-    val ticketService = mock[TicketService]
-    val seatService = mock[SeatService]
+    import samples.noReservation
+
+    val reservationService = ReservationService(Map(
+    ))
+
+    val ticketService = TicketService(Map(
+    ))
+
+    val seatService = SeatService(Map(
+    ))
 
     val confirmationService = ConfirmationService(
       reservationService = reservationService,
@@ -39,29 +45,78 @@ object ConfirmationServiceSpec {
 
   object samples {
 
-    val locator: Locator = Locator(
-      toText = "ABC123",
-    )
+    object noReservation {
+      val locator: Locator = Locator(
+        toText = "no-reservation",
+      )
+    }
 
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = 123,
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
+    object notTicketed {
 
-    val ticket: Ticket = Ticket(
-      number = 456,
-    )
+      val locator: Locator = Locator(
+        toText = "not-ticketed",
+      )
 
-    val seat: Seat = Seat(
-      row = 14,
-      column = 'C',
-    )
+      val reservation: Reservation = Reservation(
+        passenger = Passenger(
+          name = "Grace Hopper",
+        ),
+        flight = Flight(
+          origin = "PIT",
+          destination = "DEN",
+        ),
+      )
+
+    }
+
+    object ticketedNotSeated {
+
+      val locator: Locator = Locator(
+        toText = "ticketed-not-seated",
+      )
+
+      val reservation: Reservation = Reservation(
+        passenger = Passenger(
+          name = "Grace Hopper",
+        ),
+        flight = Flight(
+          origin = "PIT",
+          destination = "DEN",
+        ),
+      )
+
+      val ticket: Ticket = Ticket(
+        number = 12,
+      )
+
+    }
+
+    object ticketedSeated {
+
+      val locator: Locator = Locator(
+        toText = "ticketed-seated",
+      )
+
+      val reservation: Reservation = Reservation(
+        passenger = Passenger(
+          name = "Grace Hopper",
+        ),
+        flight = Flight(
+          origin = "PIT",
+          destination = "DEN",
+        ),
+      )
+
+      val ticket: Ticket = Ticket(
+        number = 34,
+      )
+
+      val seat: Seat = Seat(
+        row = 14,
+        column = 'C',
+      )
+
+    }
 
   }
 
