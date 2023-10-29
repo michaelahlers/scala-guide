@@ -1,19 +1,27 @@
 package tutorial.monads.flightItinerary.setup
 
-class ConfirmationService {
-
-  def getReservation[A](locator: String)(callback: Reservation => A): A =
-    ???
-
-  def getTicket[A](reservation: Reservation)(callback: Ticket => A): A =
-    ???
-
-  def getSeat[A](reservation: Reservation)(callback: Seat => A): A =
-    ???
+case class ConfirmationService(
+  reservationService: ReservationService,
+  ticketService: TicketService,
+  seatService: SeatService,
+) {
+  import reservationService.getReservation
+  import seatService.getSeat
+  import ticketService.getTicket
 
   /** A passenger wants to check on the ticketing and seating status of their reservation. */
-  def getConfirmation[A](locator: String)(callback: Confirmation => A): String =
-    ???
+  def getConfirmation[A](locator: Locator)(callback: Confirmation => A): A =
+    getReservation(locator) { reservation =>
+      getTicket(reservation) { ticket =>
+        getSeat(reservation) { seat =>
+          callback(Confirmation(
+            reservation = reservation,
+            ticket = ticket,
+            seat = seat,
+          ))
+        }
+      }
+    }
 
 }
 
@@ -28,9 +36,8 @@ object ConfirmationService {
       else {
         if (null == confirmation.ticket || null == confirmation.seat) null
         else {
-          import reservation.passenger
-          import reservation.flight
           import confirmation.seat
+          import reservation.{flight, passenger}
 
           s"Passenger ${passenger.name} is confirmed on" +
             s"flight ${flight.number} from ${flight.origin} to ${flight.destination} " +
