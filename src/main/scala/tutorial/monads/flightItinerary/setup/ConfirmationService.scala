@@ -39,8 +39,8 @@ object ConfirmationService {
           import confirmation.seat
           import reservation.{flight, passenger}
 
-          s"Passenger ${passenger.name} is confirmed on" +
-            s"flight ${flight.number} from ${flight.origin} to ${flight.destination} " +
+          s"Passenger ${passenger.name} is confirmed on " +
+            s"flight from ${flight.origin} to ${flight.destination} " +
             (if (null == confirmation.seat) "has not been assigned a seat."
              else s"has been assigned ${seat.row} ${seat.column}.")
         }
