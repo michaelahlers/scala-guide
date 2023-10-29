@@ -28,7 +28,7 @@ To elaborate:
 - That box:
   - Contains _values_ (_i.e._, zero, one, or many).
   - Provides context for those values.
-- Those values are accessible exclusively to callbacks[^3].
+- Those values are accessed only by callbacks[^3].
 
 [^3]: This isn't _exactly_ correct, but it's sufficient for our purposes.
 
