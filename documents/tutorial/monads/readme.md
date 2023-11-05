@@ -1,5 +1,7 @@
 # Tutorial: Monads in Scala
 
+https://github.com/michaelahlers/scala-guide/blob/9ebe40048b20a8e9510b232503ecd05e7c4a131f/documents/tutorial/monads/erd.mermaid
+
 ## Rationale
 
 **If you had to choose the most essential topic to understand for effective software engineering with Scala, it would be monads.** Whether you're a novice tinkering with Scala or a seasoned expert building world-class production systems, you use constructs that express this concept daily. Unsurprisingly, commentary about monads is abundant and diverse.[^1] Despite that, I've found a solid understanding of monads remains elusive for many developers. While monad tutorials are a dime a dozen, my experience as a mentor inspires this one.
