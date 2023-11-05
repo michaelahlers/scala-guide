@@ -57,9 +57,13 @@ We have an airline record locator:
 
 https://github.com/michaelahlers/scala-guide/blob/0029a1f0414168f548d55b633a6347c757c04353/src/main/scala/tutorial/monads/flightItinerary/setup/Locator.scala#L3-L8
 
-A reservation record:
+A reservation record, which who's traveling and on what flight:
 
 https://github.com/michaelahlers/scala-guide/blob/9134977a8e3cf7b6fd49dd556e120da761b95b4f/src/main/scala/tutorial/monads/flightItinerary/setup/Reservation.scala#L3-L14
+
+https://github.com/michaelahlers/scala-guide/blob/52b948a92ec8152b07121d933150f3d6a53303d4/src/main/scala/tutorial/monads/flightItinerary/setup/Passenger.scala#L3-L10
+
+https://github.com/michaelahlers/scala-guide/blob/52b948a92ec8152b07121d933150f3d6a53303d4/src/main/scala/tutorial/monads/flightItinerary/setup/Flight.scala#L3-L16
 
 A ticket model (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]):
 
