@@ -72,7 +72,6 @@ object ConfirmationService {
       }
     }
 
-
   val empty: ConfirmationService = ConfirmationService(
     reservationByLocator = Map.empty,
     ticketByLocator = Map.empty,
