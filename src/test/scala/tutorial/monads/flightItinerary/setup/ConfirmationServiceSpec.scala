@@ -6,18 +6,17 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
 
 class ConfirmationServiceSpec extends AnyFlatSpec {
+  import ConfirmationServiceSpec.samples
 
   "No reservation" should "return null" in {
-    val locator: Locator = Locator(
-      toText = "no-reservation",
-    )
+    import samples.locator
 
     val confirmationService: ConfirmationService = ConfirmationService.empty
 
     var description: String = null
 
     confirmationService
-      .getConfirmation(locator) { confirmation =>
+      .getConfirmation(samples.locator) { confirmation =>
         description = ConfirmationService.describe(confirmation)
       }
 
@@ -25,20 +24,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
   }
 
   "Not ticketed" should "return null" in {
-    val locator: Locator = Locator(
-      toText = "not-ticketed",
-    )
-
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = 12,
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
+    import samples.{locator, reservation}
 
     val confirmationService: ConfirmationService = ConfirmationService.empty
       .modify(_.reservationByLocator).using(_ + (locator -> reservation))
@@ -53,24 +39,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
   }
 
   "Ticketed, not seated" should "return description" in {
-    val locator: Locator = Locator(
-      toText = "ticketed-not-seated",
-    )
-
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = 23,
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
-
-    val ticket: Ticket = Ticket(
-      number = 23,
-    )
+    import samples.{locator, reservation, ticket}
 
     val confirmationService: ConfirmationService = ConfirmationService.empty
       .modify(_.reservationByLocator).using(_ + (locator -> reservation))
@@ -86,29 +55,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
   }
 
   "Ticketed, seated" should "return description" in {
-    val locator: Locator = Locator(
-      toText = "ticketed-seated",
-    )
-
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = 34,
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
-
-    val ticket: Ticket = Ticket(
-      number = 34,
-    )
-
-    val seat: Seat = Seat(
-      row = 14,
-      column = 'C',
-    )
+    import samples.{locator, reservation, ticket, seat}
 
     val confirmationService: ConfirmationService = ConfirmationService.empty
       .modify(_.reservationByLocator).using(_ + (locator -> reservation))
@@ -126,4 +73,34 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
 
 }
 
-object ConfirmationServiceSpec {}
+object ConfirmationServiceSpec {
+
+  object samples {
+
+    val locator: Locator = Locator(
+      toText = "ABC123",
+    )
+
+    val reservation: Reservation = Reservation(
+      passenger = Passenger(
+        name = "Grace Hopper",
+      ),
+      flight = Flight(
+        number = 34,
+        origin = "PIT",
+        destination = "DEN",
+      ),
+    )
+
+    val ticket: Ticket = Ticket(
+      number = 1234,
+    )
+
+    val seat: Seat = Seat(
+      row = 14,
+      column = 'C',
+    )
+
+  }
+
+}
