@@ -9,7 +9,11 @@ case class ConfirmationService(
   import seatService.getSeat
   import ticketService.getTicket
 
-  /** A passenger wants to check on the ticketing and seating status of their reservation. */
+  /**
+   * Obtains a [[Confirmation]] by its [[Locator]], and passes to the given callback function.
+   *
+   * @param callback Applied with an appropriate [[Confirmation]] or `null` if the [[Locator]] is not found. Parts of the [[Confirmation]] itself might be `null` if respective services can't find associated records.
+   */
   def getConfirmation(locator: Locator)(callback: Confirmation => Unit): Unit =
     getReservation(locator) { reservation =>
       getTicket(locator) { ticket =>
