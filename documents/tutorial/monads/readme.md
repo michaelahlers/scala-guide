@@ -65,11 +65,20 @@ https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7
 
 https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Flight.scala#L3-L16
 
-A ticket model (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]):
+And a confirmation record, which provides the reservation as mentioned earlier but also a ticket (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]) and assigned seat (which may set at any time between booking and departure):
 
 [lifehacker-make-sure-your-flight-reservation-is-ticketed]: https://lifehacker.com/make-sure-your-flight-reservation-is-ticketed-before-yo-1836791737
 
+https://github.com/michaelahlers/scala-guide/blob/71726ebe3aa746e14f7cd4ef9b56a964371a2644/src/main/scala/tutorial/monads/flightItinerary/setup/Confirmation.scala#L3-L12
+
 https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Ticket.scala#L3-L12
+
+https://github.com/michaelahlers/scala-guide/blob/71726ebe3aa746e14f7cd4ef9b56a964371a2644/src/main/scala/tutorial/monads/flightItinerary/setup/Seat.scala#L3-L11
+
+Before proceeding, let's summarize our business domain. A passenger makes an airline reservation on a desired flight (a specific performance between two airports) with their personal information (such as a name). At a point before departure, the reservation _may_ become ticketed and have a seat assigned.
+
+> [!NOTE]  
+> We've not made an optimal model for such a system—there are plenty of refinements we could make—but it is a sufficient illustration for our purposes.
 
 ## What's next?
 
