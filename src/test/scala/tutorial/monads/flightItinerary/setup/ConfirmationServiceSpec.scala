@@ -1,6 +1,7 @@
 package tutorial.monads.flightItinerary.setup
 
 import com.softwaremill.diffx.scalatest.DiffShouldMatcher.convertToAnyShouldMatcher
+import com.softwaremill.quicklens._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
 
@@ -11,11 +12,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
       toText = "no-reservation",
     )
 
-    val confirmationService = ConfirmationService(
-      reservationByLocator = Map.empty,
-      ticketByLocator = Map.empty,
-      seatByLocator = Map.empty,
-    )
+    val confirmationService: ConfirmationService = ConfirmationService.empty
 
     var description: String = null
 
@@ -43,11 +40,8 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
       ),
     )
 
-    val confirmationService = ConfirmationService(
-      reservationByLocator = Map(locator -> reservation),
-      ticketByLocator = Map.empty,
-      seatByLocator = Map.empty,
-    )
+    val confirmationService: ConfirmationService = ConfirmationService.empty
+      .modify(_.reservationByLocator).using(_ + (locator -> reservation))
 
     var description: String = null
 
@@ -78,11 +72,9 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
       number = 23,
     )
 
-    val confirmationService = ConfirmationService(
-      reservationByLocator = Map(locator -> reservation),
-      ticketByLocator = Map(locator -> ticket),
-      seatByLocator = Map.empty,
-    )
+    val confirmationService: ConfirmationService = ConfirmationService.empty
+      .modify(_.reservationByLocator).using(_ + (locator -> reservation))
+      .modify(_.ticketByLocator).using(_ + (locator -> ticket))
 
     var description: String = null
 
@@ -118,11 +110,10 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
       column = 'C',
     )
 
-    val confirmationService = ConfirmationService(
-      reservationByLocator = Map(locator -> reservation),
-      ticketByLocator = Map(locator -> ticket),
-      seatByLocator = Map(locator -> seat),
-    )
+    val confirmationService: ConfirmationService = ConfirmationService.empty
+      .modify(_.reservationByLocator).using(_ + (locator -> reservation))
+      .modify(_.ticketByLocator).using(_ + (locator -> ticket))
+      .modify(_.seatByLocator).using(_ + (locator -> seat))
 
     var description: String = null
 
@@ -134,3 +125,5 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
   }
 
 }
+
+object ConfirmationServiceSpec {}
