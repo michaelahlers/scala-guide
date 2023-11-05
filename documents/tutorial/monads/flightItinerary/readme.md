@@ -15,15 +15,15 @@ Let's look at the details of our models first.
 
 We have an airline record locator:
 
-https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Locator.scala#L3-L8
+https://github.com/michaelahlers/scala-guide/blob/7f605687462d85df804b82308cb7258595df8efd/src/main/scala/tutorial/monads/flightItinerary/setup/Locator.scala#L3-L8
 
 A reservation record, which who's traveling and on what flight:
 
-https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Reservation.scala#L3-L14
+https://github.com/michaelahlers/scala-guide/blob/7f605687462d85df804b82308cb7258595df8efd/src/main/scala/tutorial/monads/flightItinerary/setup/Reservation.scala#L3-L14
 
-https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Passenger.scala#L3-L10
+https://github.com/michaelahlers/scala-guide/blob/7f605687462d85df804b82308cb7258595df8efd/src/main/scala/tutorial/monads/flightItinerary/setup/Passenger.scala#L3-L10
 
-https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Flight.scala#L3-L16
+https://github.com/michaelahlers/scala-guide/blob/7f605687462d85df804b82308cb7258595df8efd/src/main/scala/tutorial/monads/flightItinerary/setup/Flight.scala#L3-L16
 
 And a confirmation record, which provides the reservation as mentioned earlier but also a ticket (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]) and assigned seat (which may set at any time between booking and departure):
 
@@ -31,7 +31,7 @@ And a confirmation record, which provides the reservation as mentioned earlier b
 
 https://github.com/michaelahlers/scala-guide/blob/71726ebe3aa746e14f7cd4ef9b56a964371a2644/src/main/scala/tutorial/monads/flightItinerary/setup/Confirmation.scala#L3-L12
 
-https://github.com/michaelahlers/scala-guide/blob/411a8b988ad3d591f705c02157f4e7a0e394b258/src/main/scala/tutorial/monads/flightItinerary/setup/Ticket.scala#L3-L12
+https://github.com/michaelahlers/scala-guide/blob/7f605687462d85df804b82308cb7258595df8efd/src/main/scala/tutorial/monads/flightItinerary/setup/Ticket.scala#L3-L12
 
 https://github.com/michaelahlers/scala-guide/blob/71726ebe3aa746e14f7cd4ef9b56a964371a2644/src/main/scala/tutorial/monads/flightItinerary/setup/Seat.scala#L3-L11
 
