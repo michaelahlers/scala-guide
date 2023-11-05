@@ -89,6 +89,7 @@ class ConfirmationServiceSpec extends FixtureAnyFlatSpec with MockFactory {
       confirmationService = confirmationService,
     ))
   }
+
 }
 
 object ConfirmationServiceSpec {
@@ -116,6 +117,7 @@ object ConfirmationServiceSpec {
           name = "Grace Hopper",
         ),
         flight = Flight(
+          number = 12,
           origin = "PIT",
           destination = "DEN",
         ),
@@ -134,13 +136,14 @@ object ConfirmationServiceSpec {
           name = "Grace Hopper",
         ),
         flight = Flight(
+          number = 23,
           origin = "PIT",
           destination = "DEN",
         ),
       )
 
       val ticket: Ticket = Ticket(
-        number = 12,
+        number = 23,
       )
 
     }
@@ -156,6 +159,7 @@ object ConfirmationServiceSpec {
           name = "Grace Hopper",
         ),
         flight = Flight(
+          number = 34,
           origin = "PIT",
           destination = "DEN",
         ),
