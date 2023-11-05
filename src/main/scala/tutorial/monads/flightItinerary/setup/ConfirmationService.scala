@@ -10,7 +10,7 @@ case class ConfirmationService(
   import ticketService.getTicket
 
   /** A passenger wants to check on the ticketing and seating status of their reservation. */
-  def getConfirmation[A](locator: Locator)(callback: Confirmation => A): Unit = {
+  def getConfirmation(locator: Locator)(callback: Confirmation => Unit): Unit =
     getReservation(locator) { reservation =>
       getTicket(locator) { ticket =>
         getSeat(locator) { seat =>
@@ -22,9 +22,6 @@ case class ConfirmationService(
         }
       }
     }
-
-    ()
-  }
 
 }
 
