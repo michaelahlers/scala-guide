@@ -1,11 +1,10 @@
 package tutorial.monads.flightItinerary.setup
 
 import com.softwaremill.diffx.scalatest.DiffShouldMatcher.convertToAnyShouldMatcher
-import org.scalamock.scalatest.MockFactory
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
 
-class ConfirmationServiceSpec extends AnyFlatSpec with MockFactory {
+class ConfirmationServiceSpec extends AnyFlatSpec {
 
   "No reservation" should "return null" in {
     val locator: Locator = Locator(
