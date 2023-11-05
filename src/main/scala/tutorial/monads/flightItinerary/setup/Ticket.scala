@@ -5,6 +5,8 @@ package tutorial.monads.flightItinerary.setup
  *
  * ''That'' must be taken into consideration for our purposes here: a [[Reservation]] may exist without a confirmed [[Ticket]].
  *
+ * @see [[Confirmation.ticket]]
+ *
  * @see [[https://lifehacker.com/make-sure-your-flight-reservation-is-ticketed-before-yo-1836791737 Make Sure Your Flight Reservation Is Ticketed Before You Travel]]
  */
 case class Ticket(
