@@ -83,10 +83,12 @@ One of the most promising (and exciting) directions Scala's headed is towards [f
 
 This guide was probably not your first exposure to monads in Scala. It most certainly should _not_ be your last. With the basics well in hand, I strongly advise everyone who uses Scala to pursue this topic in-depth, and these resources will help:
 
+- [_A Monads Approach for Beginners, in Scala_ by Daniel Ciocîrlan for Rock the JVM][rockthejvm-monads]
 - [_Monads in Scala_ by Riccardo Cardin for Baeldung][baeldung-scala-monads]
 - [_A Monad is just a Monoid…_ by Michele Stieven][medium-michele-stieven-monad-is-monoid]
 - [_Monads and why do they matter_ by Yurii Gorbylov][medium-yurii-gorbylov-moands-and-why-they-matter]
 
+[rockthejvm-monads]: https://blog.rockthejvm.com/monads/
 [baeldung-scala-monads]: https://www.baeldung.com/scala/monads
 [medium-michele-stieven-monad-is-monoid]: https://michelestieven.medium.com/a-monad-is-just-a-monoid-a02bd2524f66
 [medium-yurii-gorbylov-moands-and-why-they-matter]: https://medium.com/@yuriigorbylov/monads-and-why-do-they-matter-9a285862e8b4
