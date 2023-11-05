@@ -1,13 +1,34 @@
 package tutorial.monads.flightItinerary.setup
 
 case class ConfirmationService(
-  reservationService: ReservationService,
-  ticketService: TicketService,
-  seatService: SeatService,
+  reservationByLocator: Map[Locator, Reservation],
+  ticketByLocator: Map[Locator, Ticket],
+  seatByLocator: Map[Locator, Seat],
 ) {
-  import reservationService.getReservation
-  import seatService.getSeat
-  import ticketService.getTicket
+
+  /**
+   * Finds a [[Reservation]] by its [[Locator]], and passes to the given callback function.
+   *
+   * @param callback Applied with an appropriate [[Reservation]] or `null` if the [[Locator]] is not found.
+   */
+  def getReservation(locator: Locator)(callback: Reservation => Unit): Unit =
+    callback(reservationByLocator.get(locator).orNull)
+
+  /**
+   * Finds a [[Ticket]] by its [[Locator]], and passes to the given callback function.
+   *
+   * @param callback Applied with an appropriate [[Ticket]] or `null` if the [[Locator]] is not found or the [[Reservation]] has not been ''ticketed''.
+   */
+  def getTicket(locator: Locator)(callback: Ticket => Unit): Unit =
+    callback(ticketByLocator.get(locator).orNull)
+
+  /**
+   * Finds a [[Seat]] by its [[Locator]], and passes to the given callback function.
+   *
+   * @param callback Applied with an appropriate [[Seat]] or `null` if the [[Locator]] is not found or a [[Seat]] assigned for the [[Reservation]].
+   */
+  def getSeat(locator: Locator)(callback: Seat => Unit): Unit =
+    callback(seatByLocator.get(locator).orNull)
 
   /**
    * Obtains a [[Confirmation]] by its [[Locator]], and passes to the given callback function.
