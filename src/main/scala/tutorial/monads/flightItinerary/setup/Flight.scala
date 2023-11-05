@@ -10,7 +10,7 @@ package tutorial.monads.flightItinerary.setup
  * @see [[https://en.wikipedia.org/wiki/IATA_airport_code IATA airport code]]
  */
 case class Flight(
-  number: Int,
+  number: String,
   origin: String,
   destination: String,
 )

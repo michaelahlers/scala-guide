@@ -16,7 +16,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
     var description: String = null
 
     confirmationService
-      .getConfirmation(samples.locator) { confirmation =>
+      .getConfirmation(locator) { confirmation =>
         description = ConfirmationService.describe(confirmation)
       }
 
@@ -78,7 +78,7 @@ object ConfirmationServiceSpec {
   object samples {
 
     val locator: Locator = Locator(
-      toText = "ABC123",
+      toText = "A1B2C3",
     )
 
     val reservation: Reservation = Reservation(
@@ -86,7 +86,7 @@ object ConfirmationServiceSpec {
         name = "Grace Hopper",
       ),
       flight = Flight(
-        number = 34,
+        number = "UAL123",
         origin = "PIT",
         destination = "DEN",
       ),
