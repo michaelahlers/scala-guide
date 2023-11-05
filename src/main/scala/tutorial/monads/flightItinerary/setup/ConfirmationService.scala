@@ -32,7 +32,7 @@ object ConfirmationService {
     else {
       import confirmation.reservation
 
-      if (null == reservation.passengers || null == reservation.flight) null
+      if (null == reservation.passengers && reservation.passengers.nonEmpty || null == reservation.flight) null
       else {
         if (null == confirmation.ticket) null
         else {
