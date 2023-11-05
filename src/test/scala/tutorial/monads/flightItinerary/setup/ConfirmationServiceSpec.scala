@@ -43,7 +43,7 @@ class ConfirmationServiceSpec extends FixtureAnyFlatSpec with MockFactory {
       description = ConfirmationService.describe(confirmation)
     }
 
-    description.shouldMatchTo("Passengers Grace Hopper, Vincent Hopper are confirmed on flight from PIT to DEN has not been assigned a seat.")
+    description.shouldMatchTo("Passenger Grace Hopper is confirmed on flight from PIT to DEN has not been assigned a seat.")
   }
 
   "Ticketed, seated" should "return description" in { fixtures =>
@@ -55,7 +55,7 @@ class ConfirmationServiceSpec extends FixtureAnyFlatSpec with MockFactory {
       description = ConfirmationService.describe(confirmation)
     }
 
-    description.shouldMatchTo("Passengers Grace Hopper, Vincent Hopper are confirmed on flight from PIT to DEN has been assigned 14 C.")
+    description.shouldMatchTo("Passenger Grace Hopper is confirmed on flight from PIT to DEN has been assigned 14 C.")
   }
 
   override protected type FixtureParam = Fixtures
@@ -113,10 +113,8 @@ object ConfirmationServiceSpec {
       )
 
       val reservation: Reservation = Reservation(
-        passengers = Seq(
-          Passenger(
-            name = "Grace Hopper",
-          ),
+        passenger = Passenger(
+          name = "Grace Hopper",
         ),
         flight = Flight(
           number = 12,
@@ -134,13 +132,8 @@ object ConfirmationServiceSpec {
       )
 
       val reservation: Reservation = Reservation(
-        passengers = Seq(
-          Passenger(
-            name = "Grace Hopper",
-          ),
-          Passenger(
-            name = "Vincent Hopper",
-          ),
+        passenger = Passenger(
+          name = "Grace Hopper",
         ),
         flight = Flight(
           number = 23,
@@ -162,13 +155,8 @@ object ConfirmationServiceSpec {
       )
 
       val reservation: Reservation = Reservation(
-        passengers = Seq(
-          Passenger(
-            name = "Grace Hopper",
-          ),
-          Passenger(
-            name = "Vincent Hopper",
-          ),
+        passenger = Passenger(
+          name = "Grace Hopper",
         ),
         flight = Flight(
           number = 34,

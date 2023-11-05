@@ -36,14 +36,14 @@ object ConfirmationService {
     else {
       import confirmation.reservation
 
-      if (null == reservation.passengers && reservation.passengers.nonEmpty || null == reservation.flight) null
+      if (null == reservation.passenger || null == reservation.flight) null
       else {
         if (null == confirmation.ticket) null
         else {
           import confirmation.seat
-          import reservation.{flight, passengers}
+          import reservation.{flight, passenger}
 
-          s"Passengers ${passengers.map(_.name).mkString(", ")} are confirmed on " +
+          s"Passenger ${passenger.name} is confirmed on " +
             s"flight from ${flight.origin} to ${flight.destination} " +
             (if (null == confirmation.seat) "has not been assigned a seat."
              else s"has been assigned ${seat.row} ${seat.column}.")
