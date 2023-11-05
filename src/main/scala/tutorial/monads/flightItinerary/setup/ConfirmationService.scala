@@ -67,7 +67,7 @@ object ConfirmationService {
           s"Passenger ${passenger.name} is confirmed on " +
             s"flight from ${flight.origin} to ${flight.destination} " +
             (if (null == confirmation.seat) "has not been assigned a seat."
-             else s"has been assigned ${seat.row} ${seat.column}.")
+             else s"is assigned ${seat.row} ${seat.column}.")
         }
       }
     }

@@ -68,7 +68,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
       description = ConfirmationService.describe(confirmation)
     }
 
-    description.shouldMatchTo("Passenger Grace Hopper is confirmed on flight from PIT to DEN has been assigned 14 C.")
+    description.shouldMatchTo("Passenger Grace Hopper is confirmed on flight from PIT to DEN is assigned 14 C.")
   }
 
 }
