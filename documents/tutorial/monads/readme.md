@@ -24,13 +24,17 @@ Forget the [category theory][wikipedia-monad-category-theory].[^2] Forget the [l
 
 To elaborate:
 
-- A monad is a box.
+- A monad is a box.[^3]
 - That box:
   - Contains _values_ (_i.e._, zero, one, or many).
   - Provides context for those values.
-- Those values are accessed only by callbacks[^3].
+- Those values are accessed only by callbacks[^4].
 
-[^3]: This isn't _exactly_ correct, but it's sufficient for our purposes.
+[^3]: Credit to Stuart Saltzman ([GitHub][github-stuart-saltzman], [LinkedIn][linkedin-stuart-saltzman]) for this idea, which he's found effective in explaining to newcomers.
+[^4]: This isn't _exactly_ correct, but it's sufficient for our purposes.
+
+[github-stuart-saltzman]: https://github.com/stuartsaltzman
+[linkedin-stuart-saltzman]: https://linkedin.com/in/stuartsaltzman/
 
 ## Monads in action!
 
