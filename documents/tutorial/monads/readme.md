@@ -47,6 +47,16 @@ Our setup features two key areas of emphasis:
 - Models representing essential parts of our reservation (_e.g._, airline locator, reservation, seat).
 - Services to fetch records associated with a reservation locator, specifically one to describe a confirmation.
 
+Let's look at the details of our models first.
+
+We have an airline record locator:
+
+https://github.com/michaelahlers/scala-guide/blob/0029a1f0414168f548d55b633a6347c757c04353/src/main/scala/tutorial/monads/flightItinerary/setup/Locator.scala#L3-L8
+
+A reservation record:
+
+https://github.com/michaelahlers/scala-guide/blob/9134977a8e3cf7b6fd49dd556e120da761b95b4f/src/main/scala/tutorial/monads/flightItinerary/setup/Reservation.scala#L3-L14
+
 ## What's next?
 
 One of the most promising (and exciting) directions Scala's headed is towards [functional effect systems][medium-wix-engineering-demystifying-functional-effect-systems] (e.g., [ZIO][zio], [Cats Effect][typelevel-cats-effect]). While many teams have isolated islands of functional programming in their projects, these systems fully embrace what we've discussed here as the central abstraction to build whole programs with enormous productivity benefits. If you're comfortable with what we've discussed, leveling up your Scala technology stack will be _much_ easier.
