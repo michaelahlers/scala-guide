@@ -40,12 +40,16 @@ To elaborate:
 
 ### Problem Setup
 
-Before showing monads, let's look at an example that would benefit from them. If you've explored this topic before, you might've encountered trivial use cases. These are helpful, of course, but may leave too much for the reader to figure out on their own. I'll present a hypothetical system for working with flight reservations that we'll improve upon with monads.
+Before showing monads, let's look at an example that would benefit from them. If you've explored this topic before, you might've encountered trivial use cases. These are helpful, of course, but may leave too much for the reader to figure out on their own.[^5] I'll present a hypothetical (and, of course, contrived) system for working with flight reservations that we'll improve upon with monads.
+
+[^5]: In your author's opinion, the value of concepts like monads is less obvious in trivial examples. A concrete elaboration is helpful.
 
 Our setup features two key areas of emphasis:
 
 - Models representing essential parts of our reservation (_e.g._, airline locator, reservation, seat).
 - Services to fetch records associated with a reservation locator, specifically one to describe a confirmation.
+
+The ultimate goal is to provide a passenger with a description of their confirmation—if applicable, given business rules.
 
 Let's look at the details of our models first.
 
@@ -56,6 +60,12 @@ https://github.com/michaelahlers/scala-guide/blob/0029a1f0414168f548d55b633a6347
 A reservation record:
 
 https://github.com/michaelahlers/scala-guide/blob/9134977a8e3cf7b6fd49dd556e120da761b95b4f/src/main/scala/tutorial/monads/flightItinerary/setup/Reservation.scala#L3-L14
+
+A ticket model (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]):
+
+[lifehacker-make-sure-your-flight-reservation-is-ticketed]: https://lifehacker.com/make-sure-your-flight-reservation-is-ticketed-before-yo-1836791737
+
+https://github.com/michaelahlers/scala-guide/blob/47478072dafbfe03f8b7a3ef0fc841f7098ef656/src/main/scala/tutorial/monads/flightItinerary/setup/Ticket.scala#L3-L12
 
 ## What's next?
 
