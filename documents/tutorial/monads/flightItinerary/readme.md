@@ -54,7 +54,10 @@ https://github.com/michaelahlers/scala-guide/blob/eef79b07ed82052b0a5f4508df602f
 
 Look at all that `null` checking. While there _are_ better techniques in most modern languages [^null-safety],
 
-[^null-safety]: Testing.
+[^null-safety]: Several languages have introduced their own flavors of null safety, for example, [Kotlin has it's `?` operator][kotlin-null-safety], [Java introduced `Optional`][baeldung-java-avoid-null-checking], and so on. While useful, these (as this guide aims to demonstrate) are different from (and arguably inferior to) the expressiveness and soundness offered by monads in a language like Scala.
+
+[kotlin-null-safety]: https://kotlinlang.org/docs/null-safety.html
+[baeldung-java-avoid-null-checking]: https://www.baeldung.com/java-avoid-null-check
 
 > [!NOTE]  
 > Our `ConfirmationService` could (and _should_), in practice, be further [decomposed into smaller units of functionality][wikipedia-functional-decomposition], but that'd needlessly clutter this example.
