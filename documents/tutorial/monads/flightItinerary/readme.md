@@ -64,6 +64,9 @@ Now, our task is to aggregate these constituent parts of a reservation from vari
 
 https://github.com/michaelahlers/scala-guide/blob/67110dea2a5e5bb552aaa013c422ce500b185137/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L33-L49
 
+> [!NOTE]  
+> Our `ConfirmationService` could (and _should_), in practice, be further [decomposed into smaller units of functionality][wikipedia-functional-decomposition], but that'd needlessly clutter this example.
+
 Now we've ventured into deeply nested (and difficult to maintain) callbacks[^callback-mitigation], missed an opportunity for parallelism (notice that the `Ticket` and `Seat` could've been gotten simultaneously), and our usage of this service necessitates side effects:
 
 [^callback-mitigation]: In a similar vein as with the aforementioned `null`-checking, there are better techniques. For example, [JavaScript's `Promise` can be flattened into chains][mozilla-javascript-using-promises]. And, as before, these fundamentally differ from monads in form and function, as we'll see.
@@ -72,7 +75,7 @@ https://github.com/michaelahlers/scala-guide/blob/67110dea2a5e5bb552aaa013c422ce
 
 [mozilla-javascript-using-promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
-> [!NOTE]  
-> Our `ConfirmationService` could (and _should_), in practice, be further [decomposed into smaller units of functionality][wikipedia-functional-decomposition], but that'd needlessly clutter this example.
+> [!IMPORTANT]
+> I've explained how modern languages offer various replacements for `null`-checking and callbacks. However, these lack in at least one key respect: they don't offer a single unifying principle applicable to solving various problems in general. Monads _do_. Once you've mastered the concept, you'll find it replaces myriad _ad hoc_ solutions. And we'll show here how it improves code handling of our optional fields and asynchronous operations.
 
 [wikipedia-functional-decomposition]: https://en.wikipedia.org/wiki/Functional_decomposition
