@@ -66,7 +66,7 @@ https://github.com/michaelahlers/scala-guide/blob/67110dea2a5e5bb552aaa013c422ce
 
 Now we've ventured into deeply nested (and difficult to maintain) callbacks[^callback-mitigation], missed an opportunity for parallelism (notice that the `Ticket` and `Seat` could've been gotten simultaneously), and our usage of this service necessitates side effects:
 
-[^callback-mitigation]: In a similar vein as with the aforementioned `null`-checking, there are better techniques. For example, [JavaScript's `Promise` can be flattened into chains][mozilla-javascript-using-promises]. And, as before, these fundamentally differ from monads, as we'll see.
+[^callback-mitigation]: In a similar vein as with the aforementioned `null`-checking, there are better techniques. For example, [JavaScript's `Promise` can be flattened into chains][mozilla-javascript-using-promises]. And, as before, these fundamentally differ from monads in form and function, as we'll see.
 
 https://github.com/michaelahlers/scala-guide/blob/67110dea2a5e5bb552aaa013c422ce500b185137/src/test/scala/tutorial/monads/flightItinerary/setup/ConfirmationServiceSpec.scala#L65-L71
 
