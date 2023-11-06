@@ -1,9 +1,11 @@
 package tutorial.monads.flightItinerary.version1
 
-import tutorial.monads.flightItinerary.common.{Locator, Reservation, Seat, Ticket}
-
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
+import tutorial.monads.flightItinerary.common.Locator
+import tutorial.monads.flightItinerary.common.Reservation
+import tutorial.monads.flightItinerary.common.Seat
+import tutorial.monads.flightItinerary.common.Ticket
 
 case class ConfirmationService(
   reservationByLocator: Map[Locator, Reservation],

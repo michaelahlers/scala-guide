@@ -2,7 +2,6 @@ package tutorial.monads.flightItinerary.common
 
 object samples {
 
-
   val locator: Locator = Locator(
     toText = "A1B2C3",
   )
