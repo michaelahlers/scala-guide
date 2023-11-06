@@ -1,4 +1,4 @@
-package tutorial.monads.flightItinerary.version1
+package tutorial.monads.flightItinerary.common
 
 /**
  * Describe who's traveling as part of a [[Reservation]].

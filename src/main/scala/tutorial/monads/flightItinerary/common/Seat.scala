@@ -1,9 +1,7 @@
-package tutorial.monads.flightItinerary.version1
+package tutorial.monads.flightItinerary.common
 
 /**
  * Once assigned, describes where a [[Passenger]] is seated.
- *
- * @see [[Confirmation.seat]]
  */
 case class Seat(
   row: Int,

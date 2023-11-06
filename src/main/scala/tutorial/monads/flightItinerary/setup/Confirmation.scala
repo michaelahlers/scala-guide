@@ -1,5 +1,9 @@
 package tutorial.monads.flightItinerary.setup
 
+import tutorial.monads.flightItinerary.common.Reservation
+import tutorial.monads.flightItinerary.common.Seat
+import tutorial.monads.flightItinerary.common.Ticket
+
 /**
  * @param reservation Required [[Reservation]] information.
  * @param ticket ''Optional'' ticketing information; `null` if not yet ticketed.

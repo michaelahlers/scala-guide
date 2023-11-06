@@ -1,5 +1,7 @@
 package tutorial.monads.flightItinerary.version1
 
+import tutorial.monads.flightItinerary.common.{Locator, Reservation, Seat, Ticket}
+
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
 

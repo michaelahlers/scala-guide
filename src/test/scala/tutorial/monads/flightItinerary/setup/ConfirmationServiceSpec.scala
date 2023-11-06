@@ -4,9 +4,9 @@ import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
 import com.softwaremill.quicklens._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._
+import tutorial.monads.flightItinerary.common.samples
 
 class ConfirmationServiceSpec extends AnyFlatSpec {
-  import ConfirmationServiceSpec.samples
 
   "No reservation" should "return null" in {
     import samples.locator
@@ -55,7 +55,7 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
   }
 
   "Ticketed, seated" should "return description" in {
-    import samples.{locator, reservation, ticket, seat}
+    import samples.{locator, reservation, seat, ticket}
 
     val confirmationService: ConfirmationService = ConfirmationService.empty
       .modify(_.reservationByLocator).using(_ + (locator -> reservation))
@@ -69,38 +69,6 @@ class ConfirmationServiceSpec extends AnyFlatSpec {
     }
 
     description.shouldMatchTo("Passenger Grace Hopper is confirmed on flight from PIT to DEN is assigned 14 C.")
-  }
-
-}
-
-object ConfirmationServiceSpec {
-
-  object samples {
-
-    val locator: Locator = Locator(
-      toText = "A1B2C3",
-    )
-
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = "UAL123",
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
-
-    val ticket: Ticket = Ticket(
-      number = 1234,
-    )
-
-    val seat: Seat = Seat(
-      row = 14,
-      column = 'C',
-    )
-
   }
 
 }

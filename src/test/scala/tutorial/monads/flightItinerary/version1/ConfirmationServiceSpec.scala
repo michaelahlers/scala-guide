@@ -5,9 +5,9 @@ import com.softwaremill.quicklens._
 import org.scalatest.flatspec.AsyncFlatSpec
 import org.scalatest.matchers.should.Matchers._
 import scala.concurrent.Future
+import tutorial.monads.flightItinerary.common.samples
 
 class ConfirmationServiceSpec extends AsyncFlatSpec {
-  import ConfirmationServiceSpec.samples
 
   "No reservation" should "return null" in {
     import samples.locator
@@ -85,38 +85,6 @@ class ConfirmationServiceSpec extends AsyncFlatSpec {
     description.map { description =>
       description.shouldMatchTo(Some("Passenger Grace Hopper is confirmed on flight from PIT to DEN is assigned 14 C."))
     }
-  }
-
-}
-
-object ConfirmationServiceSpec {
-
-  object samples {
-
-    val locator: Locator = Locator(
-      toText = "A1B2C3",
-    )
-
-    val reservation: Reservation = Reservation(
-      passenger = Passenger(
-        name = "Grace Hopper",
-      ),
-      flight = Flight(
-        number = "UAL123",
-        origin = "PIT",
-        destination = "DEN",
-      ),
-    )
-
-    val ticket: Ticket = Ticket(
-      number = 1234,
-    )
-
-    val seat: Seat = Seat(
-      row = 14,
-      column = 'C',
-    )
-
   }
 
 }
