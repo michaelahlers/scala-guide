@@ -1,6 +1,6 @@
 package tutorial.monads.flightItinerary.setup
 
-import com.softwaremill.diffx.scalatest.DiffShouldMatcher.convertToAnyShouldMatcher
+import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
 import com.softwaremill.quicklens._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers._

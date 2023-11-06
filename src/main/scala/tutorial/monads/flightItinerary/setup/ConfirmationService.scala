@@ -25,7 +25,7 @@ case class ConfirmationService(
   /**
    * Finds a [[Seat]] by its [[Locator]], and passes to the given callback function.
    *
-   * @param callback Applied with an appropriate [[Seat]] or `null` if the [[Locator]] is not found or a [[Seat]] assigned for the [[Reservation]].
+   * @param callback Applied with an appropriate [[Seat]] or `null` if the [[Locator]] is not found or a [[Seat]] is not yet assigned for the [[Reservation]].
    */
   def getSeat(locator: Locator)(callback: Seat => Unit): Unit =
     callback(seatByLocator.get(locator).orNull)
