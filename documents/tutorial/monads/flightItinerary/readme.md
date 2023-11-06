@@ -52,12 +52,23 @@ Our formatting function is:
 
 https://github.com/michaelahlers/scala-guide/blob/eef79b07ed82052b0a5f4508df602f7b717d798b/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L55-L73
 
-Look at all that `null` checking. While there _are_ better techniques in most modern languages [^null-safety],
+Look at all that `null` checking. While there _are_ better techniques in most modern languages[^null-safety], this serves as a stark contrast to the simplicity and elegance we'll demonstrate shortly.
 
-[^null-safety]: Several languages have introduced their own flavors of null safety, for example, [Kotlin has it's `?` operator][kotlin-null-safety], [Java introduced `Optional`][baeldung-java-avoid-null-checking], and so on. While useful, these (as this guide aims to demonstrate) are different from (and arguably inferior to) the expressiveness and soundness offered by monads in a language like Scala.
+[^null-safety]: Several languages have introduced their flavors of null safety, for example, [Kotlin has its `?` operator][kotlin-null-safety], [Java introduced `Optional`][baeldung-java-avoid-null-checking], and so on. While useful, these (as this guide aims to demonstrate) are different from (and arguably inferior to) the expressiveness and soundness offered by monads in languages like Scala or [Rust][rust-std-option].
 
 [kotlin-null-safety]: https://kotlinlang.org/docs/null-safety.html
 [baeldung-java-avoid-null-checking]: https://www.baeldung.com/java-avoid-null-check
+[rust-std-option]: https://doc.rust-lang.org/std/option/
+
+Now, our task is to aggregate these constituent parts of a reservation from various dedicated (asynchronous, in practice) services so we can apply that `describe` function and get our result. Our implementation starts to look even worse:
+
+https://github.com/michaelahlers/scala-guide/blob/12c727807c28ed5193dae9fed8652f4e30d8a72f/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L33-L49
+
+Now we've ventured into deeply nested (and difficult to maintain) callbacks, missed an opportunity for parallelism (notice that the `Ticket` and `Seat` could've been gotten simultaneously), and our usage of this service necessitates side effects.[^callback-mitigation]:
+
+[^callback-mitigation] In a similar vein as with the aforementioned `null`-checking, there are better techniques. For example, [JavaScript's `Promise` can be flattened into chains][mozilla-javascript-using-promises]. And, as before, these fundamentally differ from monads, as we'll see.
+
+[mozilla-javascript-using-promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
 > [!NOTE]  
 > Our `ConfirmationService` could (and _should_), in practice, be further [decomposed into smaller units of functionality][wikipedia-functional-decomposition], but that'd needlessly clutter this example.
