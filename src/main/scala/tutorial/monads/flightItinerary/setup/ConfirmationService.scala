@@ -1,6 +1,9 @@
 package tutorial.monads.flightItinerary.setup
 
-import tutorial.monads.flightItinerary.common.{Locator, Reservation, Seat, Ticket}
+import tutorial.monads.flightItinerary.common.Locator
+import tutorial.monads.flightItinerary.common.Reservation
+import tutorial.monads.flightItinerary.common.Seat
+import tutorial.monads.flightItinerary.common.Ticket
 
 case class ConfirmationService(
   reservationByLocator: Map[Locator, Reservation],
