@@ -15,25 +15,25 @@ Let's look at the details of our models first.
 
 We have an airline record locator:
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/common/Locator.scala#L3-L8
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Locator.scala#L3-L8
 
 A reservation record, which who's traveling and on what flight:
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/common/Reservation.scala#L3-L14
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Reservation.scala#L3-L13
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/common/Passenger.scala#L3-L10
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Passenger.scala#L3-L10
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/common/Flight.scala#L3-L16
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Flight.scala#L3-L15
 
 And a confirmation record, which provides the reservation as mentioned earlier but also a ticket (which—we'll note—is [_not_ inherent in the purchase of a flight reservation][lifehacker-make-sure-your-flight-reservation-is-ticketed]) and assigned seat (which may set at any time between booking and departure):
 
 [lifehacker-make-sure-your-flight-reservation-is-ticketed]: https://lifehacker.com/make-sure-your-flight-reservation-is-ticketed-before-yo-1836791737
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/setup/Confirmation.scala#L3-L12
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/setup/Confirmation.scala#L3-L12
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/setup/Ticket.scala#L3-L12
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Ticket.scala#L3-L12
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/setup/Seat.scala#L3-L11
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/common/Seat.scala#L3-L9
 
 Before we look at business logic, let's summarize our business domain. A passenger makes an airline reservation on a desired flight (a specific performance between two airports) with their personal information (such as a name). At a point before departure, the reservation _may_ become ticketed and have a seat assigned.
 
@@ -50,7 +50,7 @@ Passenger Grace Hopper is confirmed on flight from PIT to DEN and is assigned 14
 
 Our formatting function is:
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L60-L78
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L60-L78
 
 Look at all that `null` checking. While there _are_ better techniques in most modern languages[^null-safety], this serves as a stark contrast to the simplicity and elegance we'll demonstrate shortly.
 
@@ -62,7 +62,7 @@ Look at all that `null` checking. While there _are_ better techniques in most mo
 
 Now, our task is to aggregate these constituent parts of a reservation from various dedicated (asynchronous, in practice) services so we can apply that `describe` function and get our result. Our implementation starts to look even worse:
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L38-L54
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/main/scala/tutorial/monads/flightItinerary/setup/ConfirmationService.scala#L38-L54
 
 > [!NOTE]  
 > Our `ConfirmationService` could (and _should_), in practice, be further [decomposed into smaller units of functionality][wikipedia-functional-decomposition], but that'd needlessly clutter this example.
@@ -73,7 +73,7 @@ Now we've ventured into deeply nested (and difficult to maintain) callbacks[^cal
 
 [^callback-mitigation]: In a similar vein as with the aforementioned `null`-checking, there are better techniques. For example, [JavaScript's `Promise` can be flattened into chains][mozilla-javascript-using-promises]. And, as before, these fundamentally differ from monads in form and function, as we'll see.
 
-https://github.com/michaelahlers/scala-guide/blob/6f1e2dacec8f2796a9234ec30ea1fb53b9f2260f/src/test/scala/tutorial/monads/flightItinerary/setup/ConfirmationServiceSpec.scala#L65-L71
+https://github.com/michaelahlers/scala-guide/blob/729ccff2f2a8b60008955a6b0d49cdea868246ce/src/test/scala/tutorial/monads/flightItinerary/setup/ConfirmationServiceSpec.scala#L65-L71
 
 [mozilla-javascript-using-promises]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
