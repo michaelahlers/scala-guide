@@ -2,9 +2,9 @@
 
 ## Rationale
 
-**If you had to choose the most essential topic to understand for effective software engineering with Scala, it would be monads.** Whether you're a novice tinkering with Scala or a seasoned expert building world-class production systems, you use constructs that express this concept daily. Unsurprisingly, commentary about monads is abundant and diverse.[^1] Despite that, I've found a solid understanding of monads remains elusive for many developers. While monad tutorials are a dime a dozen, my experience as a mentor inspires this one.
+**If you had to choose the most essential topic to understand for effective software engineering with Scala, it would be monads.** Whether you're a novice tinkering with Scala or a seasoned expert building world-class production systems, you use constructs that express this concept daily. Unsurprisingly, commentary about monads is abundant and diverse.[^monad-tutorials] Despite that, I've found a solid understanding of monads remains elusive for many developers. While monad tutorials are a dime a dozen, my experience as a mentor inspires this one.
 
-[^1]: I've seen two common themes with monad tutorials: some attempt to explain the concept in terms of Haskell, others with a heaping pile of theory, and a mixture of the two. We'll do neither here.
+[^monad-tutorials]: I've seen two common themes with monad tutorials: some attempt to explain the concept in terms of Haskell, others with a heaping pile of theory, and a mixture of the two. We'll do neither here.
 
 ## What problem am I solving?
 
@@ -14,9 +14,9 @@ Before finding a solution, let's first look at what we're trying to accomplish. 
 
 **It's a box.**
 
-Forget the [category theory][wikipedia-monad-category-theory].[^2] Forget the [laws][wikipedia-monad-functional-programming-laws]. Functors. Monoids. Set it aside _for the moment_. It's all useful knowledge, and you _should_ bring it into your practice as a programmer, but let's keep our hands dirty.
+Forget the [category theory][wikipedia-monad-category-theory].[^category-theory-endofunctor-joke] Forget the [laws][wikipedia-monad-functional-programming-laws]. Functors. Monoids. Set it aside _for the moment_. It's all useful knowledge, and you _should_ bring it into your practice as a programmer, but let's keep our hands dirty.
 
-[^2]: But do enjoy a chuckle at [the formal definition][medium-felix-kuhl-monad-monoid-endofunctor].
+[^category-theory-endofunctor-joke]: But do enjoy a chuckle at [the formal definition][medium-felix-kuhl-monad-monoid-endofunctor].
 
 [medium-felix-kuhl-monad-monoid-endofunctor]: https://medium.com/@felix.kuehl/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-lets-actually-unravel-this-f5d4b7dbe5d6
 [wikipedia-monad-category-theory]: https://en.wikipedia.org/wiki/Monad_(category_theory)
@@ -24,23 +24,23 @@ Forget the [category theory][wikipedia-monad-category-theory].[^2] Forget the [l
 
 To elaborate:
 
-- A monad is a box.[^3]
+- A monad is a box.[^box-credit-stuart-saltzman]
 - That box:
   - Contains _values_ (_i.e._, zero, one, or many).
   - Provides context for those values.
-- Those values are accessed only by callbacks[^4].
+- Those values are accessed only by callbacks[^monad-callback-metaphor].
 
-[^3]: Credit to Stuart Saltzman ([GitHub][github-stuart-saltzman], [LinkedIn][linkedin-stuart-saltzman]) for this idea, which he's found effective in explaining to newcomers.
-[^4]: This isn't _exactly_ correct, but it's sufficient for our purposes.
+[^box-credit-stuart-saltzman]: Credit to Stuart Saltzman ([GitHub][github-stuart-saltzman], [LinkedIn][linkedin-stuart-saltzman]) for this idea, which he's found effective in explaining to newcomers.
+[^monad-callback-metaphor]: This isn't _exactly_ correct, but it's sufficient for our purposes.
 
 [github-stuart-saltzman]: https://github.com/stuartsaltzman
 [linkedin-stuart-saltzman]: https://linkedin.com/in/stuartsaltzman/
 
 ## Monads in action!
 
-We'll demonstrate monads with examples that would benefit from them. If you've explored this topic before, you might've encountered trivial use cases. These are helpful, of course, but may leave too much for the reader to figure out on their own.[^5]
+We'll demonstrate monads with examples that would benefit from them. If you've explored this topic before, you might've encountered trivial use cases. These are helpful, of course, but may leave too much for the reader to figure out on their own.[^trivial-examples-less-helpful]
 
-[^5]: In your author's opinion, the value of concepts like monads is less obvious in trivial examples. A concrete elaboration is helpful.
+[^trivial-examples-less-helpful]: In your author's opinion, the value of concepts like monads is less obvious in trivial examples. A concrete elaboration is helpful.
 
 ### Flight Itinerary
 
