@@ -20,7 +20,7 @@ Forget the [category theory][wikipedia-monad-category-theory].[^category-theory-
 
 [medium-felix-kuhl-monad-monoid-endofunctor]: https://medium.com/@felix.kuehl/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-lets-actually-unravel-this-f5d4b7dbe5d6
 [wikipedia-monad-category-theory]: https://en.wikipedia.org/wiki/Monad_(category_theory)
-[wikipedia-monad-functional-programming-laws]]: https://en.wikipedia.org/wiki/Monad_(functional_programming)#Definition
+[wikipedia-monad-functional-programming-laws]: https://en.wikipedia.org/wiki/Monad_(functional_programming)#Definition
 
 To elaborate:
 
