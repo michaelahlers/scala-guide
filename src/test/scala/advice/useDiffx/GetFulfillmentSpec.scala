@@ -4,27 +4,45 @@ import advice.useDiffx.diffx.instances._
 import com.softwaremill.diffx.scalatest.DiffShouldMatcher._
 import org.scalatest.matchers.should.Matchers._
 import org.scalatest.wordspec.FixtureAnyWordSpec
+import scala.util.control.NonFatal
 
 class GetFulfillmentSpec extends FixtureAnyWordSpec {
   import GetFulfillmentSpec.Fixtures
   import GetFulfillmentSpec.samples
 
+  /**
+   * The [[org.scalatest.exceptions.TestFailedException]] is trapped and it's message emitted as an [[alert]].
+   * Test failure is intentional in this case, but the reader should see the difference clearly.
+   */
   "Assertion errors" can {
 
     "be hard to read" in { fixtures =>
       import fixtures.getFulfillment
 
-      getFulfillment
-        .byId(samples.fulfillment.id)
-        .shouldEqual(Some(samples.fulfillment))
+      try
+        getFulfillment
+          .byId(samples.fulfillment.id)
+          .shouldEqual(Some(samples.fulfillment))
+      catch {
+        case NonFatal(reason) =>
+          alert(reason.getMessage)
+          succeed
+      }
+
     }
 
     "be easy to read" in { fixtures =>
       import fixtures.getFulfillment
 
-      getFulfillment
-        .byId(samples.fulfillment.id)
-        .shouldMatchTo(Some(samples.fulfillment))
+      try
+        getFulfillment
+          .byId(samples.fulfillment.id)
+          .shouldMatchTo(Some(samples.fulfillment))
+      catch {
+        case NonFatal(reason) =>
+          alert(reason.getMessage)
+          succeed
+      }
     }
 
   }
