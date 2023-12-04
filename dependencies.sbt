@@ -52,6 +52,6 @@ libraryDependencies ++=
  * @see [[https://github.com/softwaremill/diffx]]
  */
 libraryDependencies ++=
-  "com.softwaremill.diffx" %% "diffx-scalatest-must" % "0.8.3" % Test ::
+  "com.softwaremill.diffx" %% "diffx-scalatest-must" % "0.9.0" % Test ::
     "com.softwaremill.diffx" %% "diffx-scalatest-should" % "0.8.3" % Test ::
     Nil
