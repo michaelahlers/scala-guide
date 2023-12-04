@@ -37,7 +37,7 @@ libraryDependencies +=
  * @see [[https://www.scalatest.org/]]
  */
 libraryDependencies +=
-  "org.scalatest" %% "scalatest" % "3.2.10" % Test
+  "org.scalatest" %% "scalatest" % "3.2.17" % Test
 
 /**
  * Native Scala mocking framework.
