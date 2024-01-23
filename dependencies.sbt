@@ -17,7 +17,7 @@ libraryDependencies +=
  * @see [[https://github.com/softwaremill/quicklens]]
  */
 libraryDependencies +=
-  "com.softwaremill.quicklens" %% "quicklens" % "1.9.6"
+  "com.softwaremill.quicklens" %% "quicklens" % "1.9.7"
 
 /**
  * A Scala library to pretty-print values and types.
