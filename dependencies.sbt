@@ -31,7 +31,7 @@ libraryDependencies +=
  * @see [[https://www.scalactic.org/]]
  */
 libraryDependencies +=
-  "org.scalactic" %% "scalactic" % "3.2.17"
+  "org.scalactic" %% "scalactic" % "3.2.18"
 
 /**
  * ScalaTest is the most flexible and most popular testing tool in the Scala ecosystem.
