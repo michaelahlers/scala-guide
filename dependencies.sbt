@@ -45,7 +45,7 @@ libraryDependencies +=
  * @see [[https://www.scalatest.org/]]
  */
 libraryDependencies ++=
-  "org.scalamock" %% "scalamock" % "5.2.0" % Test ::
+  "org.scalamock" %% "scalamock" % "6.2.0" % Test ::
     Nil
 
 /**
