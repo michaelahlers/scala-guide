@@ -1,4 +1,4 @@
-ThisBuild / scalaVersion := "2.13.12"
+ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / crossScalaVersions :=
   "2.12.18" ::
     "2.13.12" ::
