@@ -24,7 +24,7 @@ libraryDependencies +=
  * @see [[https://github.com/com-lihaoyi/PPrint]]
  */
 libraryDependencies +=
-  "com.lihaoyi" %% "pprint" % "0.8.1"
+  "com.lihaoyi" %% "pprint" % "0.9.6"
 
 /**
  * Scalactic provides constructs related to quality that are useful in both production code and tests.
